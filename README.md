@@ -21,7 +21,10 @@
 
 ## Bibliografía
 
-* [Teoria de los Lenguajes de Programación](biblio/)
+* [Lenguajes de Programación (Ravi Sethi)](biblio/)
+* [Lenguajes de Programación (Allen Tucker)](biblio/)
+* [Lenguajes de Programación (Terrence Pratt)](biblio/)
+* [Teoria de los Lenguajes de Programación (Fernando López)](biblio/)
 * [Apuntes (Pablo Pandolfo)](doc/)
 
 ## Condiciones para aprobar
