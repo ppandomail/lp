@@ -1,1 +1,31 @@
-# lp
+# Lenguajes de Programación
+
+## Docente
+
+* Titular: Mg. Ing. Pablo Pandolfo
+
+## Objetivos
+
+* Identificar aspectos sintácticos y semánticos.
+* Reconocer problemas en los que es posible seleccionar, diseñar un LP o modificar uno existente para su solución.
+* Saber que LP es el mas adecuado para cada tipo de problema a resolver.
+
+## Programa
+
+1. [Introducción](doc/intro.md)
+1. [Paradigmas](doc/paradigmas.md)
+1. [Sintaxis](doc/sintaxis.md)
+1. [Semática](doc/semantica.md)
+1. [Tipos de Datos](doc/tipos.md)
+1. [Control de Flujo](doc/flujo.md)
+
+## Bibliografía
+
+* [Teoria de los Lenguajes de Programación](biblio/)
+* [Apuntes (Pablo Pandolfo)](doc/)
+
+## Condiciones para aprobar
+
+* 75% asistencia
+* Aprobar 2 parciales con nota >= 4
+* Final con nota >= 4
