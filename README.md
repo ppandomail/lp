@@ -1,4 +1,4 @@
-# Lenguajes de Programación
+# Características de los Lenguajes de Programación (UNAHUR) / Lennguajes de Programación (UB)
 
 ## Docente
 
