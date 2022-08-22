@@ -235,3 +235,260 @@ longitud([X|Y],N) :- longitud(Y,M), N=M+1.
   hanoi(1,A,B,C) :- write("Mueve del ",A," al ",C), nl.
   hanoi(N,A,B,C) :- N>1, M is N-1, hanoi(M,A,C,B), hanoi(1,A,B,C), hanoi(M,B,A,C). 
   ```
+
+## Paradigna Funcional
+
+* Basado en el modelo matemático de composición funcional (uso de funciones), de ahí que habitualmente se hable de él como paradigma funcional.
+* La esencia de esta metodología está en componer funciones para definir otras más complejas.
+* En este modelo, el resultado de un cálculo es la entrada del siguiente, y así sucesivamente hasta que una composición produce el resultado deseado.
+* Así, un programa es un conjunto de funciones que cooperan entre ellas para el logro de un objetivo común.
+* Muy popular en la resolución de problemas de inteligencia artificial, matemática, lógica, procesamiento paralelo.
+* Lenguajes: Lisp, Scheme, Common Lisp, ML, Gofer, Haskell, etc.
+* Ventajas:
+  * Vista uniforme de programa y función.
+  * Tratamiento de funciones como datos.
+  * Liberación de efectos colaterales.
+  * Manejo automático de memoria.
+* Desventaja:
+  * Ineficiencia de ejecución.
+
+### Función
+
+* Es el mapeo de los miembros de un conjunto, llamado dominio, a otro conjunto, llamado rango.
+* Los mapeos son realizados por expresiones.
+* Requiere establecer una signatura y una regla de mapeo.
+* En la definición se establecen los parámetros.
+* En la aplicación se habla de argumentos.
+* El retorno de la función provee el resultado.
+* El orden de evaluación de las funciones es realizado por expresiones condiciones y recursivas.
+* Las funciones no producen efectos laterales (sin asignación destructiva).
+* El VALOR más importante en la programación funcional es el de una FUNCIÓN
+* Matemáticamente una función es un correspondencia:  f: A -> B
+* A cada elemento de A le corresponde un único elemento en B.
+* f(x) denota el resultado de la aplicación de f a x.
+* Las funciones son tratadas como valores pueden ser pasadas como parámetros, retornar resultados, etc.
+
+### Expresiones y valores
+
+* La expresión es la noción central de la programación funcional.
+* Una expresión es su VALOR.
+* El valor de una expresión depende ÚNICAMENTE de los valores de las sub expresiones que la componen.
+* Las expresiones también pueden contener VARIABLES (valores desconocidos).
+* La noción de Variable es la de “variable matemática”, no la de celda de memoria. “Diferentes ocurrencias del mismo nombre hacen referencia al mismo valor desconocido”.
+
+### Características
+
+* **Transparencia referencial**
+  * Implementa la TRANSPARENCIA REFERENCIAL en sus expresiones (dos expresiones sintácticamente iguales darán el mismo valor, porque no existen EFECTOS LATERALES; es decir, no tiene asignación destructiva).
+  * Las variables son utilizadas para hacer referencia a valores intermedios y parámetros de las funciones, como resultados de cálculos anteriores y entradas a subsiguientes cálculos.
+  * Si bien internamente puedan utilizar alguna porción de memoria, no son “celdas” en las que se vayan realizando sucesivas “asignaciones”.
+  * Tampoco existen algoritmos, sentencias, comandos ni estructuras de control imperativas.
+
+* **Evaluación diferida**
+  * Para la evaluación de los argumentos de las funciones utiliza el sistema de evaluación diferida, por lo que la evaluación de las expresiones invocadas se posterga hasta el momento en que realmente sean utilizadas.
+
+* **Recursividad**
+  * Otra característica, lejos de ser exclusiva del paradigma pero que tiene gran importancia en la formulación de soluciones, es la recursividad, que se ve expresada en el uso permanente de tipos de datos y funciones recursivas.
+  * La recursividad, entendida como iteración con asignación no destructiva, está relacionada con el principio de inducción y surge de la definición axiomática de los números naturales.
+  * En general, una función recursiva se define con al menos un término recursivo, en el que se vuelve a invocar la función que se está definiendo, y algún término no recursivo como caso base para detener la recursividad.
+
+* **Listas**
+  * Entre las estructuras de datos que utiliza se destacan las listas, como forma de organizar conjuntos de valores.
+  * Están definidas en forma recursiva.
+  * Como caso particular, y gracias a la utilización de la evaluación diferida, las listas pueden ser infinitas, es decir, contener tantos elementos como se requiera sin establecer un máximo.
+  * Su construcción se suele realizar con funciones recursivas en las que no se definen casos bases que corten la recursividad y permitan así una invocación recursiva infinita
+
+* **Funciones de orden superior**
+  * La programación funcional incorpora el concepto de función como objeto de primera clase, lo que significa que las funciones son tratadas como datos y en consecuencia pueden ser pasadas como parámetros, calculadas, devueltas como resultados o mezcladas en cálculos más complejos con otros datos.
+  * Las funciones que reciben a otras funciones como parámetros se llaman funciones de orden superior.
+  * Un script es una lista de definiciones y …
+    * Pueden someterse a evaluación. Ejemplos:
+
+      ```plain
+      ? cuadrado(3 + 4)
+      49
+
+      ? min 3 4
+      3
+      ```
+
+    * Pueden combinarse. Ejemplo:
+
+      ```plain
+      ? min(cuadrado ( 1 + 1 ) 3)
+      ```
+
+* **Currificación**
+  * Mecanismo que reemplaza argumentos estructurados por argumentos más simples.
+  * Ejemplo: sean dos definiciones de la Función “Suma”
+    1. Suma(x, y) = x + y
+    2. Suma’ x y = x + y   ->  Suma’ x y = Suma’x (y) = x + y
+
+### Cálculo lambda
+
+* Es un modelo de computación para definir funciones.
+* Se utiliza para entender los elementos de la programación funcional y la semántica subyacente, independientemente de los detalles sintácticos de un LP en particular.
+* Las expresiones del Lambda cálculo pueden ser de 3 clases:
+  * Un simple identificador o una constante. Ej: x, 3
+  * Una definición de una función. Ej: λx.x+1
+  * Una aplicación de una función. La forma es λ(e1 e2), dónde se lee e1 se aplica a e2.
+* Ejemplo: en la función cube (x) = x \* x \* x
+  * λx. x \* x \* x
+  * λx. x \* x \* x (2)  // Evaluamos la función con 2 y resulta en 8.
+
+### Torres de Hanoi en Lisp
+
+  ```Lisp
+  (defun torres-de-hanoi (discos)
+    (interactive "nDime tus discos y te digo cuantos pasos tienes que dar: " discos)
+    (message (number-to-string (torres-de-hanoi-aux discos))))
+  (defun torres-de-hanoi-aux (discos)
+    (if (= discos 1)
+        1
+      (+ 1 (* 2 (torres-de-hanoi-aux (- discos 1))))))
+  ```
+
+### Torres de Hanoi en Haskell
+
+  ```haskell
+  ProcesoHanoi(0, _, _, _) = []
+  ProcesoHanoi(n, posteOrigen, posteDestino, posteAuxiliar) = ProcesoHanoi(n - 1, posteOrigen, posteAuxiliar, posteDestino) ++[(posteOrigen, posteDestino)] ++ProcesoHanoi(n - 1, posteAuxiliar, posteDestino, posteOrigen)hanoi(n) = ProcesoHanoi(n, 1, 3, 2) 
+  ```
+
+## Ejercicios
+
+### Objetos
+
+1. ¿Cómo definiría un programa escrito en POO?
+1. Diga cuáles son los elementos más importantes y hable sobre ellos en la programación orientada a objetos.
+1. La posibilidad de ocultamiento y encapsulamiento para los objetos es el primer nivel de abstracción de la POO, ¿cuál es el segundo?
+1. ¿Qué tipos de herencias hay? ¿Cuál usa Smalltalk y C++?
+
+### Funcional
+
+1. ¿Qué es un programa escrito en un lenguaje funcional? y ¿Qué rol cumple la computadora?
+1. ¿Cómo se define el lugar donde se definen las funciones en un lenguaje funcional?
+1. ¿Cuál es el concepto de variables en los lenguajes funcionales?
+1. ¿Qué es una expresión en un lenguaje funcional? ¿Su valor de qué depende?
+1. ¿Cuál es la forma de evaluación que utilizan los lenguajes funcionales?
+1. ¿Qué tipos existen?
+1. ¿Un lenguaje funcional es fuertemente tipado? ¿Por qué?
+1. Construir una función Haskell que, dado un número natural n > 0 diga si n es, o no, polidivisible. Un número natural se dice polidivisible si es divisible por su longitud y, además al eliminar la cifra de las unidades se vuelve a obtener un número polidivisible. Los números de una cifra se consideran polidivisibles. Por ejemplo:
+    * 1024 será polidivisible si es divisible por 4 (lo es) y 102 es polidivisible
+    * 102 será polidivisible si es divisible por 3 (lo es) y 10 es polidivisible
+    * 10 será polidivisible si es divisible por 2 (lo es) y 1 es polidivisible
+    * 1 es, trivialmente, polidivisible.
+    * Por lo tanto 10, 102 y 1024 son también números polidivisibles.
+1. Una regla de reescritura puede ser vista como una tupla formada por una cadena de entrada y una lista de cadenas de salida. Por ejemplo:
+
+    ```plain
+    reglas = [ (“DESPEDIDA”, [“ADIÓS”, “NOS VEREMOS”]), 
+              (“HOLA”, [“ENCANTADO”])
+              (“SALUDO”, [“HOLA”, “QUE TAL?”]) ]
+    ```
+
+* Se asumirá, para evitar ambigüedades, que en una lista de reglas de reescritura no existen dos reglas con la misma cadena de entrada. Se pide programar las siguientes funciones:
+   1. una función “reescribe” que, dada una cadena c y una lista de reglas de reescritura r, si en r existe una regla cuya cadena de entrada coincida con c devuelva la lista de cadenas de salida que establece dicha regla. Si no existiese una regla tal en r deberá devolver una lista vacía.
+
+      ```plain
+      > reescribe “DESPEDIDA” reglas
+      [“ADIÓS”, “NOS VEREMOS”]
+      >reescribe “ADIÓS” reglas
+      []
+      ```
+
+   1. Se dice que una lista de cadenas es irreducible según una lista de reglas de reescritura r, si ninguna de sus cadenas es cadena de entrada para una regla de r. Se desea, una función “reescritura” que, dada una lista de reglas de reescritura r y una lista de cadenas l, devuelva la lista de cadenas irreducible resultado de reescribir todas las cadenas de l según r. Por ejemplo:
+
+      ```plain
+      > reescribe reglas [“SALUDO”, “SOY UN PROGRAMA”, “DESPEDIDA”]
+      [“ENCANTADO”, “QUE TAL?”, “SOY UN PROGRAMA”, “ADIÓS”, “NOS VEREMOS”]
+      ```
+
+1. Los números expansivos se definen de la siguiente forma:
+    * El primer número expansivo es el 1.
+    * Dado un número expansivo x, para calcular el siguiente se ha de sustituir cada grupo de n cifras consecutivas iguales que aparezcan en x (por ejemplo, 3333) por número n seguido de la cifra que se repite (en el ejemplo 43).
+    * Así, los primeros números expansivos son:
+      * 1 -> “un uno”: 11
+      * 11 -> “dos unos”: 21
+      * 21 -> “un dos, un uno”: 1211
+      * 1211 -> “un uno, un dos, dos uno”: 111221
+    * Se pide programar las siguientes funciones:
+      * Una función “expand” que, dada una lista con las cifras de un número expansivo genere el siguiente.
+      * Una función “list2num” que, dada una lista con las cifras de un número expansivo, devuelva el número correspondiente.
+      * Una función “expansivos” que devuelva la lista infinita de los números expansivos.
+
+### Lógico
+
+1. En el paradigma lógico. ¿Qué representa una variable? ¿y las constantes?
+1. ¿Cómo se escribe un programa en un lenguaje lógico?
+1. Elabore un programa en Prolog con su árbol genealógico, donde los hechos sean únicamente predicados del tipo padre(-, -) o madre (-, -). Programe los predicados con las reglas necesarias para encontrar las relaciones de parentesco más comunes, tales como:
+    1. hermano(A, B).
+    1. primo(A, B).
+    1. tio(A, B).
+    1. hijo(A, B).
+    1. nieto(A, B).
+    1. abuelo(A, B).
+    1. bisabuelo(A, B).
+    1. bisnieto(A, B).
+    1. cuñado(A, B).
+    1. concuñado(A, B).
+1. Traduzca los siguientes programas Prolog a fórmulas del cálculo de predicados de primer orden:
+    1. humano(Sócrates). mortal(X):- humano(X). consulta: mortal(X).
+    1. mujer(Maria). mujer(Ana). padre(Juan, Maria). hija(X, Y):- padre(Y, X), mujer(X). abuelo(X, Z):- padre(X, U), padre(U, Z). consulta: hija(X, Juan).
+1. Definir la relación primero (L, X) que se verifique si X es el primer elemento de la lista L.
+1. Definir la relación resto (L1, L2) que se verifique si L2 es la lista obtenida a partir de la lista L1 suprimiendo el primer elemento.
+1. Definir la relación cons(X, L1, L2) que se verifique si L2 es la lista obtenida añadiendo X a L1 como primer elemento.
+1. Definir la relación pertenece (X, L) que se verifique si X es un elemento de la lista L.
+1. Definir la relación conc(L1, L2, L3) que se verifique si L3 es la lista obtenida escribiendo los elementos de L2 a continuación de los elementos de L1.
+1. Definir la relación inversa(L1, L2) que se verifique si L2 es la lista obtenida invirtiendo el orden de los elementos de la lista L1.
+1. Definir la relación palíndromo(L) que se verifique si la lista L es un palíndromo.
+1. Definir la relación último(X, L) que se verifique si X es el último elemento de la lista L.
+1. Definir la relación penúltimo(X, L) que se verifique si X es el penúltimo elemento de la lista L.
+1. Definir la relación selecciona(X, L1, L2) que se verifique si L2 es la lista obtenida eliminando una ocurrencia de X en L1.
+1. Definir la relación inserta(X, L1, L2) que se verifique si L2 es una lista obtenida insertando X en L1.
+1. Definir la relación sublista(L1, L2) que se verifique si L1 es una sublista de L2.
+1. Definir la relación todos_iguales(L) que se verifique si todos los elementos de la lista L son iguales entre sí.
+1. Definir la relación longitud_par(L) que se verifique si la longitud de la lista L es par.
+1. Definir la relación rota(L1, L2) que se verifique si L2 es la lista obtenida a partir de L1 colocando su primer elemento al final.
+1. Definir la relación subconjunto(L1, L2) que se verifique si L2 es un subconjunto de L1.
+1. Definir la relación máximo(X, Y, Z) que se verifique si Z es el máximo de X e Y.
+1. Definir la relación factorial(X, Y) que se verifique si Y es el factorial de X.
+1. Definir la relación fibonacci(N, X) que se verifique si X es el N-ésimo término de la sucesión de Fibonacci.
+1. Definir la relación longitud(L, N) que se verifique si N es la longitud de la lista L.
+1. Definir la relación lista_acotada(L) que se verifique si todos los elementos de la lista de números L son menores que la longitud de L.
+1. Definir la relación max_lista(L, X) que se verifique si X es el máximo de la lista de números L.
+1. Definir la relación suma_lista(L, X) que se verifique si X es la suma de los elementos de la lista de números L.
+1. Definir la relación ordenada(L) que se verifique si la lista de números está ordenada de manera creciente.
+1. Definir la relación lista(N, L) que se verifique si L es la lista de longitud N cuyos elementos son N.
+1. Definir la relación entre(N1, N2, X) que se verifique si X es un número entero tal que N1 ≤ X ≤ N2.
+1. Definir la relación elemento_en(K, L, X) que se verifique si X es el K-ésimo elemento de la lista L(se empieza a numerar en 1).
+1. Definir la relación multiplicada(L1, N, L2) que se verifica si L2 es la lista obtenida repitiendo N veces los elementos de la lista L1
+1. Supongamos que representamos los puntos del plano mediante términos de la forma punto(X, Y) donde X e Y son números, y los segmentos del plano mediante términos de la forma segmento(P1, P2 donde P1 y P2 son los puntos extremos del segmento. Definir las relaciones vertical(S) y horizontal(S) que se verifiquen si el segmento S es vertical (resp. horizontal).
+1. Representar un autómata finito utilizando las siguientes relaciones:
+    * final(X) que se verifica si X es el estado final.
+    * trans(E1, X, E2) que se verifica si se puede pasar del estado E1 al estado E2 usando la letra X.
+    * nulo(E1, E2) que se verifica si se puede pasar del estado E1 al estado E2 mediante un movimiento nulo.
+    * Definir la relación acepta(E, L) que se verifica si el autómata, a partir del estado E, acepta la lista L.
+
+      ```prolog
+      final(e3).
+      trans(e1, a, e1).
+      trans(e1, a, e2).
+      trans(e1, b, e1).
+      trans(e2, b, e3).
+      trans(e3, b, e4).
+      nulo(e2, e4).
+      nulo(e3, e1).
+      acepta(E, [ ]) :- final(E).
+      acepta(E, [X | L]) :- trans(E, X, E1), acepta(E1, L).
+      acepta(E, L) :- nulo(E, E1), acepta(E1, L).
+      ```
+
+1. Si una persona sufre una enfermedad que es aliviada por un medicamento entonces se le ha de recetar ese medicamento. Una enfermedad es aliviada por un medicamento cuando este último elimina alguno de los síntomas de la enfermedad. Se sabe que la gripe tiene por síntomas: la fiebre y la tos y que la anemia tiene por síntoma el cansancio. Además se conoce que el cansancio es eliminado con vitaminas, la fiebre por aspirinas y la tos por un jarabe. En este momento Manuel tiene gripe y Alicia está cansada. ¿Qué se puede recetar Manuel? ¿Qué le pasa a Alicia? ¿Cómo solucionarlo? Utilizar los siguientes predicados para la representación en el programa:
+    * sufre (P, E)      la persona P sufre la enfermedad E
+    * alivia (E, M)     la enfermedad E es aliviada por el medicamento M
+    * recetar (M, P)    se receta el medicamento M a la persona P
+    * elimina (M, S)    el medicamento M elimina el síntoma S
+    * sintoma (E, S)    S es un síntoma de la enfermedad E
+    * manuel            es una persona
+    * alicia            es una persona
