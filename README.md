@@ -15,7 +15,7 @@
 1. [Introducción](doc/intro.md)
 1. [Paradigmas](doc/paradigmas.md)
 1. [Sintaxis](doc/sintaxis.md)
-1. [Semática](doc/semantica.md)
+1. [Semántica](doc/semantica.md)
 1. [Tipos de Datos](doc/tipos.md)
 1. [Control de Flujo](doc/flujo.md)
 
