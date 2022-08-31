@@ -533,9 +533,9 @@ forStatement
       * function imprimir(mensaje){...}
       * PQ();
       * PP(x,t,y,z,PQ);
-      * function PP(name:a:integer; name:e:integer; reference:b:integer; inout:c:integer; in:d:integer=3)
+      * function PP(name\:a:integer; name:e:integer; reference\:b:integer; inout:c:integer; in:d:integer=3)
       * PQ(x,t,y,z,w);
-      * function PQ(name:a:integer=5; name:e:integer=8; reference:b:integer=0; inout:c:integer =1; in:d:integer=3)
+      * function PQ(name\:a:integer=5; name:e:integer=8; reference\:b:integer=0; inout:c:integer =1; in:d:integer=3)
       * PP(3, ,x);
       * Para aquellas expresiones que no sean aceptadas ¿qué reglas agregaría, quitaría o modificaría de la gramática? Responda por cada inciso.
 
