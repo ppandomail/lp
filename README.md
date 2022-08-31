@@ -1,4 +1,4 @@
-# Características de los Lenguajes de Programación (UNAHUR) / Lennguajes de Programación (UB)
+# Características de los Lenguajes de Programación (UNAHUR) / Lenguajes de Programación (UB)
 
 ## Docente
 
@@ -8,7 +8,7 @@
 
 * Identificar aspectos sintácticos y semánticos.
 * Reconocer problemas en los que es posible seleccionar, diseñar un LP o modificar uno existente para su solución.
-* Saber que LP es el mas adecuado para cada tipo de problema a resolver.
+* Saber que LP es el más adecuado para cada tipo de problema a resolver.
 
 ## Programa
 
@@ -30,5 +30,6 @@
 ## Condiciones para aprobar
 
 * 75% asistencia
-* Aprobar 2 parciales con nota >= 4
+* UNAHUR: Aprobar 2 parciales con nota >= 4
+* UB: Aprobar parcial + TP
 * Final con nota >= 4
