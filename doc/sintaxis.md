@@ -43,7 +43,7 @@
 * Dos ER son equivalentes si describen al mismo lenguaje. Ejemplos:
   * α + (β + θ) = (α + β) + θ
   * α + β = β + α
-  * α\* α\* = αº*
+  * α\* α\* = α*
 * La clase de lenguajes que se pueden representar mediante una ER es equivalente a la clase de LR.
 * ER en la programación
 
