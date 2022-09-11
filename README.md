@@ -33,3 +33,10 @@
 * UNAHUR: Aprobar 2 parciales con nota >= 4
 * UB: Aprobar parcial + TP
 * Final con nota >= 4
+
+## TP (opciones)
+
+* Comparación de LP
+* Ranking de LP
+* Infografia de LP
+* Draw my life de LP
