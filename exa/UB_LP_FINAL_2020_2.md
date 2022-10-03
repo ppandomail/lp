@@ -30,7 +30,7 @@
 
 1. [4 puntos]: Resuélvase mediante programación lógica el siguiente problema que ayude a una agencia matrimonial, respondiendo consultas sobre qué parejas son compatibles. Definimos a una pareja como un par (mujer, varón), no al revés. Incluir en el programa la siguiente información: Las mujeres melancólicas son compatibles con los varones serenos. Las mujeres decididas son compatibles con los varones reflexivos. Las mujeres soñadoras son compatibles con los varones Decididos. Juan es sereno y decidido. María es melancólica. Úrsula es decidida. Juana es soñadora. Pedro es reflexivo. José es melancólico. Según la información descripta, la pareja (María, Juan) es compatible, mientras que la pareja (Úrsula, Juan) no lo es. Agregar al programa la siguiente información: Cualquier pareja formada por un decidido y un melancólico es compatible. Según esta nueva información, la pareja (Úrsula, José) es compatible, mientras que si nos remitimos al punto a. no lo es. Agregar al programa la posibilidad de responder a consultas sobre si una persona es deseable. Decimos que una persona (varón o mujer) es deseable si es compatible con, por lo menos, dos personas distintas. Según la información descripta, Juan es deseable mientras que Juana no lo es.
 
-    * **Solución:**
+    **Solución:**
 
     ```prolog
     mujer(maria). 
@@ -63,7 +63,7 @@
     * Son símbolos terminales: int, char, float, void, paréntesis, corchetes, coma, punto y coma.
     * Ejemplo de cadenas: {int fcalculo (char y, char \*vy, float z, float vz []);, int fcalculo (int x, int \*vx , char, char \*, float, float []);, void mostrar (); ... }
 
-    * **Solución:**
+    **Solución:**
 
     ```grammar
     <prototipo> -> <tipo> <nombre> ( <listaparam> ); | <tipo> <nombre> ();

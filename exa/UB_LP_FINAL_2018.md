@@ -37,7 +37,7 @@
 
 1. [1 punto]: Dada la siguiente BD en Prolog: edad(a, 23). edad(b, 14). edad(c, 21). Resolver  persona_mayor_edad(P).
 
-    * **Solución:**
+    **Solución:**
 
     ```prolog
     persona_mayor_edad(P) :- persona(P), edad(P, E), E>18.
@@ -45,7 +45,7 @@
 
 1. [1 punto]: Implementar en Lisp una función que reciba 3 argumentos enteros: los dos primeros se suman y su resultado se comprueba si es mayor o no al tercer argumento. Ejemplo:  (suma-mayor-que 1 4 3) retornará T.
 
-    * **Solución:**
+    **Solución:**
 
     ```lisp
     (defun suma-mayor-que (x y z) (> (+ x y) z))
@@ -53,7 +53,7 @@
 
 1. [3 puntos]: Diseñe una GIC para el lenguaje Colchita. Construya el árbol análisis sintáctico para la palabra: c(g(r1),r2).
 
-    * **Solución:**
+    **Solución:**
 
     ```lisp
     S -> c(S, S) | g(S) | r1 | r2

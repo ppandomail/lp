@@ -30,7 +30,7 @@
 
 1. [2 puntos]: Resuélvase mediante programación lógica el siguiente problema: Se consulta por ejemplo: parse([comienzo, norte, norte, este, fin]) y tiene que devolver true si es aceptado por el AF que reconoce las palabras del lenguaje representado por la ER: comienzo (norte | sur | este | oeste)* fin
 
-    * **Solución:**
+    **Solución:**
 
     ```prolog
     delta(0, comienzo, 1).
@@ -53,7 +53,7 @@
     * Un símbolo es una letra seguida de cero o más caracteres (dígitos o letras)
     * Una lista es un par de paréntesis que abren y cierran. (con cero o más expresiones en medio separadas por punto y coma).
 
-    * **Solución:**
+    **Solución:**
 
     ```grammar
     <expresión> ::= <atomo> | <lista>
@@ -70,7 +70,7 @@
 
 1. [1 punto]: Obténgase el lambda calculus de la expresión suc 2 sabiendo que suc (máquina sucesora o siguiente) es λa. λb. λc. b(abc) y 2 es λf. λx. f(fx)
 
-    * **Solución:**
+    **Solución:**
 
     ```plain
     λb. λc. b(λf. λx. f(fx) bc)
@@ -87,14 +87,15 @@
     END 
     ```
 
-    * **Solución:**
+    **Solución:**
+
     * P = {x>0}
     * Q = {z=x*y Λ u=0}
     * C: Calcula el producto de dos números enteros.
 
 1. [2 puntos]: Resuélvase operacional y declarativamente el siguiente problema: “obtener los números impares de una lista de números”. ¿En cuál solución tengo mayor control sobre el algoritmo? ¿En cuál solución tengo mayor foco en lo que tengo que resolver? Justifique.
 
-    * **Solución:**
+    **Solución:**
 
     ```plain
     type LISTA = array [1..longitudMaxima] of integer;

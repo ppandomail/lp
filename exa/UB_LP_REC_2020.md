@@ -37,7 +37,7 @@
     No
     ```
 
-    * **Solución:**
+    **Solución:**
 
     ```prolog
     vert(linea(punto(X, Y), punto(X, Y1))).
@@ -60,7 +60,7 @@
     * El campo debe tener definido su tipo, luego del símbolo terminal as.
     * Son símbolos terminales: create, database, end, table, as, char, numeric, boolean, (, ), ;,
 
-    * **Solución:**
+    **Solución:**
 
    ```grammar
     <BD> ::= create database <ID> <TBs> ; end create | create database <ID> end create
@@ -77,7 +77,7 @@
 
 1. [2 puntos]: Demuéstrese mediante lambda calculus que la expresión (+ 2 3) sabiendo que + (máquina suma) es λa. λb. λc. λd. acbcd y 2 es λe. λf. e(ef) y 3 es λg. λh. g(g(gh))
 
-    * **Solución:**
+    **Solución:**
 
     ```plain
     ((λa. λb. λc. λd. acbcd 2) 3)

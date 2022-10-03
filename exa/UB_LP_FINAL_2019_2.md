@@ -30,12 +30,13 @@
 
 1. [2 puntos]: Enúnciese cinco "otros paradigmas".
 
-    * **Solución:**
+    **Solución:**
+
     * Concurrente, Scripting, Visual, Computación cuántica, Orientado a eventos.
 
 1. [2 puntos]: Ejemplifíquese regla léxica y regla sintáctica para una asignación.
 
-    * **Solución:**
+    **Solución:**
 
     ```grammar
     Léxica: 
@@ -50,7 +51,7 @@
 
 1. [4 puntos]: Impleméntese las reglas madre, padre y abuelo en el lenguaje Prolog, sabiendo que existen los siguientes hechos: progenitor(clara,jose). mujer(clara). hombre(jose).
 
-    * **Solución:**
+    **Solución:**
 
     ```prolog
     /* Equivale a: Para todo X e Y, si X es mujer y X es el progenitor de Y, entonces X es la madre de Y */
@@ -65,7 +66,8 @@
 
 1. [2 puntos]: Defínase, enúnciese ventajas y ejemplifíquese la diferencia entre: compatibilidad de tipos por nombre y compatibilidad de tipos por estructura.
 
-    * **Solución:**
+    **Solución:**
+
     * Compatibilidad de tipos por nombre: dos variables que tengan el mismo nombre de tipo son compatibles. Ventajas: mayor seguridad en las operaciones y mejor legibilidad de los programas. Ejemplo:
 
     ```ada

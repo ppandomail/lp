@@ -30,17 +30,19 @@
 
 1. [2 puntos]: Ordénese los siguientes lenguajes según su año de creación: Assembler, C++, Ruby, Java, C, Fortran.
 
-    * **Solución:**
+    **Solución:**
+
     * Assembler, Fortran, C, C++, Java, Ruby.
 
 1. [2 puntos]: Conceptualícese "lenguaje ortogonal".
 
-    * **Solución:**
+    **Solución:**
+
     * Conjunto pequeño de constructores primitivos, pueda ser combinado en número relativamente pequeño a la hora de construir estructuras de control y datos. Cada combinación es legal y con sentido.
 
 1. [2 puntos]: Impleméntese una regla y un hecho en el lenguaje Prolog.
 
-    * **Solución:**
+    **Solución:**
 
     ```prolog
     longitud([], 0).
@@ -49,7 +51,7 @@
 
 1. [4 puntos]: Defínase formalmente la sintaxis a través de una gramática independiente de contexto de una sentencia válida de un lenguaje infinito. Construir el árbol de parsing para una determinada palabra.
 
-    * **Solución:**
+    **Solución:**
 
     ```grammar
     ASIG -> variable := EXP
@@ -60,7 +62,8 @@
 
 1. [2 puntos]: Ejemplifíquese cuatro asociaciones sintácticas entre parámetros reales y formales.
 
-    * **Solución:**
+    **Solución:**
+
     * Posicional: void m(String str, Double d) {}                      m("Hola", 9.8);
     * Implícito:  void m(String str, Double d) {}                      m("Hola");
     * Explícito:  void m(int i, String str=“Hola”, Double d=1.0) {}    m(2, d:3.2);

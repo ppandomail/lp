@@ -38,14 +38,13 @@
     divide(3,12).
     ```
 
-    * **Solución:**
+    **Solución:**
 
     ```prolog
     divide(6,X) :- divide(2,X), divide(3,X).
     ```
 
-1. [3 puntos]: Diséñese una GIC en notación BNF para describir la sintaxis de:
-En el lenguaje java las declaraciones posibles de variables de los siguientes tipos: int, String, boolean y double. Por ejemplo:
+1. [3 puntos]: Diséñese una GIC en notación BNF para describir la sintaxis de: En el lenguaje java las declaraciones posibles de variables de los siguientes tipos: int, String, boolean y double. Por ejemplo:
 
     ```java
     int x, y;
@@ -54,7 +53,7 @@ En el lenguaje java las declaraciones posibles de variables de los siguientes ti
     boolean b;
     ```
 
-    * **Solución:**
+    **Solución:**
 
     ```grammar
     <declaraciones> ::= <tipo> <variables>; | <tipo> <variables>; <declaraciones>

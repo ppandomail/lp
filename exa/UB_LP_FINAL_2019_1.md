@@ -30,7 +30,7 @@
 
 1. [2 puntos]: Enúnciese tres producciones de la sintaxis básica del lenguaje de programación Prolog.
 
-    * **Solución:**
+    **Solución:**
 
     ```grammar
     <hecho> ::= <termino>.
@@ -42,7 +42,7 @@
 
 1. [2 puntos]: Ejemplifíquese regla léxica y regla sintáctica para una asignación.
 
-    * **Solución:**
+    **Solución:**
 
     ```grammar
     Léxica: 
@@ -57,7 +57,7 @@
 
 1. [4 puntos]: Impleméntese la regla crédito(x) en el lenguaje Prolog, sabiendo que se da crédito a sueldos mayores que 50000 pesos y antigüedad mayor a 3 años. Los hechos son: sueldo(juan,40000). sueldo(pedro,55000). sueldo(ana, 45000). antigüedad(juan,2). antigüedad(pedro,5). antigüedad(ana,6).
 
-    * **Solución:**
+    **Solución:**
 
     ```prolog
     historial(x):-sueldo(x, y), y>50000.
@@ -67,7 +67,8 @@
 
 1. [2 puntos]: Defínase y ejemplifíquese la diferencia entre: constructor y destructor.
 
-    * **Solución:**
+    **Solución:**
+
     * Constructor: inicializa los atributos del objeto. Ejemplo en C++: Stack() { tope = new int[100]; }
     * Destructor: limpieza de memoria luego de que una instancia es destruida. Ejemplo en C++: ~Stack() { tope = delete [] tope; }
 
