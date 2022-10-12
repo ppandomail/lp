@@ -89,23 +89,21 @@
     **Solución:**
 
     ```plain
-    Un LP es un LF diseñado para realizar procesos que pueden ser llavados a cabo por máquinas.
+    Un LP es un LF diseñado para realizar procesos que pueden ser llevados a cabo por máquinas.
     LP = sintaxis + semántica.
     LF = {a, aa, aaa, aaaa, ...}
     LP = {g(r1), c(g(r1), r2), ...} 
     ```
 
-1. [2 puntos]: Constrúyase los árboles sintácticos (o de derivación) ascendentes y descendentes para la siguiente cadena del lenguaje de programación C:
+1. [2 puntos]: Constrúyase los árboles sintácticos (o de derivación) descendentes para las siguientes cadenas más cortas del lenguaje de programación C:
 
     ```c
     int v1;
     int v1,v2;
-    float d1,d2=4,5;
-    string s1="sol",s2="hola";
     ```
 
     ```grammar
-    <decl_var> ::= <unadecl> | <decl_var> ; <unadecl> 
+    <decl_var> ::= <unadecl> ; | <unadecl> ; <decl_var> 
     <unadecl> ::= <tipo> <listaDec> 
     <listaDec> ::= <listaiden> | <listaAsig> | <listaCombinada> 
     <listaiden> ::= <id> | <listaiden> , <id> 
