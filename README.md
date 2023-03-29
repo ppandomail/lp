@@ -27,6 +27,27 @@
 * [Teoria de los Lenguajes de Programación (Fernando López)](biblio/)
 * [Apuntes (Pablo Pandolfo)](doc/)
 
+## Cronograma UNAHUR
+
+| **Clase** | **Fecha** | **Tema** |
+| -- | -- | -- |
+| 01 | 30/03 | Presentación. Introducción. Conceptos e Historia LP |
+| 02 | 06/04 | **FERIADO** |
+| 03 | 13/04 | Introducción. Clasificación y Caracteristicas LP |
+| 04 | 20/04 | Paradigmas. Imperativo y Objetos |
+| 05 | 27/04 | Paradigmas. Funcional y Lógico |
+| 06 | 04/05 | Sintaxis. BNF |
+| 07 | 11/05 | Sintaxis. Diagramas Sintácticos |
+| 08 | 18/05 | **1er. Parcial** |
+| 09 | 25/05 | **FERIADO** |
+| 10 | 01/06 | Semántica. Cálculo lambda |
+| 11 | 08/06 | Semántica. Binding |
+| 12 | 15/06 | Tipos de Datos |
+| 13 | 22/06 | Control de Flujos. Mecanismos |
+| 14 | 29/06 | Control de Flujos. Subprogramas |
+| 15 | 06/07 | **2do. Parcial** |
+| 16 | 13/07 | **Recuperatorios**. Cierre de Notas |
+
 ## Condiciones para aprobar
 
 * 75% asistencia
