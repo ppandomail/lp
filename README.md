@@ -10,6 +10,8 @@
 * Reconocer problemas en los que es posible seleccionar, diseñar un LP o modificar uno existente para su solución.
 * Saber que LP es el más adecuado para cada tipo de problema a resolver.
 
+### "El estudio no se mide por el número de páginas leídas en una noche, ni por la cantidad de libros leídos en un semestre. Estudiar no es un acto de consumir ideas, sino de crearlas y recrearlas" - Paulo Freire
+
 ## Programa
 
 1. [Introducción](doc/intro.md)
