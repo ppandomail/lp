@@ -530,13 +530,13 @@ forStatement
     ```
 
     * Indicar si las siguientes declaraciones e invocaciones de funciones son aceptadas por esta gramática. Justifique sus respuestas especificando las reglas por las cuales son aceptadas.
-      * function imprimir(mensaje){...}
-      * PQ();
-      * PP(x,t,y,z,PQ);
-      * function PP(name\:a:integer; name:e:integer; reference\:b:integer; inout:c:integer; in:d:integer=3)
-      * PQ(x,t,y,z,w);
-      * function PQ(name\:a:integer=5; name:e:integer=8; reference\:b:integer=0; inout:c:integer =1; in:d:integer=3)
-      * PP(3, ,x);
+      * ``` function imprimir(mensaje){...} ```
+      * ``` PQ(); ```
+      * ``` PP(x,t,y,z,PQ); ```
+      * ``` function PP(name:a:integer; name:e:integer; reference:b:integer; inout:c:integer; in:d:integer=3) ```
+      * ``` PQ(x,t,y,z,w); ```
+      * ``` function PQ(name:a:integer=5; name:e:integer=8; reference:b:integer=0; inout:c:integer =1; in:d:integer=3) ```
+      * ``` PP(3, ,x); ```
       * Para aquellas expresiones que no sean aceptadas ¿qué reglas agregaría, quitaría o modificaría de la gramática? Responda por cada inciso.
 
 1. Dado el siguiente subconjunto de reglas BNF del lenguaje Pascal basadas en la definición de función y procedimiento:
