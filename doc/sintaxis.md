@@ -213,7 +213,7 @@ let val \<nombre\> = \<expresión\> in \<expresión\> end
      end
      ```
 
-### BNF paara un pequeño lenguaje
+### BNF para un pequeño lenguaje
 
 ```bnf
 <program> ::= begin <stmt_list> end
@@ -258,12 +258,12 @@ el cual indica que es necesario repetir los enunciados que se encuentran entre l
 
 * Esta gramática es la BNF extendida.
 * La realizó Niklaus Wirth a la notación BNF utilizada para describir la sintaxis de ALGOL.
-* Los metasimbolos que incorporados son:
-  * [ ] elemento optativo puede o no estar.
+* Los metasimbolos que incorpora:
+  * \[ \] elemento optativo, puede o no estar.
   * (|) selección de una alternativa.
   * {} repetición.
   * \*  0 o más veces.
-  * \+ 1 o más veces.
+  * \+  1 o más veces.
 
 ### EBNF para describir identificadores
 
