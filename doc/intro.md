@@ -230,19 +230,18 @@
   * popularidad (documentación, soporte, comunidad, bibliotecas, ...)
   * plataformas soportadas (web, standalone, mobile, ...)
 
-## LP con mayor demanda
+## Índice TIOBE
 
-1. Go
-1. Scala
-1. Ruby
-1. Typescript
-1. Kotlin
-1. Objetive-C
-1. Javascript
-1. Swift
-1. PHP
-1. Java
-1. Python
+* Mide la popularidad de los LP.
+* Fue creado por la compañía TIOBE, con sede en Eindhoven, Países Bajos.
+* Se calcula a partir del número de resultados del motor de búsquedas para consultas que contienen el nombre de un LP.
+* Cubre búsquedas en Google, Google Blogs, MSN, Yahoo!, Baidu, Wikipedia y YouTube.
+* Se actualiza una vez al mes.
+* La consulta del índice es gratuita, pero los datos históricos están a la venta.
+* Los autores del índice consideran que este puede ser valioso para tomar decisiones estratégicas.
+* El índice se centra en LP que sean sistemas de Turing completos, por lo que excluyen en su índice lenguajes de marcado como HTML.1
+
+[TIOBE](https://www.tiobe.com/)
 
 ## Actividades
 
