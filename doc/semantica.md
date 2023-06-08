@@ -146,7 +146,7 @@ var -> x | y | z | f | n
 * Es una abstracción de una celda de memoria.
 * Memoria principal: celdas elementales, identificadas por una dirección (referencia donde está almacenada la variable).
 * El contenido de una celda es una representación codificada de un valor.
-* Sintasis de asignación \<identificador> \<símbolo de asignación> \<expresión>
+* Sintaxis de asignación \<identificador> \<símbolo de asignación> \<expresión>
 * Ejemplos:
 
 ```plain
