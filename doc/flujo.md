@@ -142,7 +142,7 @@
     * Infinitos: Ejemplo en Java
 
       ```java
-      while true do {
+      while (true) {
       }
 
       i = 1; 
@@ -187,13 +187,13 @@
 * ¿Qué acción toman los LP cuando se termina de manejar las excepciones?
   * **Reasunción**: se maneja la excepción y se devuelve el control al punto siguiente donde se invocó a la excepción, permitiendo **continuación** de la ejecución de la unidad.
   * **Terminación**: se **termina** la ejecución de la unidad que alcanza la excepción y se transfiere el control al manejador.
-* LP que incorporan el manejo de excepciones: ADA, C++, Java, Python, etc.
+* LP que incorporan el manejo de excepciones: ADA, C++, Java, Python, Kotlin, etc.
 * Ejemplo Java
 
   ```java
   try {
     // bloque
-  } catch(NombreExcepción1) {
+  } catch (NombreExcepción1) {
     // bloque manejador 1
   } catch (NombreExcepciónN) {
     // bloque manejador N
@@ -243,6 +243,15 @@ end A
   on event
   when condition
     do action
+
+
+  boton = document.getElementById('idBoton')
+  boton.addEventLister('click', validar)
+
+  function validar() {
+    // validar datos
+  }
+
   ```
 
 * Una GUI es una colección de componentes con una representación gráfica y capacidad para percibir eventos generados por el usuario.
