@@ -481,6 +481,17 @@ def y(z, t):
 y(x, 1)
 ```
 
+```haskell
+func1 :: (a -> b) -> a -> b
+func1 f x = f x
+
+duplicar :: Int -> Int
+duplicar x = x * 2
+
+resultado :: Int
+resultado = func1 duplicar 5
+```
+
 ### Sobrecarga
 
 * Un nombre con mas de una entidades.
