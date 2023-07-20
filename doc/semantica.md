@@ -165,6 +165,8 @@ LET a = b      Basic
   * Binding dinámico: las variables son "variables", se espera que su valor cambie durante la ejecución del programa.
   * Binding estático: hay algunos LP en donde algunas variables no cambian su valor (constantes simbólicas y variables inmutables).
 
+![Variable](img/variable.jpg)
+
 ## Constantes
 
 * Es una variable que se liga a un valor sólo cuando se realiza la ligadura a su correspondiente locación de memoria.
@@ -203,6 +205,8 @@ s1 = "Que tal";
 ```java
 int contador = 0;
 ```
+
+![Ejemplo variable](img/ejemplo-variable.JPG)
 
 ## Otros aspectos de una variable
 

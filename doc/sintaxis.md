@@ -19,12 +19,21 @@
   * GIC en BNF
   * mecanismos específicos para tratar la ambigüedad intrínseca a los LP
 
+![Sintaxis](img/sintaxis.jpg)
+
+![Hola Mundo](img/hola-mundo.JPG)
+
+![Hola Mundo en Ook](img/ook.jpg)
+
 ## Elementos de la sintaxis
 
 * Sintácticamente un LP está compuesto por un conjunto de LRs y otro conjunto de LICs.
   * LRs -> CATEGORÍAS LÉXICAS o TOKENS:
     * **Identificadores**: secuencia de uno o más caracteres definidas por el programador que nombra diferentes entidades de un LP (variables, funciones, constantes, tipos, etc.), como x1, semana y otras, que no pueden ser palabras reservadas.
     * **Palabras reservadas**: son palabras que no pueden redefinirse como identificadores (variables, funciones, etc.), porque están reservadas por el lenguaje.
+
+      ![Palabras Reservadas](img/keywords.jpg)
+
     * **Literales**: como son los números o una cadena de caracteres (variable1, 33, etc.)
     * **Símbolos especiales**: como el +, el punto y coma, etc.
   * LICs -> CATEGORÍAS SINTÁCTICAS:
@@ -55,9 +64,12 @@
 
 ## Tipos de reglas
 
-* **Reglas léxicas**: conjunto de reglas para formar las “word”, a partir de los caracteres del alfabeto. Ejemplos:
-  * Los identificadores deben empezar con mayúscula y deben tener una longitud de hasta 10 caracteres.
-  * Símbolo de distinto: en C (!=) y en Pascal (<>).
+* **Reglas léxicas**: conjunto de reglas para formar las "word", a partir de los caracteres del alfabeto. Ejemplo: "Los identificadores deben empezar con mayúscula y deben tener una longitud de hasta 10 caracteres".
+
+![Operadores](img/operadores.jpg)
+
+![Comentarios](img/comentarios.jpg)
+
 * **Reglas sintácticas**: conjunto de reglas que definen cómo formar las “expresiones” y “sentencias”. Ejemplos:
   * Una estructura de repetición contiene una condición y un conjunto de sentencias, que se ejecutarán mientras se cumpla la condición.
   * El if en C no lleva “then”, en Pascal si.
@@ -430,6 +442,10 @@ forStatement
 ![Diagramas sintácticos CONWAY](img/conway.png)
 
 ![Ejemplos CONWAY](img/conway-ejemplo.png)
+
+![Ejemplos CONWAY](img/conway-ejemplo2.GIF)
+
+![Ejemplos CONWAY](img/conway-ejemplo3.PNG)
 
 ## Ejercicios
 

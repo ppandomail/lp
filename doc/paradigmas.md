@@ -18,12 +18,12 @@ Un modelo que permite desarrollar programas conforme a ciertos principios o fund
 ## Clasificación de los paradigmas de programación
 
 * Procedimentales u operacionales:
-  * Imperativo. Sentencias + secuencias de comandos.
-  * Orientado a objetos. Objetos + mensajes.
+  * Imperativo. Dividido en bloques + secuencia + selección + iteración
+  * Orientado a objetos. Abstracción de datos en Objetos + Encapsulamiento de datos y comportamientos + Paso de mensajes entre objetos.
 
 * Declarativos o no convencionales:
   * Lógico. Aserciones lógicas: hechos + reglas.
-  * Funcional. Los programas se componen de funciones.
+  * Funcional. Los programas se componen de funciones + Cálculo lambda
 
 ![Mapa conceptual paradigmas](img/mapa-paradigmas.png)
 
@@ -111,6 +111,8 @@ Un modelo que permite desarrollar programas conforme a ciertos principios o fund
 * Polimorfismo: responden a un mismo mensaje: 3 + 5; “Ho” + “la”;
 * Herencia: permite que una clase sea definida como una extensión o modificación de otra (Subclase es una SuperClase)
 * Lenguajes: Smalltalk, Eiffel, Java, C++, C#, Python, Simula, Objective C, etc.
+
+![Principios de POO](img/poo-principios.JPG)
 
 ### Torres de Hanoi en Java
 
@@ -252,6 +254,8 @@ longitud([X|Y],N) :- longitud(Y,M), N=M+1.
 * Desventaja:
   * Ineficiencia de ejecución.
 
+![Programación Funcional](img/programacion-funcional.jpg)
+
 ### Función
 
 * Es el mapeo de los miembros de un conjunto, llamado dominio, a otro conjunto, llamado rango.
@@ -317,6 +321,8 @@ longitud([X|Y],N) :- longitud(Y,M), N=M+1.
       ```plain
       ? min(cuadrado ( 1 + 1 ) 3)
       ```
+
+![MAP, FILTER y REDUCE](img/map-filter-reduce.jpg)
 
 * **Currificación**
   * Mecanismo que reemplaza argumentos estructurados por argumentos más simples.

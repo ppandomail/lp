@@ -73,6 +73,10 @@
     reg_poligon pol = {3, 3.45};
     ```
 
+![Primera posición arrays](img/array-posicion.JPG)
+
+![Arrays](img/arrays.JPG)
+
 ##### Tipo de dato recursivo
 
 * Un tipo de dato recursivo T se define como una estructura que puede contener componentes del tipo T.

@@ -32,11 +32,19 @@
 
 ![Genealogía](img/genealogia.png)
 
+![LP Historia](img/lenguajes.JPG)
+
+![LP Historia](img/lp-historia.JPG)
+
+![Primeros LP](img/primeros-lp.JPG)
+
 [Evolución de los LP desde 1965-2019 (video Youtube)](https://www.youtube.com/watch?v=2vQFKcqJF1w)
 
 ## Padres de los LP
 
-![Padres de los LP](img/padres.png)
+![Padres de los LP](img/padres1.JPG)
+
+![Padres de los LP](img/padres2.JPG)
 
 ## Abstracción en los LP
 
@@ -71,6 +79,8 @@
 * **interpretados**: un programa (intérprete), ejecuta las instrucciones del programa de manera directa. Lenguajes: APL, Forth, Lisp, Smalltalk, Matlab, PHP, Javascript, J, Perl, Python, Ruby, Basic, R, Dart
 
 ![Intérprete](img/interprete.png)
+
+![Compilado vs Interpretado](img/compilado-vs-interpretado.JPG)
 
 ### Según almacenamiento de una variable
 
@@ -158,14 +168,25 @@
 ### Características de virtudes útiles o productivas, u oscuras y entreveradas
 
 * **útiles**: sus virtudes en cuanto a eficiencia, sencillez, claridad, productividad, etc., motiva que sean utilizados en empresas, administraciones públicas y/o en la enseñanza. Ejemplos: Cualquier lenguaje de uso habitual (C, Java, C++, Lisp, Python, Ruby, …).
+
+![LP utiles](img/utiles.JPG)
+
 * **esotéricos**: inventados con la intención de ser los más raros, oscuros, difíciles, simples y/o retorcidos de los lenguajes, para diversión y entretenimiento de extravagantes programadores. A veces exploran nuevas ideas en programación. Ejemplo: Brainfuck.
 
 ![LP esotéricos](img/esoterico.png)
+
+![Brainfuck](img/brainfuck.JPG)
+
+![Pi](img/pi.JPG)
+
+![Tree](img/tree.JPG)
 
 ## Descripción de los LP
 
 * Los LP deben describirse de manera formal, completa y precisa.
 * Esta descripción ha de ser, además, independiente de la máquina y de la implementación.
+
+![Aspectos](img/aspectos.jpg)
 
 ### Aspectos Léxicos
 
@@ -221,7 +242,11 @@
 
 * Principios adicionales (simplicidad, expresividad, extensibilidad, capacidad de restricción, consistencia entre las notación y las convenciones, precisión, portabilidad, seguridad, interoperabilidad)
 
-## ¿Qué lenguaje usar?
+## ¿Qué LP debo aprender primero?
+
+![LP aprender primero](img/aprender-primero.JPG)
+
+## ¿Qué LP usar?
 
 * No existe un "mejor lenguaje" de programación en términos absolutos. Pero, en ciertas situaciones, algunos lenguajes son una mejor opción que otros.
 * Algunos criterios para adoptar un lenguaje/framework:
