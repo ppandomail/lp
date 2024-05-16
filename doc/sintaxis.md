@@ -271,9 +271,9 @@ el cual indica que es necesario repetir los enunciados que se encuentran entre l
 * Esta gramática es la BNF extendida.
 * La realizó Niklaus Wirth a la notación BNF utilizada para describir la sintaxis de ALGOL.
 * Los metasimbolos que incorpora:
-  * \[ \] elemento optativo, puede o no estar.
-  * (|) selección de una alternativa.
-  * {} repetición.
+  * [ ] elemento optativo, puede o no estar.
+  * ( | ) selección de una alternativa.
+  * { } repetición.
   * \*  0 o más veces.
   * \+  1 o más veces.
 
