@@ -367,7 +367,6 @@ longitud([X|Y],N) :- longitud(Y,M), N=M+1.
 
 1. ¿Cómo definiría un programa escrito en POO?
 1. Diga cuáles son los elementos más importantes y hable sobre ellos en la programación orientada a objetos.
-1. La posibilidad de ocultamiento y encapsulamiento para los objetos es el primer nivel de abstracción de la POO, ¿cuál es el segundo?
 1. ¿Qué tipos de herencias hay? ¿Cuál usa Smalltalk y C++?
 
 ### Funcional
@@ -377,124 +376,8 @@ longitud([X|Y],N) :- longitud(Y,M), N=M+1.
 1. ¿Cuál es el concepto de variables en los lenguajes funcionales?
 1. ¿Qué es una expresión en un lenguaje funcional? ¿Su valor de qué depende?
 1. ¿Cuál es la forma de evaluación que utilizan los lenguajes funcionales?
-1. ¿Qué tipos existen?
-1. ¿Un lenguaje funcional es fuertemente tipado? ¿Por qué?
-1. Construir una función Haskell que, dado un número natural n > 0 diga si n es, o no, polidivisible. Un número natural se dice polidivisible si es divisible por su longitud y, además al eliminar la cifra de las unidades se vuelve a obtener un número polidivisible. Los números de una cifra se consideran polidivisibles. Por ejemplo:
-    * 1024 será polidivisible si es divisible por 4 (lo es) y 102 es polidivisible
-    * 102 será polidivisible si es divisible por 3 (lo es) y 10 es polidivisible
-    * 10 será polidivisible si es divisible por 2 (lo es) y 1 es polidivisible
-    * 1 es, trivialmente, polidivisible.
-    * Por lo tanto 10, 102 y 1024 son también números polidivisibles.
-1. Una regla de reescritura puede ser vista como una tupla formada por una cadena de entrada y una lista de cadenas de salida. Por ejemplo:
-
-    ```plain
-    reglas = [ (“DESPEDIDA”, [“ADIÓS”, “NOS VEREMOS”]), 
-              (“HOLA”, [“ENCANTADO”])
-              (“SALUDO”, [“HOLA”, “QUE TAL?”]) ]
-    ```
-
-* Se asumirá, para evitar ambigüedades, que en una lista de reglas de reescritura no existen dos reglas con la misma cadena de entrada. Se pide programar las siguientes funciones:
-   1. una función “reescribe” que, dada una cadena c y una lista de reglas de reescritura r, si en r existe una regla cuya cadena de entrada coincida con c devuelva la lista de cadenas de salida que establece dicha regla. Si no existiese una regla tal en r deberá devolver una lista vacía.
-
-      ```plain
-      > reescribe “DESPEDIDA” reglas
-      [“ADIÓS”, “NOS VEREMOS”]
-      >reescribe “ADIÓS” reglas
-      []
-      ```
-
-   1. Se dice que una lista de cadenas es irreducible según una lista de reglas de reescritura r, si ninguna de sus cadenas es cadena de entrada para una regla de r. Se desea, una función “reescritura” que, dada una lista de reglas de reescritura r y una lista de cadenas l, devuelva la lista de cadenas irreducible resultado de reescribir todas las cadenas de l según r. Por ejemplo:
-
-      ```plain
-      > reescribe reglas [“SALUDO”, “SOY UN PROGRAMA”, “DESPEDIDA”]
-      [“ENCANTADO”, “QUE TAL?”, “SOY UN PROGRAMA”, “ADIÓS”, “NOS VEREMOS”]
-      ```
-
-1. Los números expansivos se definen de la siguiente forma:
-    * El primer número expansivo es el 1.
-    * Dado un número expansivo x, para calcular el siguiente se ha de sustituir cada grupo de n cifras consecutivas iguales que aparezcan en x (por ejemplo, 3333) por número n seguido de la cifra que se repite (en el ejemplo 43).
-    * Así, los primeros números expansivos son:
-      * 1 -> “un uno”: 11
-      * 11 -> “dos unos”: 21
-      * 21 -> “un dos, un uno”: 1211
-      * 1211 -> “un uno, un dos, dos uno”: 111221
-    * Se pide programar las siguientes funciones:
-      * Una función “expand” que, dada una lista con las cifras de un número expansivo genere el siguiente.
-      * Una función “list2num” que, dada una lista con las cifras de un número expansivo, devuelva el número correspondiente.
-      * Una función “expansivos” que devuelva la lista infinita de los números expansivos.
 
 ### Lógico
 
 1. En el paradigma lógico. ¿Qué representa una variable? ¿y las constantes?
 1. ¿Cómo se escribe un programa en un lenguaje lógico?
-1. Elabore un programa en Prolog con su árbol genealógico, donde los hechos sean únicamente predicados del tipo padre(-, -) o madre (-, -). Programe los predicados con las reglas necesarias para encontrar las relaciones de parentesco más comunes, tales como:
-    1. hermano(A, B).
-    1. primo(A, B).
-    1. tio(A, B).
-    1. hijo(A, B).
-    1. nieto(A, B).
-    1. abuelo(A, B).
-    1. bisabuelo(A, B).
-    1. bisnieto(A, B).
-    1. cuñado(A, B).
-    1. concuñado(A, B).
-1. Traduzca los siguientes programas Prolog a fórmulas del cálculo de predicados de primer orden:
-    1. humano(Sócrates). mortal(X):- humano(X). consulta: mortal(X).
-    1. mujer(Maria). mujer(Ana). padre(Juan, Maria). hija(X, Y):- padre(Y, X), mujer(X). abuelo(X, Z):- padre(X, U), padre(U, Z). consulta: hija(X, Juan).
-1. Definir la relación primero (L, X) que se verifique si X es el primer elemento de la lista L.
-1. Definir la relación resto (L1, L2) que se verifique si L2 es la lista obtenida a partir de la lista L1 suprimiendo el primer elemento.
-1. Definir la relación cons(X, L1, L2) que se verifique si L2 es la lista obtenida añadiendo X a L1 como primer elemento.
-1. Definir la relación pertenece (X, L) que se verifique si X es un elemento de la lista L.
-1. Definir la relación conc(L1, L2, L3) que se verifique si L3 es la lista obtenida escribiendo los elementos de L2 a continuación de los elementos de L1.
-1. Definir la relación inversa(L1, L2) que se verifique si L2 es la lista obtenida invirtiendo el orden de los elementos de la lista L1.
-1. Definir la relación palíndromo(L) que se verifique si la lista L es un palíndromo.
-1. Definir la relación último(X, L) que se verifique si X es el último elemento de la lista L.
-1. Definir la relación penúltimo(X, L) que se verifique si X es el penúltimo elemento de la lista L.
-1. Definir la relación selecciona(X, L1, L2) que se verifique si L2 es la lista obtenida eliminando una ocurrencia de X en L1.
-1. Definir la relación inserta(X, L1, L2) que se verifique si L2 es una lista obtenida insertando X en L1.
-1. Definir la relación sublista(L1, L2) que se verifique si L1 es una sublista de L2.
-1. Definir la relación todos_iguales(L) que se verifique si todos los elementos de la lista L son iguales entre sí.
-1. Definir la relación longitud_par(L) que se verifique si la longitud de la lista L es par.
-1. Definir la relación rota(L1, L2) que se verifique si L2 es la lista obtenida a partir de L1 colocando su primer elemento al final.
-1. Definir la relación subconjunto(L1, L2) que se verifique si L2 es un subconjunto de L1.
-1. Definir la relación máximo(X, Y, Z) que se verifique si Z es el máximo de X e Y.
-1. Definir la relación factorial(X, Y) que se verifique si Y es el factorial de X.
-1. Definir la relación fibonacci(N, X) que se verifique si X es el N-ésimo término de la sucesión de Fibonacci.
-1. Definir la relación longitud(L, N) que se verifique si N es la longitud de la lista L.
-1. Definir la relación lista_acotada(L) que se verifique si todos los elementos de la lista de números L son menores que la longitud de L.
-1. Definir la relación max_lista(L, X) que se verifique si X es el máximo de la lista de números L.
-1. Definir la relación suma_lista(L, X) que se verifique si X es la suma de los elementos de la lista de números L.
-1. Definir la relación ordenada(L) que se verifique si la lista de números está ordenada de manera creciente.
-1. Definir la relación lista(N, L) que se verifique si L es la lista de longitud N cuyos elementos son N.
-1. Definir la relación entre(N1, N2, X) que se verifique si X es un número entero tal que N1 ≤ X ≤ N2.
-1. Definir la relación elemento_en(K, L, X) que se verifique si X es el K-ésimo elemento de la lista L(se empieza a numerar en 1).
-1. Definir la relación multiplicada(L1, N, L2) que se verifica si L2 es la lista obtenida repitiendo N veces los elementos de la lista L1
-1. Supongamos que representamos los puntos del plano mediante términos de la forma punto(X, Y) donde X e Y son números, y los segmentos del plano mediante términos de la forma segmento(P1, P2 donde P1 y P2 son los puntos extremos del segmento. Definir las relaciones vertical(S) y horizontal(S) que se verifiquen si el segmento S es vertical (resp. horizontal).
-1. Representar un autómata finito utilizando las siguientes relaciones:
-    * final(X) que se verifica si X es el estado final.
-    * trans(E1, X, E2) que se verifica si se puede pasar del estado E1 al estado E2 usando la letra X.
-    * nulo(E1, E2) que se verifica si se puede pasar del estado E1 al estado E2 mediante un movimiento nulo.
-    * Definir la relación acepta(E, L) que se verifica si el autómata, a partir del estado E, acepta la lista L.
-
-      ```prolog
-      final(e3).
-      trans(e1, a, e1).
-      trans(e1, a, e2).
-      trans(e1, b, e1).
-      trans(e2, b, e3).
-      trans(e3, b, e4).
-      nulo(e2, e4).
-      nulo(e3, e1).
-      acepta(E, [ ]) :- final(E).
-      acepta(E, [X | L]) :- trans(E, X, E1), acepta(E1, L).
-      acepta(E, L) :- nulo(E, E1), acepta(E1, L).
-      ```
-
-1. Si una persona sufre una enfermedad que es aliviada por un medicamento entonces se le ha de recetar ese medicamento. Una enfermedad es aliviada por un medicamento cuando este último elimina alguno de los síntomas de la enfermedad. Se sabe que la gripe tiene por síntomas: la fiebre y la tos y que la anemia tiene por síntoma el cansancio. Además se conoce que el cansancio es eliminado con vitaminas, la fiebre por aspirinas y la tos por un jarabe. En este momento Manuel tiene gripe y Alicia está cansada. ¿Qué se puede recetar Manuel? ¿Qué le pasa a Alicia? ¿Cómo solucionarlo? Utilizar los siguientes predicados para la representación en el programa:
-    * sufre (P, E)      la persona P sufre la enfermedad E
-    * alivia (E, M)     la enfermedad E es aliviada por el medicamento M
-    * recetar (M, P)    se receta el medicamento M a la persona P
-    * elimina (M, S)    el medicamento M elimina el síntoma S
-    * sintoma (E, S)    S es un síntoma de la enfermedad E
-    * manuel            es una persona
-    * alicia            es una persona

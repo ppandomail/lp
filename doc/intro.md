@@ -270,8 +270,7 @@
 
 ## Actividades
 
-1. ¿En qué se diferencia la programación declarativa de la programación orientada a objetos?
+1. ¿En qué se diferencia la programación declarativa de la programación imperativa?
 2. ¿Cree que afecta la capacidad de expresión de un lenguaje en la eficiencia de programación en el mismo?
 3. Defina y aporte un ejemplo de cada uno de los tres principios en que se divide la eficiencia de un LP.
 4. Defina las tres propiedades en que se subdivide el principio de regularidad de un LP.
-5. Describa brevemente e incluya un ejemplo de las siguientes características que afectan al diseño de un lenguaje respecto a la eficiencia.

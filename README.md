@@ -1,4 +1,4 @@
-# Características de los Lenguajes de Programación (UNAHUR) / Lenguajes de Programación (UB)
+# Características de los Lenguajes de Programación (UNAHUR) / Taller de Lenguajes (UNO) / Lenguajes de Programación (UB)
 
 ## Docente
 
@@ -27,7 +27,6 @@
 * [Lenguajes de Programación (Allen Tucker)](biblio/)
 * [Lenguajes de Programación (Terrence Pratt)](biblio/)
 * [Teoria de los Lenguajes de Programación (Fernando López)](biblio/)
-* [Apuntes (Pablo Pandolfo)](doc/)
 
 ## Cronograma UNAHUR
 
