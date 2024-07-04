@@ -65,7 +65,7 @@
 
     ```grammar
     01. start: programa 
-    02. programa: instruccion | bloque
+    02. programa: instrucciones | bloque
     03. instrucciones: instruccion | instrucciones instruccion
     04. bloque: "_comienza_bloque_" instrucciones "_termina_bloque_" 
     05. instruccion: declaracion ";" | invocacion ";" | asignacion ";" | seleccion ";" | iteracion ";"
