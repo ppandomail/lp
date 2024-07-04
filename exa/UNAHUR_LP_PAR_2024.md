@@ -85,7 +85,7 @@
     ```
 
 1. [4 puntos]: Ejemplifíquese los siguientes enunciados:
-    * una problema resuelto en 2 paradigmas distintos, ejemplo: cambio $ 156 => 100 + 50 + 5 + 1
+    * un problema resuelto en 2 paradigmas distintos, ejemplo: cambio $ 156000 => 100 + 200 + 500 + 1000 + 2000 + 10000
     * una BNF para un mini lenguaje de programación esotérico
     * árbol sintáctico de una palabra del lenguaje anterior
     * polimorfismo vs no polimorfismo
