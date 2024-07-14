@@ -1,14 +1,5 @@
 # Introducción
 
-## Razones para estudiar los LP
-
-* Comparar y contraponer:
-  * Principios teóricos - Detalles técnicos.
-  * Sintaxis - Semántica.
-  * Evolución – Historia.
-* Saber qué LP es el más adecuado para cada tipo de escenario y cada problema a resolver.
-* Saber qué abstracciones de datos y control incluir.
-
 ## LP
 
 * Comunicación entre seres humanos y computadoras.
@@ -20,15 +11,32 @@
 
 ## Historia de los LP
 
-* Antes de la década de los 40 (del siglo XX), se programaba cableando.
-* En esa década, cuando Von Neumann plantea el uso de códigos para determinar las acciones de las computadoras (grandes y costosas), evitando el cableado.
-* A continuación se asignaron símbolos (notación con abreviaturas nemotécnicas) a los códigos de las instrucciones y a las localizaciones de memoria, naciendo el lenguaje ensamblador.
-* Pero el lenguaje ensamblador, de bajo nivel de abstracción, dependía de cada computadora y era difícil de entender.
+* Antes de 1940 se programaba cableando
+* En 1940, Von Neumann plantea el uso de códigos para determinar las acciones de las computadoras (grandes y costosas), evitando el cableado
+* A continuación se asignaron símbolos (notación con abreviaturas nemotécnicas) a los códigos de las instrucciones y a las localizaciones de memoria, naciendo el lenguaje ensamblador
+* Pero el lenguaje ensamblador, de bajo nivel de abstracción, dependía de cada computadora y era difícil de entender
 * Se fueron agregando al lenguaje construcciones de mayor nivel de abstracción como la asignación, los bucles y sentencias condicionales
-* Pero al principio los lenguajes seguían reflejando la arquitectura Von Neumann: un área de memoria donde se almacenaban tanto a los programas como a los datos de los mismos, y por separado había una unidad de procesamiento que ejecutaba secuencialmente las instrucciones del programa en memoria. Los lenguajes estaban muy lejos de lo que ahora se entiende por un LP de alto nivel.
-* Los lenguajes modernos se hacen independientes de la máquina y los programas sólo describen el procesamiento en general, en lugar de detallar todas las instrucciones que debe ejecutar la unidad de procesamiento.
+* Pero al principio los lenguajes seguían reflejando la arquitectura Von Neumann:
+  * un área de memoria donde se almacenaban tanto a los programas como a los datos de los mismos, y por separado
+  * una unidad de procesamiento que ejecutaba secuencialmente las instrucciones del programa en memoria
+* Los lenguajes estaban muy lejos de lo que ahora se entiende por un LP de alto nivel
+* Los lenguajes modernos se hacen independientes de la máquina y los programas sólo describen el procesamiento en general, en lugar de detallar todas las instrucciones que debe ejecutar la unidad de procesamiento
 
-## Genealogía
+![Evolución Histórica](img/evolucion-historica.png)
+
+* **Vamos a estudiar los lenguajes de programación de alto nivel**
+* **¿Por qué hoy siguen existiendo lenguajes de bajo nivel (assembler, web assembly, bytecodes, etc)?**
+
+## ¿Cómo vamos a estudiar los LP?
+
+* Existe un gran conjunto de LP
+* History of Programming Languages: [https://hopl.info/](https://hopl.info/) (8945 lenguajes)
+* ES IMPOSIBLE ESTUDIARLOS POR EXTENSIÓN
+* **¿Cómo los vamos a estudiar?**
+* VAMOS A ESTUDIARLOS POR COMPRENSIÓN
+* **¿Cómo vamos a definir las categorías?**
+
+### Estudio cronológico
 
 ![Genealogía](img/genealogia.png)
 
@@ -38,180 +46,137 @@
 
 ![Primeros LP](img/primeros-lp.JPG)
 
-[Evolución de los LP desde 1965-2019 (video Youtube)](https://www.youtube.com/watch?v=2vQFKcqJF1w)
+[Línea de tiempo en tamañp completo](https://drive.google.com/file/d/1A-S6K8RudWwZYsgqHMSfDaprZaeF3F2P/view)
 
-## Padres de los LP
+### Padres de los LP
 
 ![Padres de los LP](img/padres1.JPG)
 
 ![Padres de los LP](img/padres2.JPG)
 
-## Abstracción en los LP
+### Popularidad
 
-* Se refiere a …
-  * La **abstracción de los datos**, que resume sus propiedades y
-  * La **abstracción de control** que resume las propiedades de la transferencia de control (modificación de la estrategia de ejecución de un programa en una situación determinada).
+* [LP mas populares 1965 -2022 (video Youtube)](https://www.youtube.com/watch?v=qQXXI5QFUfw)
+* [https://tjpalmer.github.io/languish/](https://tjpalmer.github.io/languish/)
+* [https://www.youtube.com/c/CodingTech](https://www.youtube.com/c/CodingTech)
+* [https://www.youtube.com/@contextfree](https://www.youtube.com/@contextfree)
+* [https://pypl.github.io/PYPL.html](https://pypl.github.io/PYPL.html)
+* [https://www.tiobe.com/tiobe-index/](https://www.tiobe.com/tiobe-index/)
 
-* Indicar que si un LP sólo necesita describir computaciones, entonces sólo necesita mecanismos suficientes para describir todos los cálculos que puede llevar a cabo una máquina de Turing, puesto que cualquier **máquina de Turing** puede ejecutar cualquier cálculo conocido en una computadora.
-* Un lenguaje de este tipo se conoce como **lenguaje completo en Turing**, debe incluir variables enteras y aritméticas, así como la ejecución de sentencias de forma secuencial, incluyendo sentencias de asignación, condicionales (if) y bucles (while).
+### Por paradigmas
 
-## Clasificación de los LP
+![Paradigmas](img/paradigmas-caracteristicas.png)
 
-### Nivel de abstracción
+* POO: los objetos se agrupan en clases que representan a todos los que tienen las mismas propiedades. Tras la declaración de una clase, se pueden crear objetos concretos a partir de la misma, mediante la instanciación de la clase
 
-* **bajo**: la programación se realiza teniendo muy en cuenta las características del procesador. Ejemplo: Ensamblador, usado principalmente para la manipulación directa de hardware. Lenguaje de máquina (código binario)
-* **medio**: permiten un mayor grado de abstracción, pero al mismo tiempo mantienen algunas cualidades de los lenguajes de bajo nivel. Ejemplo: C puede realizar operaciones lógicas y de desplazamiento con bits, tratar todos los tipos de datos como lo que son en realidad a bajo nivel (números), C++, etc.
-* **alto**: más parecidos al lenguaje humano. Manejan conceptos, tipos de datos, etc., de una manera cercana al pensamiento humano ignorando (abstrayéndose) del funcionamiento de la máquina. Ejemplos: Java, Ruby, Python, C#
+![Ejemplos de Paradigmas](img/paradigmas-ejemplos-1.png)
 
-### Dominio de aplicación
+![Ejemplos de Paradigmas](img/paradigmas-ejemplos-2.png)
 
-* **general**: aptos para todo tipo de tareas: Ejemplo: C.
-* **específico**: hechos para un objetivo muy concreto. Ejemplo: Csound (para crear ficheros de audio).
-* **sistemas**: diseñados para realizar sistemas operativos o drivers. Ejemplo: C.
-* **scripts**: para realizar tareas varias de control y auxiliares. Antiguamente eran los llamados lenguajes de procesamiento por lotes (batch) o JCL (“Job Control Languages”). Se subdividen en varias clases (de shell, de GUI, de programación web, etc.). Ejemplos: bash (shell), mIRC script, JavaScript (programación web).
+![Ejemplos de Paradigmas](img/paradigmas-ejemplos-3.png)
 
-### Tipo de traductor
+### Por categoría / paradigma
 
-* **compilados**: un programa traductor traduce el código del programa (código fuente) en código máquina (código objeto). Otro programa, el enlazador, unirá los ficheros de código objeto del programa principal con los de las librerías para producir el programa ejecutable. Lenguajes: Fortran, COBOL, Algol, PL/1, Modula, CLU, ADA, C, C++, Objetive-C, Pascal, Eiffel, Scala, Basic, Delphi, ML, C#, Java, Go, Rust, Swift
+![Categorias](img/categorias.png)
 
-![Compilador](img/compilador.png)
+| Nivel de abstracción ||
+| -- | -- |
+| **Bajo** | la programación se realiza teniendo muy en cuenta las características del procesador. Ejemplo: Ensamblador, usado principalmente para la manipulación directa de hardware. Lenguaje de máquina (código binario) |
+| **Medio** | permiten un mayor grado de abstracción, pero al mismo tiempo mantienen algunas cualidades de los lenguajes de bajo nivel. Ejemplo: C puede realizar operaciones lógicas y de desplazamiento con bits, tratar todos los tipos de datos como lo que son en realidad a bajo nivel (números), C++, etc. |
+| **Alto** | más parecidos al lenguaje humano. Manejan conceptos, tipos de datos, etc., de una manera cercana al pensamiento humano ignorando (abstrayéndose) del funcionamiento de la máquina. Ejemplos: Java, Ruby, Python, C# |
 
-* **interpretados**: un programa (intérprete), ejecuta las instrucciones del programa de manera directa. Lenguajes: APL, Forth, Lisp, Smalltalk, Matlab, PHP, Javascript, J, Perl, Python, Ruby, Basic, R, Dart
+| Dominio ||
+| -- | -- |
+| **General** | aptos para todo tipo de tareas. Ejemplo: C |
+| **Específico** | hechos para un objetivo muy concreto. Ejemplo: Csound (para crear ficheros de audio) |
+| **Sistemas** | diseñados para realizar sistemas operativos o drivers. Ejemplo: C |
+| **Scripts** | para realizar tareas varias de control y auxiliares. Antiguamente eran los llamados lenguajes de procesamiento por lotes (batch) o JCL (“Job Control Languages”). Se subdividen en varias clases (de shell, de GUI, de programación web, etc.). Ejemplos: bash (shell), mIRC script, JavaScript (programación web) |
 
-![Intérprete](img/interprete.png)
+| Tipo de traductor ||
+| -- | -- |
+| **Compilados** | un programa traductor traduce el código del programa (código fuente) en código máquina (código objeto). Otro programa, el enlazador, unirá los ficheros de código objeto del programa principal con los de las librerías para producir el programa ejecutable. Lenguajes: Fortran, COBOL, Algol, PL/1, Modula, CLU, ADA, C, C++, Objetive-C, Pascal, Eiffel, Scala, Basic, Delphi, ML, C#, Java, Go, Rust, Swift ![Compilador](img/compilador.png)|
+| **Interpretados** | un programa (intérprete), ejecuta las instrucciones del programa de manera directa. Lenguajes: APL, Forth, Lisp, Smalltalk, Matlab, PHP, Javascript, J, Perl, Python, Ruby, Basic, R, Dart ![Intérprete](img/interprete.png) |
 
-![Compilado vs Interpretado](img/compilado-vs-interpretado.JPG)
+| Según almacenamiento de una variable ||
+| -- | -- |
+| **Estáticos** | almacenamiento estático. Son compilados. Ejemplos: Fortran, COBOL y derivados |
+| **Tipo Algol** | almacenamiento dinámico, tipos estáticos y alcance estático. Son compilados. Ejemplos: Algol, C, C++, ADA, Java, Pascal, Delphi, Go, Rust, Swift, etc. |
+| **Dinámicos** | almacenamiento dinámico, tipos dinámicos y alcance dinámico. Son interpretados. Ejemplos: Smalltalk, BASIC, PHP, Perl, Ruby, etc. |
 
-### Según almacenamiento de una variable
+| Generaciones ||
+| -- | -- |
+| **Primera** | incluye los lenguajes de máquina, en los que los datos y las operaciones sobre ellos se describen mediante ceros y unos |
+| **Segunda** | incluye los lenguajes ensambladores, cuya traducción a lenguaje máquina es muy sencilla, y aún hoy se utilizan para tareas muy específicas, como puede ser para programar drivers para dispositivos |
+| **Tercera** | incluye los lenguajes de alto nivel como Pascal, Fortran, C o Java |
+| **Cuarta** | incluye los lenguajes de propósito específico como Natural, Mathematica o el del paquete estadístico SPSS que permite manipular grandes cantidades de datos con fines estadísticos |
+| **Quinta** | incluye los lenguajes que se utilizan en el área de la Inteligencia Artificial como Prolog o Haskell |
 
-* **estáticos**: almacenamiento estático. Son compilados.  Ejemplos: Fortran, COBOL y derivados.
-* **tipo Algol**: almacenamiento dinámico, tipos estáticos y alcance estático. Son compilados. Ejemplos: Algol, C, C++, ADA, Java, Pascal, Delphi, Go, Rust, Swift, etc.
-* **dinámicos**: almacenamiento dinámico, tipos dinámicos y alcance dinámico. Son interpretados. Ejemplos: Smalltalk, BASIC, PHP, Perl, Ruby, etc.
+| Manera de abordar la tarea a realizar | |
+| -- | -- |
+| **Operativos** | indican cómo hay que hacer la tarea, es decir, expresan los pasos a realizar. Un lenguaje de este tipo se conoce como **lenguaje completo en Turing**, debe incluir variables enteras y aritméticas, así como la ejecución de sentencias de forma secuencial, incluyendo sentencias de asignación, condicionales (if) y bucles (while). Ejemplo: C |
+| **Declarativos** | indican qué hay que hacer. Ejemplos: Lisp, Prolog. Otros ejemplos de lenguajes declarativos, pero que no son LP, son HTML (para describir páginas web) o SQL (para consultar bases de datos) |
 
-### Generaciones
+| Paradigmas ||
+| -- | -- |
+| **Imperativos** | Fortran, C, Pascal |
+| **Orientados a Objetos** | Python, Java, Ruby, C++, C#, Delphi, Smalltalk, Perl, Go, Rust |
+| **Funcionales** | Haskell, Miranda, Lisp, Scheme, Scala, Ocam, Clojure, Racket |
+| **Lógicos** | Prolog, Planner |
 
-* **primera**:
-  * Se incluyen los lenguajes máquina, en los que los datos y las operaciones sobre ellos se describen mediante ceros y unos.
-  * Son códigos con notaciones muy difíciles de entender por los programadores y cada procesador tiene el suyo propio.
-  * Por ejemplo, el byte 01111000 le dice al procesador Z80 de Zilog que copie en el registro A el contenido del registro B.
+![Multiparadigma](img/multiparadigma.png)
 
-* **segunda**:
-  * Es la que incluye a los lenguajes ensambladores, cuya traducción a lenguaje máquina es muy sencilla, y aún hoy se utilizan para tareas muy específicas, como puede ser para programar drivers para dispositivos.
-  * Siguiendo con el ejemplo anterior, el byte 01111000 se representa mediante el mnemónico “LD A, B”, que es más fácil de recordar.
+[https://en.wikipedia.org/wiki/Comparison_of_multi-paradigm_programming_languages](https://en.wikipedia.org/wiki/Comparison_of_multi-paradigm_programming_languages)
 
-* **tercera**:
-  * Es la que incluye a los lenguajes de alto nivel como Pascal, Fortran, C o Java. Se denominan de alto nivel porque están muy alejados de la máquina pero muy cercanos a los programadores.
-  * Para su traducción a lenguaje máquina se necesitan compiladores o intérpretes.
-  * Surgen alrededor de los años 60 (del siglo XX), siendo los primeros Fortran, Lisp, Algol y Cobol.
+| Lugar de ejecución ||
+| -- | -- |
+| **Servidor** | se ejecutan en el servidor. Ejemplo: PHP es el más utilizado en servidores web |
+| **Cliente** | se ejecutan en el cliente. Ejemplo: JavaScript en navegadores web |
 
-* **cuarta**:
-  * Agrupa a los lenguajes de propósito específico (para abordar un tipo concreto de problemas), como Natural, Mathematica o el del paquete estadístico SPSS que permite manipular grandes cantidades de datos con fines estadísticos.
+| Concurrencia ||
+| -- | -- |
+| **Concurrente** | admiten concurrencia de procesos, esto es, la ejecución simultánea de varios procesos lanzados por el programa. Ejemplo: Ada |
+| **No concurrente** | no admiten concurrencia de procesos. Ejemplo: C |
 
-* **quinta**:
-  * Se incluyen lenguajes que se utilizan, en primer lugar, en el área de la Inteligencia Artificial, con los que se especifica más qué problema hay que resolver qué cómo se resuelve dicho problema con una secuencia de acciones.
-  * De los primeros que se incluyen en este grupo es el lenguaje Prolog, aunque otros lenguajes funcionales como Haskell, también se clasifican como de quinta generación.
+| Interactividad del programa con el usuario u otros programas ||
+| -- | -- |
+| **Orientados a eventos** | el flujo del programa es controlado por la interacción con el usuario o por mensajes de otros programas/sistema operativo, como editores de texto, interfaces gráficos de usuario (GUI) o kernels. Ejemplo: Visual Basic, LP declarativos |
+| **No orientados a eventos** | el flujo del programa no depende de sucesos exteriores, sino que se conoce de antemano, siendo los procesos batch el ejemplo más claro (actualizaciones de bases de datos, colas de impresión de documentos, etc.). Ejemplos: LP imperativos |
 
-### Manera de abordar la tarea a realizar
+| Realización visual o no del programa ||
+| -- | -- |
+| **Visual** | el programa se realiza moviendo bloques de construcción de programas (objetos visuales) en un interfaz adecuado para ello. No confundir con entornos de programación visual, como Microsoft Visual Studio y sus lenguajes de programación textuales (como Visual C#). Ejemplo: Mindscript, Scratch, App Inventor, Gobstones, PilasBloques, etc. |
+| **Textual** | el código del programa se realiza escribiéndolo. Ejemplos: C, Java, Lisp, etc. |
 
-* **operativos**: indican cómo hay que hacer la tarea, es decir, expresan los pasos a realizar. Ejemplo: C.
-* **declarativos**: indican qué hay que hacer. Ejemplos: Lisp, Prolog. Otros ejemplos de lenguajes declarativos, pero que no son LP, son HTML (para describir páginas web) o SQL (para consultar bases de datos).
+| Predicción o no del siguiente estado del programa a partir del estado actual | |
+| -- | -- |
+| **Deterministas** | ejemplos: todos los anteriores |
+| **No deterministas** | sirven para explorar grandes espacios de búsqueda, (como gramáticas), y en la investigación teórica de hipercomputación. Ejemplo: mutt (generador de texto aleatorio) |
 
-### Paradigma
+| Características de virtudes útiles o productivas, u oscuras y entreveradas ||
+| -- | -- |
+| **Útiles** | sus virtudes en cuanto a eficiencia, sencillez, claridad, productividad, etc., motiva que sean utilizados en empresas, administraciones públicas y/o en la enseñanza. Ejemplos: Cualquier lenguaje de uso habitual (C, Java, C++, Lisp, Python, Ruby, etc.) ![LP utiles](img/utiles.JPG) |
+| **Esotéricos** | inventados con la intención de ser los más raros, oscuros, difíciles, simples y/o retorcidos de los lenguajes, para diversión y entretenimiento de extravagantes programadores. A veces exploran nuevas ideas en programación. Ejemplo: Brainfuck. ![LP esotéricos](img/esoterico.png) ![Brainfuck](img/brainfuck.JPG) ![Pi](img/pi.JPG) ![Tree](img/tree.JPG) |
 
-![Paradigmas](img/paradigmas.png)
+### Identificación de aspectos sintácticos, semánticos y pragmáticos
 
-* **imperativo**:
-  * LP basados en el modelo de computación Von Neumann, que propuso que el programa se almacenará en la máquina antes de ejecutarse y a su vez en 1) La ejecución secuencial de instrucciones (órdenes). 2) El uso de variables para la representación de las posiciones de memoria. 3) El uso de la asignación para cambiar el valor de las variables.
-  * La mayoría de los LP son imperativos.
+* Los LP deben describirse de manera formal, completa y precisa
+* Esta descripción ha de ser, además, independiente de la máquina y de la implementación
 
-* **orientado a objetos**:
-  * Se basa en la idea de que un objeto se puede describir como una colección de posiciones de memoria junto con todas las operaciones que pueden cambiar los valores de dichas posiciones.
-  * Los objetos se agrupan en clases que representan a todos los que tienen las mismas propiedades.
-  * Tras la declaración de una clase, se pueden crear objetos concretos a partir de la misma, mediante la instanciación de la clase.
+| Patrones que se repiten en varios lenguajes |
+| -- |
+| Tipos |
+| Alcance / Ámbito |
+| Almacenamiento |
+| Concurrencia |
+| Nombre |
+| Tiempo de vida |
+| Valor |
+| Pasaje de parámetros |
+| ... |
 
-* **funcionales**:
-  * Se fundamenta en la evaluación de funciones o en la aplicación de funciones a valores conocidos. El mecanismo básico es la evaluación de funciones, con las siguientes características:
-    * La transferencia de valores como parámetros de las funciones que se evalúan.
-    * La generación de resultados en forma de valores devueltos por las funciones.
-  * No involucra la asignación de una variable a una posición de memoria. Tampoco las operaciones repetitivas se representan por ciclos, sino mediante las funciones recursivas.
+![Aspectos de los lenguajes](img/aspectos.png)
 
-* **lógicos**:
-  * En un LP lógica, un programa está formado por un conjunto de sentencias que describen lo que es verdad o conocido con respecto a un problema, en vez de indicar la secuencia de pasos que llevan al resultado.
-  * No necesita de abstracciones de control condicionales ni de ciclos ya que el control lo aporta el modelo de inferencia lógica que subyace.
-  * Puede programarse en Prolog, donde un programa es un conjunto de cláusulas, de la forma a :- b, c, d. que es una afirmación que se entiende como “a es cierto, o resoluble, si b, continuación c y finalmente d son ciertos o resolubles en este orden”
-
-### Lugar de ejecución
-
-* **servidor**: se ejecutan en el servidor. Ejemplo: PHP es el más utilizado en servidores web.
-* **cliente**: se ejecutan en el cliente. Ejemplo: JavaScript en navegadores web.
-
-### Concurrencia
-
-* **concurrente**: admiten concurrencia de procesos, esto es, la ejecución simultánea de varios procesos lanzados por el programa. Ejemplo: Ada.
-* **no concurrente**: no admiten concurrencia de procesos. Ejemplo: C
-
-### Interactividad del programa con el usuario u otros programas
-
-* **orientados a eventos**: el flujo del programa es controlado por la interacción con el usuario o por mensajes de otros programas/sistema operativo, como editores de texto, interfaces gráficos de usuario (GUI) o kernels. Ejemplo: Visual Basic, LP declarativos.
-* **no orientados a eventos**: el flujo del programa no depende de sucesos exteriores, sino que se conoce de antemano, siendo los procesos batch el ejemplo más claro (actualizaciones de bases de datos, colas de impresión de documentos, etc.). Ejemplos: LP imperativos.
-
-### Realización visual o no del programa
-
-* **visual**: el programa se realiza moviendo bloques de construcción de programas (objetos visuales) en un interfaz adecuado para ello. No confundir con entornos de programación visual, como Microsoft Visual Studio y sus lenguajes de programación textuales (como Visual C#). Ejemplo: Mindscript, Scratch, App Inventor, Gobstones, PilasBloques, etc.
-* **textual**: el código del programa se realiza escribiéndolo. Ejemplos: C, Java, Lisp, etc.
-
-### Predicción o no del siguiente estado del programa a partir del estado actual
-
-* **deterministas**: ejemplos: todos los anteriores.
-* **no deterministas**: sirven para explorar grandes espacios de búsqueda, (como gramáticas), y en la investigación teórica de hipercomputación. Ejemplo: mutt (generador de texto aleatorio).
-
-### Características de virtudes útiles o productivas, u oscuras y entreveradas
-
-* **útiles**: sus virtudes en cuanto a eficiencia, sencillez, claridad, productividad, etc., motiva que sean utilizados en empresas, administraciones públicas y/o en la enseñanza. Ejemplos: Cualquier lenguaje de uso habitual (C, Java, C++, Lisp, Python, Ruby, …).
-
-![LP utiles](img/utiles.JPG)
-
-* **esotéricos**: inventados con la intención de ser los más raros, oscuros, difíciles, simples y/o retorcidos de los lenguajes, para diversión y entretenimiento de extravagantes programadores. A veces exploran nuevas ideas en programación. Ejemplo: Brainfuck.
-
-![LP esotéricos](img/esoterico.png)
-
-![Brainfuck](img/brainfuck.JPG)
-
-![Pi](img/pi.JPG)
-
-![Tree](img/tree.JPG)
-
-## Descripción de los LP
-
-* Los LP deben describirse de manera formal, completa y precisa.
-* Esta descripción ha de ser, además, independiente de la máquina y de la implementación.
-
-![Aspectos](img/aspectos.jpg)
-
-### Aspectos Léxicos
-
-* El léxico o conjunto de las “palabras” o unidades léxicas que son las cadenas de caracteres significativas del lenguaje, también denominados tokens.
-* También son unidades léxicas, los identificadores, los símbolos especiales de operadores y los símbolos de puntuación.
-
-### Aspectos Sintácticos
-
-* La sintaxis o estructura conlleva la descripción de los diferentes componentes del lenguaje y de sus combinaciones posibles.
-* Para ello se utilizan las gramáticas libres de contexto.
-* Por ejemplo, la sentencia if en el lenguaje C se define por:
-
-      ```grammar
-      <sentencia if> ::= if ( <expresión> ) <sentencia> [else <sentencia>]
-      ```
-
-### Aspectos Semánticos
-
-* La semántica expresa los efectos de la ejecución en un contexto determinado.
-* A veces esta definición interactúa con los significados de otros elementos del lenguaje, y por ello, la semántica es la parte más difícil en la definición de un lenguaje.
-* Ejemplo: "Una sentencia if es ejecutada, primero, evaluando su expresión, que debe ser de tipo aritmético o apuntador, y si el resultado de la comparación es cierta, entonces se ejecuta la sentencia que sigue a la expresión. Si existe una parte else y el resultado de la expresión no es cierto, entonces se ejecuta la sentencia que sigue al else."
-
-### Aspectos Pragmáticos
-
-* La pragmática de los LP se ocupa de aspectos como la especificación de mecanismos para activación o deshabilitación de opciones de optimización, depuración y otras facilidades pragmáticas, que suelen incluirse en los traductores.
+![Aspectos de los lenguajes](img/aspectos.jpg)
 
 ## Diseño de los LP
 
@@ -254,19 +219,6 @@
   * capacidad técnica para satisfacer los requerimientos del proyecto.
   * popularidad (documentación, soporte, comunidad, bibliotecas, ...)
   * plataformas soportadas (web, standalone, mobile, ...)
-
-## Índice TIOBE
-
-* Mide la popularidad de los LP.
-* Fue creado por la compañía TIOBE, con sede en Eindhoven, Países Bajos.
-* Se calcula a partir del número de resultados del motor de búsquedas para consultas que contienen el nombre de un LP.
-* Cubre búsquedas en Google, Google Blogs, MSN, Yahoo!, Baidu, Wikipedia y YouTube.
-* Se actualiza una vez al mes.
-* La consulta del índice es gratuita, pero los datos históricos están a la venta.
-* Los autores del índice consideran que este puede ser valioso para tomar decisiones estratégicas.
-* El índice se centra en LP que sean sistemas de Turing completos, por lo que excluyen en su índice lenguajes de marcado como HTML.1
-
-[TIOBE](https://www.tiobe.com/)
 
 ## Actividades
 
