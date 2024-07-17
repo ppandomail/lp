@@ -65,15 +65,72 @@
 
 ### Por paradigmas
 
+* **Paradigma**: es una colección de modelos conceptuales que juntos modelan el proceso de diseño, orientan la forma de pensar y solucionar los problemas y, por lo tanto, determinan la estructura final de un programa
+
 ![Paradigmas](img/paradigmas-caracteristicas.png)
 
-* POO: los objetos se agrupan en clases que representan a todos los que tienen las mismas propiedades. Tras la declaración de una clase, se pueden crear objetos concretos a partir de la misma, mediante la instanciación de la clase
+| Paradigmas | Características |
+| -- | -- |
+| **Imperativo** | bloques o módulos, variables, secuencia de instrucciones, selección, iteración |
+| **Objetos**    | clases, objetos (entidades), invocación de métodos, encapsulamiento, polimorfismo, herencia |
+| **Funcional**  | componer funciones, cálculo lambda, transparencia referencial, evaluación diferida, funciones como parámetros |
+| **Lógico**     | cláusulas de Horn, aserciones lógicas: hechos y reglas, deducir consecuencias a partir de premisas: unificación y backtracking |
 
 ![Ejemplos de Paradigmas](img/paradigmas-ejemplos-1.png)
 
 ![Ejemplos de Paradigmas](img/paradigmas-ejemplos-2.png)
 
 ![Ejemplos de Paradigmas](img/paradigmas-ejemplos-3.png)
+
+#### Ejemplo imperativo (Pascal)
+
+```pascal
+PROGRAM Hanoi(input, output); 
+VAR N:integer; 
+PROCEDURE dohanoi(N, Tfrom, Tto, Tusing : integer); 
+BEGIN 
+    IF N > 0 THEN 
+    BEGIN 
+          dohanoi(N-1, Tfrom, Tusing, Tto); 
+          writeln('move ', Tfrom:1, ' --> ', Tto:1); 
+          dohanoi(N-1, Tusing, Tto, Tfrom); 
+    END 
+END; 
+BEGIN 
+    dohanoi(5, 1, 3, 2)
+END.
+```
+
+#### Ejemplo objetos (Python)
+
+```py
+def hanoi(n, inc='1', temp='2', fin='3'):
+  if n > 0:
+      hanoi(n-1, inc, fin, temp)
+      print('se mueve de torre', inc, 'a torre', fin)
+      hanoi(n-1, temp, inc, fin)
+
+hanoi(5)
+```
+
+#### Ejemplo funcional (Lisp)
+
+```lisp
+(defun torres-de-hanoi (discos)
+  (interactive "nDime tus discos y te digo cuantos pasos tienes que dar: " discos)
+  (message (number-to-string (torres-de-hanoi-aux discos))))
+(defun torres-de-hanoi-aux (discos)
+  (if (= discos 1)
+      1
+    (+ 1 (* 2 (torres-de-hanoi-aux (- discos 1))))))
+```
+
+#### Ejemplo lógico (Prolog)
+
+```prolog
+hanoi(1,A,B,C) :- write("Mueve del ",A," al ",C), nl.
+hanoi(N,A,B,C) :- N>1, M is N-1, hanoi(M,A,C,B), hanoi(1,A,B,C), hanoi(M,B,A,C). 
+```
 
 ### Por categoría / paradigma
 
@@ -113,14 +170,14 @@
 
 | Manera de abordar la tarea a realizar | |
 | -- | -- |
-| **Operativos** | indican cómo hay que hacer la tarea, es decir, expresan los pasos a realizar. Un lenguaje de este tipo se conoce como **lenguaje completo en Turing**, debe incluir variables enteras y aritméticas, así como la ejecución de sentencias de forma secuencial, incluyendo sentencias de asignación, condicionales (if) y bucles (while). Ejemplo: C |
-| **Declarativos** | indican qué hay que hacer. Ejemplos: Lisp, Prolog. Otros ejemplos de lenguajes declarativos, pero que no son LP, son HTML (para describir páginas web) o SQL (para consultar bases de datos) |
+| **Operativos** | indican **cómo** hay que hacer la tarea, es decir, expresan los pasos a realizar. Un lenguaje de este tipo se conoce como **lenguaje completo en Turing**, debe incluir variables enteras y aritméticas, así como la ejecución de sentencias de forma secuencial, incluyendo sentencias de asignación, condicionales (if) y bucles (while). Ejemplo: C |
+| **Declarativos** | indican **qué** hay que hacer. Declaración de proposiciones, condiciones, restricciones, ecuaciones o transformaciones que caracterizan al problema y describen su solución. Ejemplos: Lisp, Prolog. Otros ejemplos de lenguajes declarativos, pero que no son LP, son HTML (para describir páginas web) o SQL (para consultar bases de datos) |
 
 | Paradigmas ||
 | -- | -- |
-| **Imperativos** | Fortran, C, Pascal |
-| **Orientados a Objetos** | Python, Java, Ruby, C++, C#, Delphi, Smalltalk, Perl, Go, Rust |
-| **Funcionales** | Haskell, Miranda, Lisp, Scheme, Scala, Ocam, Clojure, Racket |
+| **Imperativos** | Fortran, C, Pascal, Algol, COBOL, ADA, CLIPPER, FOX, PL/1 |
+| **Orientados a Objetos** | Python, Java, Ruby, C++, C#, Delphi, Smalltalk, Eiffel, Perl, Go, Rust, Simula |
+| **Funcionales** | Haskell, Miranda, Lisp, Scheme, Scala, Ocam, Clojure, Racket, ML, Gofer |
 | **Lógicos** | Prolog, Planner |
 
 ![Multiparadigma](img/multiparadigma.png)
@@ -181,29 +238,29 @@
 ## Diseño de los LP
 
 * Hay una gran variedad de LP y continúan apareciendo nuevos ¿por qué?
-  * Evolución.
-  * Propósito especial.
-  * Preferencia personal.
-* Hasta nuestros días, ningún lenguaje es adecuado para cualquier escenario o tarea, por lo que es necesario conocer de cada lenguaje qué características (o principios) lo diferencian y cuáles los hacen más adecuados para determinados escenarios o tareas.
+  * Evolución
+  * Propósito especial
+  * Preferencia personal
+* Hasta nuestros días, ningún lenguaje es adecuado para cualquier escenario o tarea, por lo que es necesario conocer de cada lenguaje qué características (o principios) lo diferencian y cuáles los hacen más adecuados para determinados escenarios o tareas
 
 ## ¿Qué convierte a un lenguaje en exitoso?
 
-* Poder expresivo.
-* Facilidad de uso para novatos (baja curva de aprendizaje).
-* Facilidad de implementación.
-* Estandarización.
-* Código abierto.
-* Excelentes compiladores.
-* Inercia, economía, quien lo promueve.
+* Poder expresivo
+* Facilidad de uso para novatos (baja curva de aprendizaje)
+* Facilidad de implementación
+* Estandarización
+* Código abierto
+* Excelentes compiladores
+* Inercia, economía, quien lo promueve
 
 ## Características de Diseño de los LP
 
-* **Eficiencia**: el diseño debe permitir al traductor la generación de código ejecutable eficiente (optimizabilidad).
+* **Eficiencia**: el diseño debe permitir al traductor la generación de código ejecutable eficiente (optimizabilidad)
 
-* **Regularidad**: se refiere al comportamiento de las características del lenguaje.
-  * **generalidad**: se consigue cuando el uso y la disponibilidad de los constructores no están sujetas a casos especiales y cuando el lenguaje incluye solo a los constructores necesarios y el resto se obtienen por combinaciones de constructores relacionados. Ejemplo: Pascal no tiene arrays de longitud variable con lo que carecen de generalidad.
-  * **ortogonalidad**: ocurre cuando los constructores del lenguaje pueden admitir combinaciones significativas y en ellas, la interacción entre los constructores o con el contexto, no provocan restricciones ni comportamientos inesperados. Ejemplo: En Pascal las funciones solo pueden devolver valores de tipo escalar o array, y en C o C++ las funciones pueden devolver cualquier tipo de datos, excepto arrays o matrices.
-  * **uniformidad**: se refiere a que lo similar se ve similar y lo diferente, diferente. Lo que implica la consistencia entre la apariencia y el comportamiento de los constructores. Ejemplo: En C los operadores & y && parecen similares pero su comportamiento es muy diferente.
+* **Regularidad**: se refiere al comportamiento de las características del lenguaje
+  * **generalidad**: se consigue cuando el uso y la disponibilidad de los constructores no están sujetas a casos especiales y cuando el lenguaje incluye solo a los constructores necesarios y el resto se obtienen por combinaciones de constructores relacionados. Ejemplo: Pascal no tiene arrays de longitud variable con lo que carecen de generalidad
+  * **ortogonalidad**: ocurre cuando los constructores del lenguaje pueden admitir combinaciones significativas y en ellas, la interacción entre los constructores o con el contexto, no provocan restricciones ni comportamientos inesperados. Ejemplo: En Pascal las funciones solo pueden devolver valores de tipo escalar o array, y en C o C++ las funciones pueden devolver cualquier tipo de datos, excepto arrays o matrices
+  * **uniformidad**: se refiere a que lo similar se ve similar y lo diferente, diferente. Lo que implica la consistencia entre la apariencia y el comportamiento de los constructores. Ejemplo: En C los operadores & y && parecen similares pero su comportamiento es muy diferente
 
 * Principios adicionales (simplicidad, expresividad, extensibilidad, capacidad de restricción, consistencia entre las notación y las convenciones, precisión, portabilidad, seguridad, interoperabilidad)
 
@@ -213,16 +270,17 @@
 
 ## ¿Qué LP usar?
 
-* No existe un "mejor lenguaje" de programación en términos absolutos. Pero, en ciertas situaciones, algunos lenguajes son una mejor opción que otros.
+* No existe un "mejor lenguaje" de programación en términos absolutos. Pero, en ciertas situaciones, algunos lenguajes son una mejor opción que otros
 * Algunos criterios para adoptar un lenguaje/framework:
-  * rendimiento, eficiencia.
-  * capacidad técnica para satisfacer los requerimientos del proyecto.
+  * rendimiento, eficiencia
+  * capacidad técnica para satisfacer los requerimientos del proyecto
   * popularidad (documentación, soporte, comunidad, bibliotecas, ...)
   * plataformas soportadas (web, standalone, mobile, ...)
 
 ## Actividades
 
 1. ¿En qué se diferencia la programación declarativa de la programación imperativa?
-2. ¿Cree que afecta la capacidad de expresión de un lenguaje en la eficiencia de programación en el mismo?
-3. Defina y aporte un ejemplo de cada uno de los tres principios en que se divide la eficiencia de un LP.
-4. Defina las tres propiedades en que se subdivide el principio de regularidad de un LP.
+1. Resolver el mismo problema en los cuatro paradigmas
+1. ¿Cree que afecta la capacidad de expresión de un lenguaje en la eficiencia de programación en el mismo?
+1. Defina y aporte un ejemplo de cada uno de los tres principios en que se divide la eficiencia de un LP
+1. Defina las tres propiedades en que se subdivide el principio de regularidad de un LP

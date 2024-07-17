@@ -1,0 +1,3 @@
+? cuadrado(3 + 4)
+? min 3 4
+? min(cuadrado ( 1 + 1 ) 3)

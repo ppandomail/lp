@@ -4,6 +4,9 @@
 
 * Titular: Mg. Ing. Pablo Pandolfo
 
+* UNO:
+  * Ayudante: Anta. Alexander Andrada
+
 ## Objetivos
 
 * Disminuir la curva de aprendizaje de un nuevo LP, reconociendo sus características semánticas esenciales
@@ -29,7 +32,6 @@
 ## Programa
 
 1. [Introducción](doc/intro.md)
-1. [Paradigmas](doc/paradigmas.md)
 1. [Sintaxis](doc/sintaxis.md)
 1. [Semántica](doc/semantica.md)
 1. [Tipos de Datos](doc/tipos.md)

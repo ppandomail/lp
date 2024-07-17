@@ -1,17 +1,6 @@
 ﻿# Características de Lenguajes de Programación
 
-![UNAHUR](01.png)
-
 ## Paradigma Imperativo
-
-![LOGO](02.png)
-
-* Profesor:
-  * Mg. Pablo Pandolfo
-
-* Alumnxs:
-  * Mariana Sánchez
-  * Nicolás de la Fuente
 
 ### Introducción
 
@@ -30,13 +19,13 @@
 
 * La sintaxis básica del comando "goto" es la siguiente:
 
-![GOTO](03.png)
+![GOTO](img/goto.png)
 
 * Donde "etiqueta" es una identificación única dentro del código del programa que se utilizará para identificar la sección de código a la que se desea saltar.
 
 #### Goto en C
 
-![GOTO en C](04.png)
+![GOTO en C](img/goto-c.png)
 
 * Este código imprimirá repetidamente el mensaje "Hola, ¿cómo estás?" en la pantalla, ya que el programa saltará de vuelta a la etiqueta "inicio" cada vez que se ejecute la línea "goto inicio;".
 * Es importante tener en cuenta que el uso excesivo de la instrucción "goto" puede dificultar la comprensión del flujo de ejecución del programa y hacer que sea más difícil de leer y mantener.
@@ -44,7 +33,7 @@
 
 #### Goto en Python
 
-![GOTO en Python](05.png)
+![GOTO en Python](img/goto-py.png)
 
 * Este ejemplo utiliza un bucle infinito controlado por la instrucción "goto" para imprimir los números del 1 al 10 en la pantalla.
 * La etiqueta "start" se utiliza para indicar el punto de inicio del bucle y el "if" se utiliza para salir del bucle cuando se llega a 10.
@@ -52,7 +41,7 @@
 
 #### Goto en Java
 
-![GOTO en Java](06.png)
+![GOTO en Java](img/goto-java.png)
 
 * Este ejemplo utiliza dos etiquetas, "outer" y "inner", para controlar dos bucles anidados. El primer bucle "while" itera sobre la variable "i", mientras que el segundo bucle "while" itera sobre la variable "j". Cuando la variable "j" alcanza el valor 5, se rompe el bucle interior utilizando la instrucción "break inner". De manera similar, cuando la variable "i" alcanza el valor 5, se rompe el bucle exterior utilizando la instrucción "break outer".
 * No obstante, estas transferencias arbitrarias del control de ejecución hacían que los programas fueran muy poco legibles y difíciles de entender. A finales de los años sesenta, surgió una nueva forma de programar que reducía al mínimo el uso de la instrucción "goto" y la sustituía por otras más comprensibles.
@@ -129,7 +118,7 @@
 * Estas estructuras no permiten modificar el flujo de ejecución, ya que todas las instrucciones son ejecutadas de manera secuencial.
 * Ejemplos de estructuras secuenciales son: la asignación de valores a variables, la llamada a funciones, la declaración de variables, entre otras.
 
-![Secuencia](07.png)
+![Secuencia](img/secuencia.png)
 
 ##### Ejemplo en pseudocódigo de estructura secuencial
 
@@ -150,7 +139,7 @@ FIN
 
 * El condicional simple se utiliza para ejecutar un bloque de código si una condición se cumple, y no hacer nada si no se cumple.
 
-![Condicion](08.png)
+![Condicion](img/condicion.png)
 
 ##### Ejemplo en pseudocódigo de condicional simple
 
@@ -169,13 +158,13 @@ FIN
 
 * El condicional doble se utiliza para ejecutar diferentes bloques de código en función de si una o varias condiciones se cumplen o no.
 
-![Condicional doble](09.png)
+![Condicional doble](img/condicion-doble.png)
 
 #### Condicional múltiple
 
 * Un condicional múltiple se refiere a una estructura de control de flujo que permite ejecutar diferentes bloques de código dependiendo del cumplimiento o no de varias condiciones.
 
-![Condicional múltiple](10.png)
+![Condicional múltiple](img/condicion-multiple.png.png)
 
 ### Estructuras iterativas o repetitivas
 
@@ -192,7 +181,7 @@ FIN
 * La estructura while ejecuta un bloque de código mientras se cumpla una condición determinada.
 * El código dentro del bloque de while se ejecutará una y otra vez mientras la condición sea verdadera.
 
-![While](11.png)
+![While](img/while.png)
 
 ##### Ejemplo en pseudocódigo de estructura while
 
@@ -253,7 +242,7 @@ FIN
 * El código dentro del bloque de do se ejecutará al menos una vez, y después se verificará la condición.
 * Si la condición es verdadera, el bloque de código se ejecutará de nuevo, y así sucesivamente.
 
-![DO-WHILE](12.png)
+![DO-WHILE](img/do-while.png)
 
 ### Componentes o módulos
 
@@ -292,7 +281,7 @@ FIN
 * No devuelven ningún valor, pero pueden tener efectos secundarios en el estado del programa.
 * Estas subrutinas se utilizan para agrupar código repetitivo o para dividir un programa en tareas más pequeñas y manejables.
 
-![Subrutina procedural](13.png)
+![Subrutina procedural](img/subrutina.png)
 
 * En este ejemplo, se presenta una subrutina procedural llamada CalculoRaiz que realiza el cálculo de la raíz cuadrada de un número. La subrutina toma como entrada el número que se desea calcular la raíz y devuelve como salida el resultado del cálculo.
 * La secuencia de pasos en el diagrama es la siguiente:
@@ -307,7 +296,7 @@ FIN
 * Las funciones son similares a las subrutinas procedurales, pero en lugar de simplemente ejecutar un bloque de código, devuelven un valor.
 * Las funciones se utilizan para realizar cálculos y procesamiento de datos, y el valor devuelto puede ser utilizado por el programa para realizar otras tareas.
 
-![Función](14.png)
+![Función](img/funcion.png)
 
 * En este ejemplo, se presenta una subrutina de función llamada CalculoPotencia que realiza el cálculo de la potencia de un número elevado a un exponente.
 * La subrutina toma como entrada el número base y el exponente y devuelve como salida el resultado de la operación.
@@ -318,125 +307,3 @@ FIN
 1. En el paso CalculoPotencia, se llama a la subrutina de función CalculoPotencia para realizar el cálculo de la potencia del número base elevado al exponente ingresado.
 1. En el paso MostrarResultado, se muestra en pantalla el resultado del cálculo realizado en la subrutina CalculoPotencia.
 1. Finalmente, en el paso Fin, se termina la ejecución del programa.
-
-### Pasando a lenguajes de programación
-
-#### Secuencia
-
-##### Código en Python para secuencia
-
-```python
-base = float(input("Ingrese la base del triángulo: "))
-altura = float(input("Ingrese la altura del triángulo: "))
-area = (base * altura) / 2
-print("El área del triángulo es:", area)
-```
-
-##### Código en JavaScript para secuencia
-
-```javascript
-let base = parseFloat(prompt("Ingrese la base del triángulo: "));
-let altura = parseFloat(prompt("Ingrese la altura del triángulo: "));
-let area = (base \* altura) / 2;
-alert("El área del triángulo es: " + area);
-```
-
-#### Selección
-
-##### Código en Python para selección
-
-```python
-numero = int(input("Ingrese un número: "))
-if numero >= 0:
-  print("El número es positivo")
-else:
-  print("El número es negativo")
-```
-
-##### Código en JavaScript para selección
-
-```javascript
-let numero = parseInt(prompt("Ingrese un número: "));
-if (numero >= 0) {
-  alert("El número es positivo");
-} else {
-  alert("El número es negativo");
-}
-```
-
-#### Repetición
-
-##### Código en Python para repetición
-
-```python
-suma = 0
-i = 1
-while i <= 10:
-  suma += i
-  i += 1
-print("La suma de los números del 1 al 10 es:", suma)
-```
-
-##### Código en JavaScript para repetición
-
-```javascript
-let suma = 0;
-let i = 1;
-while (i <= 10) {
-  suma += i;
-  i++;
-}
-alert("La suma de los números del 1 al 10 es: " + suma);
-```
-
-#### Ciclos, bucles
-
-##### Código en Python para ciclos
-
-```python
-numero = int(input("Ingrese un número: "))
-factorial = 1
-for i in range(1, numero + 1):
-  factorial *= i
-print("El factorial de", numero, "es:", factorial)
-```
-
-##### Código en JavaScript para ciclos
-
-```javascript
-let numero = parseInt(prompt("Ingrese un número: "));
-let factorial = 1
-for (let i = 1; i <= numero; i++) {
-  factorial *= i;
-}
-alert("El factorial de " + numero + " es: " + factorial);
-```
-
-#### Subrutinas
-
-##### Código en Python para subrutinas
-
-```python
-def calcular_area(base, altura):
-  area = (base * altura) / 2
-  return area
-
-base = float(input("Ingrese la base del triángulo: "))
-altura = float(input("Ingrese la altura del triángulo: "))
-area = calcular_area(base, altura)
-print("El área del triángulo es:", area)
-```
-
-##### Código en JavaScript para subrutinas
-
-```javascript
-function calcularArea(base, altura) {
-  let area = (base \* altura) / 2;
-  return area;
-}
-
-let base = parseFloat(prompt("Ingrese la base del triángulo: "));
-let altura = parseFloat(prompt("Ingrese la altura del triángulo: "));
-let area = calcularArea(base, altura);
-alert("El área del triángulo es: " + area);
-```

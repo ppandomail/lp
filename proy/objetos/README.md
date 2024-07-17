@@ -10,13 +10,13 @@
 * Simula 67 introdujo por primera vez los conceptos de clases, objetos, herencia, subclases, corutinas y funciones virtuales.
 * Es por esta razón que Simula es considerado el primer lenguaje de programación orientado a objetos.
 
-![Simula](01.png)
+![Simula](img/simula.png)
 
 * Dahl y Nygaard en los tiempos del desarrollo del Simula.
 
 ## Evolución de los lenguajes de POO a través de los años
 
-![Evolucion](02.png)
+![Evolucion](img/evolucion.png)
 
 | Año  | Lenguaje | Descripción |
 |------|----------|-------------|
@@ -57,7 +57,7 @@
 
 ### Elementos del Modelo
 
-![Mapa Conceptual](03.png)
+![Mapa Conceptual](img/mapa.png)
 
 ### Caracteristicas inherentes
 
