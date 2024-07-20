@@ -1,22 +1,10 @@
 # Semántica
 
-## Definición
-
-* Describe el significado (interpretaciones) de los símbolos, palabras y frases de un lenguaje.
-* Se les asigna un significado a las construcciones sintácticas que junto con la sintaxis ayuda a definir un sistema formal.
-* Responder a la pregunta: ¿Qué significado tienen las sentencias? Ejemplos:
-  * En este LP, cuando se asigna un float a una entero se trunca por la parte entera inferior.
-  * En el LP Y, cuando se divide por cero, se debe mostrar tal mensaje de error.
-* La especificación de la semántica de un LP no está estandarizada ni consensuada como en el caso de la sintaxis.
-* A falta de una definición formal, hay varias formas posibles de especificar informalmente un LP:
-  * Mediante un manual de referencia del LP, que puede ser impreciso, sufrir omisiones y contener ambigüedades.
-    * Ejemplo de semántica descrita en MROC -> Operadores: especifica la realización de una operación que producirá un valor. Un operando es una entidad sobre la que actúa un operador. Ejemplos: +, ++, %
-  * Mediante el uso de un traductor para definir la semántica.
-
-* Lo mejor es una especificación formal.
-* Entre las aproximaciones existentes, la semántica denotacional, que describe la semántica de un LP mediante funciones, es la más utilizada.
-* Semántica denotacional o denotativa: define el significado de cada tipo de instrucción que se produce en la sintaxis como un función matemática de transformación de estado.
-* Basada en la teoría de funciones recursivas. Cálculo lambda.
+|||
+| -- | -- |
+| **¿Qué es?**            | Describe el significado (interpretaciones) de los símbolos, palabras y frases de un lenguaje, Ejemplo: en este LP, cuando se asigna un float a una entero se trunca por la parte entera inferior |
+| **¿Cómo se escribe?**   | Manuales de referencia (impreciso, ambiguo), uso de un traductor, definiciones formales (cálculo lambda) |
+| **¿Qué vamos a hacer?** | Recurrir a la pragmática, reconociendo la influencia de la pragmática en la semántica |
 
 ## Cálculo Lambda
 
@@ -63,29 +51,58 @@ var -> x | y | z | f | n
 | 1 | λw.λy.wy |
 
 * (+ 1 1)
-  * (λm. λn. λf. λx. mfnfx) (λa. λb.ab) (λc. λd.cd)
-  * (λn. λf. λx. (λa. λb.ab)fnfx) (λc. λd.cd)
-  * λf. λx. (λa. λb.ab)f (λc. λd.cd)fx
-  * λf. λx. (λb.fb)(λc. λd.cd)fx
-  * λf. λx. f(λc. λd.cd)fx
-  * λf. λx. f(λd.fd)x
-  * λf. λx. f(fx) //(Es la M2)
+
+```plain
+(λm. λn. λf. λx. mfnfx) (λa. λb.ab) (λc. λd.cd)
+(λn. λf. λx. (λa. λb.ab)fnfx) (λc. λd.cd)
+λf. λx. (λa. λb.ab)f (λc. λd.cd)fx
+λf. λx. (λb.fb)(λc. λd.cd)fx
+λf. λx. f(λc. λd.cd)fx
+λf. λx. f(λd.fd)x
+λf. λx. f(fx) //(Es la M2)
+```
 
 * (* 0 1)
-  * (λa. λb.λz (a(bz))) (λf. λx.x) (λw. λy.wy)
-  * λb.λz (λf. λx.x(bz)) (λw. λy.wy)
-  * λz (λf. λx.x((λw. λy.wy)z))
-  * λz (λf. λx.x(λy.(zy)))
-  * λf. λx.x   //(Es la M0)
 
-## Atributos, vínculos y funciones semánticas
+```plain
+(λa. λb.λz (a(bz))) (λf. λx.x) (λw. λy.wy)
+λb.λz (λf. λx.x(bz)) (λw. λy.wy)
+λz (λf. λx.x((λw. λy.wy)z))
+λz (λf. λx.x(λy.(zy)))
+λf. λx.x   //(Es la M0)
+```
 
-* En la descripción semántica de un LP, tienen que estar incluidas las reglas que determinan el significado de cada uno de los nombre o identificadores utilizados para las variables, los procedimientos y constantes.
-* El significado de un identificador queda determinado por los atributos (propiedades) asociados al mismo.
-* Unos atributos especialmente importantes son los valores, que representan cualquier cantidad almacenada y las localizaciones que son los lugares donde se almacenan los valores (direcciones de memoria)
+## Ligadura o binding
 
-* Elementos: variable, función/método, parámetro, bloque, sentencia, etc.
-* Atributos: valor, almacenamiento, tipo, alcance, nombre, acción asociada, etc.
+* Es el estudio del momento preciso en el que un atributo (propiedad) de un elemento (entidad) del lenguaje es conocida
+* Es la asociación entre el elemento y el atributo
+
+| Elementos |
+| -- |
+| Variable |
+| Función/método |
+| Parámetro |
+| Bloque |
+| Sentencia |
+| ... (depende del LP) |
+
+| Atributos |
+| -- |
+| Valor |
+| Almacenamiento |
+| Tipo |
+| Alcance |
+| Nombre |
+| Acción asociada |
+| ... (depende del LP) |
+
+* Ejemplos:
+
+| Tipo | |
+| -- | -- |
+| **Binding del tipo de las variables**          | es el momento en el que se conoce el tipo de la variable |
+| **Binding de almacenamiento de las variables** | es el momento en el que se conoce la dirección de la celda donde se almacenan las variables |
+| **...**                                        | es el momento en el que se conoce ... |
 
 * Por ejemplo, la declaración o definición en el LP C:
 
@@ -95,180 +112,47 @@ var -> x | y | z | f | n
     double f(int n) { ... }
     ```
 
-  * asocia al identificador n el atributo de tipo de dato constante entera y el atributo de valor 5.
+  * asocia al identificador n el atributo de tipo de dato constante entera y el atributo de valor 5
   * asocia el atributo variable y el tipo de dato entero al identificador x
-  * asocia el atributo función al identificador f y parámetros y tipo de dato devuelto y cuerpo del código que se ejecuta cuando se llama a la función.
+  * asocia el atributo función al identificador f y parámetros y tipo de dato devuelto y cuerpo del código que se ejecuta cuando se llama a la función
 
-* Diferencias entre los LP:
-  * número de elementos.
-  * número de atributos que se les pueden vincular.
-  * momento en que se hacen los vínculos (binding time).
-
-## Vínculo o ligadura o binding
-
-* Proceso de asignación de un atributo a un identificador.
-* Es el estudio del momento preciso en el que un atributo (propiedad) de un elemento (entidad) del lenguaje es conocida.
-* Es la asociación entre el elemento y el atributo.
-* Tiempo de vinculación:
-  * Tiempo en que un atributo se está calculando o bien vinculando a un elemento.
-  * Es el momento en cual se crea el binding.
-  * Hay diferentes momentos:
-
-    * **Estático**: en tiempo de definición (diseño e implementación) del lenguaje y en tiempo de escritura del programa (compilación, linkeo y carga). Por ejemplo, leyendo el programa se sabe que la variable i tiene el tipo entero:
-
-        ```C
-        i: integer; // en Pascal o Delphi
-        int i;      // en C, C++ o Java 
-        ```
-
-    * **Dinámico**: en tiempo de ejecución. Por ejemplo, en Python hay que esperar que se ejecute la instrucción para conocer el tipo de las variables:
-
-        ```python
-        if a == 1:
-            b = "hola"
-        else:
-            b = 3
-        print b 
-        ```
-
-* Momento y estabilidad:
-  * **Vínculo estático**: si se establece antes de la ejecución y no se puede cambiar. El término estático referencia al momento del binding y a su estabilidad. Ejemplo: En C, la sentencia int a; (se liga el tipo a la variable)
-  * **Vínculo dinámico**: si se establece en el momento de la ejecución y puede cambiarse de acuerdo a alguna regla específica del LP. Excepción: constantes. Ejemplo: En C, la sentencia int a; (el valor de una variable entera se liga en ejecución y puede cambiarse muchas veces)
-  
-* En general, los lenguajes funcionales tienen más vínculos dinámicos que los imperativos.
-* Los tiempos de vinculación también dependen del traductor:
-  * Intérpretes: la mayoría de los vínculos serán dinámicos.
-  * Compilador: genera mucho más vínculos estáticos.
+| Binding Time | | Ejemplo 1 | Ejemplo 2 |
+| -- | -- | -- | -- |
+| **Estático** | Tiempo de definición (diseño e implementación) del lenguaje    | %i **BASIC** (las variables seguidas con % son enteras | @a **Perl** (las variables que comienzan con @ tienen estructura de tipo arreglo) |
+| **Estático** | Tiempo de escritura del programa (gralmente. en LP compilados) | i: interger; **Pascal, Delphi** | int i; **C/C++, Java** |
+| **Dinámico** | Tiempo de ejecución (gralmente. en LP interpretados)           | if (a == 1): b  = 'Hola' else b = 2.0 **Python** | if. T do, i=:3 else. i=:a end. **J** |
 
 ## Variables
 
-* Es un elemento  fundamental en los LP.
+* Es un elemento fundamental en los LP.
 * Es una abstracción de una celda de memoria.
 * Memoria principal: celdas elementales, identificadas por una dirección (referencia donde está almacenada la variable).
 * El contenido de una celda es una representación codificada de un valor.
-* Sintaxis de asignación \<identificador> \<símbolo de asignación> \<expresión>
+* Sintaxis de asignación: \<identificador> \<símbolo de asignación> \<expresión>
+  * \<identificador>: l-value (lugar de memoria asociado con la variable)
+  * \<expresión>: r-value (valor codificado almacenado en la ubicación de la variable)
+
 * Ejemplos:
 
-```plain
-a = b          Java, C, C++, Perl, FORTRAN
-a := b         Pascal, Delphi, Ada, ALGOL  
-a <- b         APL, Smalltalk
-(setq a b)     Lisp
-MOVE B TO A    COBOL
-set a b        Tcl
-a =: b         J
-LET a = b      Basic
-```
+  ```plain
+  a = b          Java, C, C++, Perl, FORTRAN
+  a := b         Pascal, Delphi, Ada, ALGOL  
+  a <- b         APL, Smalltalk
+  (setq a b)     Lisp
+  MOVE B TO A    COBOL
+  set a b        Tcl
+  a =: b         J
+  LET a = b      Basic
+  ```
 
-* Valor de una variable:
-  * Contenido de la ubicación de memoria a la que hace referencia la variable.
-  * Binding dinámico: las variables son "variables", se espera que su valor cambie durante la ejecución del programa.
-  * Binding estático: hay algunos LP en donde algunas variables no cambian su valor (constantes simbólicas y variables inmutables).
-
-![Variable](img/variable.jpg)
-
-## Constantes
-
-* Es una variable que se liga a un valor sólo cuando se realiza la ligadura a su correspondiente locación de memoria.
-* Tipos:
-  * Constantes literales:           a = 3;
-  * Constantes simbólicas:          #define PI 3.141592  En C
-  * Constantes propiamente dichas:  const x = 5;         En Pascal
-
-## Mutabilidad e Inmutabilidad
-
-* En algunos LP (CLU, Java, Python, Rust, etc.) existen variables inmutables, cuyo valor nunca puede ser modificado.
-* Ejemplo:
-
-```java
-
-public class A {
-    public int p = 1;
-}
-
-// a1 y a2 son objetos mutables
-A a1 = new A();
-A a2 = a1;
-a1.p = 3;
-
-// s1 y s2 son objetos inmutables
-String s1 = "Hola";
-String s2 = s1;
-s1 = "Que tal";
-```
-
-## Inicialización de variables
-
-* El binding de una variable a su valor en el momento que se liga al medio de almacenamiento se llama inicialización.
-* Generalmente toma lugar a través de una asignación. Ejemplo Java:
-
-```java
-int contador = 0;
-```
-
-![Ejemplo variable](img/ejemplo-variable.JPG)
-
-## Otros aspectos de una variable
-
-* **Nombre**:
-  * Identificador en lenguaje natural que utiliza el programador para hacer referencia a la celda de memoria.
-  * Se define en una sentencia llamada declaración.
-  * Consideraciones de diseño:
-    * ¿tienen longitud máxima? Ejemplo en Fortran 6, en Java, C++ y Python sin límites.
-    * ¿es sensible a mayúsculas y minúsculas? Ejemplo en C y Python sensibles a mayúsculas y minúsculas. En Pascal no sensible a mayúsculas y minúsculas.
-    * ¿se permite el uso de conectores (caracteres aceptados)? Ejemplo: muchos LP no los permiten. En Python, C, Pascal: _
-    * ¿hay palabras claves o reservadas?
-
-* **Alcance**:
-  * Rango de instrucciones en el que se conoce el nombre (visibilidad)
-  * Es la región textual de un programa en el cual una ligadura está activa. Una variable tiene una ligadura activa para una sentencia si puede ser referenciada en ella.
-  * Las instrucciones del programa pueden manipular una variable a través de su nombre dentro de su alcance.
-  * Binding estático de alcance (alcance léxico):
-    * Define el alcance en términos de la estructura léxica del programa.
-    * Puede ligarse estáticamente a una declaración (explícita o implícita) examinando el texto del programa, sin necesidad de ejecutarlo.
-    * La mayoría de los LP adoptan reglas de ligadura de alcance estático.
-    * En un LP con reglas de alcance estático o léxico el binding se determina en tiempo de compilación a partir de la examinación del texto del programa.
-    * Habitualmente el binding tiene lugar “matcheando” la declaración cuyo bloque está más cercano a ese punto del programa.
-    * Formas conocidas en LP: Local – global / Bloques / Orden de declaración.
-
-    ```java
-    public class A {
-        private int x;
-        public A() {
-            x = 0; // instrucciones que pueden usar x
-        }
-    }
-    ```
-
-  * **Binding dinámico de alcance**:
-    * Define el alcance del nombre de la variable en términos de la ejecución del programa.
-    * Cada declaración de variable extiende su efecto sobre todas las instrucciones ejecutadas posteriormente, hasta que una nueva declaración para una variable con el mismo nombre es encontrada durante la ejecución.
-    * El binding se resuelve siguiendo la secuencia de llamados, no en la relación del texto del programa. De ahí que sólo pueda determinarse en ejecución.
-    * APL, Lisp (original), SNOBOL4, Perl
-
-    ```basic
-    10 INPUT A
-    20 B = 5
-    30 IF (A>4) C = 3
-    40 D = B + C
-    ```
-
-    * Sólo se puede ejecutar si el usuario ingresa un número mayor a 4. Si no, C no tiene valor y la ejecución da error. Mirando el programa, no se puede saber si una instrucción puede usar una variable.
-
-* **Tipo**: valores y operaciones.
-
-* **Tiempo de vida**: tiempo en el que la variable tiene lugar en memoria y puede ser accedida.
-
-* **l-value**:
-  * a := b  (a es l-value)
-  * Lugar de memoria asociado con la variable.
-  * Tiempo de vida: periodo de tiempo que existe la ligadura por l-valor. Se extiende durante toda la alocación.
-  * Se accede a la celda de memoria que referencia la variable.
-
-* **r-value**:
-  * a := b  (b es r-value)
-  * Valor codificado almacenado en la ubicación de la variable.
-  * Se extrae el valor de esta variable a través del mecanismo de desreferencing. Si lo que está del lado derecho es una constante, simplemente se utiliza su valor.
+  | Binding | | Estático | Dinámico | Ejemplo dinámico |
+  | -- | -- | -- | -- | -- |
+  | **De valor**   | El patrón de bits almacenado en la celda asociada a la variable | Muy pocos lenguajes funcionales puros / Inmutabilidad | Paracticamente todos | float x; <br> x = 1.0; <br> input(x); <br> x = rand(); |
+  | **De tipo**    | El conjunto de valores posibles que puede adquirir la variable | Pascal, C, C++, Java, Kotlin, Rust, Go | Inferencia: J, LISP, Python, PHP, Javascript, Perl, Dart | v = new Persona("Pepe"); <br> v = new Comprobante(123); |
+  | **De alcance** | Cuáles instrucciones pueden usar una variable | Pascal, C, C++, Java, Kotlin, Rust, Go, Python | APL, J, BASIC, Perl | 10 INPUT A <br> 20 B = 5 <br> 30 IF (A > 4) C = 3 <br> 40 D = B + C <-- no se puede saber si C está al alcance o no |
+  | **De almacenamiento** | Almacenamiento: el lugar de memoria donde está la variable | COBOL, FORTRAN | Mayoría | void a() { int x = 4: } --> <br> mov ax, 4 <br> mov ?, ax |
+  | **De nombre**         | Identificador que utiliza el programador para referirse a la celda de memoria de la variable: longitud, casesensitive, caracteres | | | |
+  | **De tiempo de vida** | Tiempo en el que la variable tiene lugar en memoria y puede ser accedida | | | a1 = new A(); <br> ... <br> if (...) delete a1; <br> ... |
 
 ## Ejercicios
 

@@ -1,50 +1,51 @@
 # Sintaxis
 
-* La sintaxis y la semántica de un LP son los componentes principales para su diseño.
-* Un LP es una notación formal para describir algoritmos y estructura de datos que resuelven problemas computacionales a ser ejecutados en una computadora.
-* **Sintaxis**: conjunto de reglas que definen como componer letras, dígitos y otros caracteres para formar programas, es decir, especifica la forma en la que se deben escribir los programas.
-* **Semántica**: conjunto de reglas para dar significado a los programas sintácticamente válidos.
+* Especifica la forma en la que se deben escribir los programas
+* Ejemplo:
 
-    ```c
-    v: array[1..10] of integer;   ---> Pascal
-    int v[10];                    ---> C
-    ```
+  ```c
+  v: array[1..10] of integer;   ---> Pascal
+  int v[10];                    ---> C
+  ```
 
-* La definición de la sintaxis y la semántica de un LP proporcionan mecanismos para que una persona o una computadora pueda decir:
-  * Si el programa es válido y
-  * Si lo es, qué significa.
+  ![Hola Mundo](img/hola-mundo.JPG)
 
-* Se describe a partir de:
-  * estructura léxica: se encarga de las cadenas de caracteres de un programa en un lenguaje: sus palabras o tokens (cadenas).
-  * GIC en BNF
-  * mecanismos específicos para tratar la ambigüedad intrínseca a los LP
+  ![Hola Mundo en Ook](img/ook.jpg)
 
-![Sintaxis](img/sintaxis.jpg)
+## Tipos de sintaxis
 
-![Hola Mundo](img/hola-mundo.JPG)
+| Tipo | | Ejemplo |
+| -- | -- | -- |
+| **Abstracta**  | se refiere a la estructura   | while condición bloque |
+| **Concreta**   | se refiere a la parte léxica | en C: while (x != y) { ... } en Pascal: while x <> y begin ... end |
+| **Pragmática** | se refiere al uso práctico   | en C y Pascal {} o begin-end pueden omitirse si el bloque está compuesto por una sola sentencia |
 
-![Hola Mundo en Ook](img/ook.jpg)
+## Elementos del lenguaje
 
-## Elementos de la sintaxis
+* Cumplen las funciones de las palabras del lenguaje natural
 
-* Sintácticamente un LP está compuesto por un conjunto de LRs y otro conjunto de LICs.
-  * LRs -> CATEGORÍAS LÉXICAS o TOKENS:
-    * **Identificadores**: secuencia de uno o más caracteres definidas por el programador que nombra diferentes entidades de un LP (variables, funciones, constantes, tipos, etc.), como x1, semana y otras, que no pueden ser palabras reservadas.
-    * **Palabras reservadas**: son palabras que no pueden redefinirse como identificadores (variables, funciones, etc.), porque están reservadas por el lenguaje.
+  | Elemento |
+  | -- |
+  | Constantes |
+  | Variables |
+  | Palabras clave |
+  | Parámetros |
+  | Tipos |
+  | Anotaciones |
+  | etc. |
 
-      ![Palabras Reservadas](img/keywords.jpg)
+## Reglas
 
-    * **Literales**: como son los números o una cadena de caracteres (variable1, 33, etc.)
-    * **Símbolos especiales**: como el +, el punto y coma, etc.
-  * LICs -> CATEGORÍAS SINTÁCTICAS:
-    * **Expresiones**: son funciones que a partir de un conjunto de datos devuelven un resultado. Son bloques sintácticos básicos a partir de los cuales se construyen las sentencias y programas
-    * **Sentencias**: componente sintáctico más importante. Tiene un fuerte impacto en la facilidad de escritura y legibilidad. Hay sentencias simples, estructuradas y anidadas.
+| Tipos | | Categorías | Ejemplo | Sistemas de formalización |
+| -- | -- | -- | -- | -- |
+| **Léxicas**     | Especifican cómo se escribe cada elemento | identificadores, palabras reservadas y símbolos especiales | Los identificadores comienzan con una letra, seguida de letras o números y tienen una longitud de 10 caracteres | ER: L (L+N)^9 |
+| **Sintácticas** | Especifican cómo se combinan los elementos para formar programas | expresiones y sentencias | Una definición de función comienza con el tipo de valor de retorno, un identificador, a continuación una lista de parámetros formales y finalmente posee un cuerpo | GIC, BNF, EBNF, ABNF, ANTLR, Diagramas sintácticos |  
 
-## Expresiones Regulares
+### Reglas Léxicas - ER
 
-* Son patrones de caracteres.
-* Describen formalmente los tokens de un lenguaje.
-* Objetivo: representar a los lenguajes sobre un alfabeto Σ, basándose en lenguajes primitivos y operadores de composición:
+* Son patrones de caracteres
+* Describen formalmente los tokens de un lenguaje
+* Representan un Lenguaje Formal: LR
   * ER primitivas: ∅, λ, a ∈ Σ
   * ER derivadas: α+β, αβ, α*, (α)
 * Precedencia de operadores: (), *, ., +
@@ -53,81 +54,65 @@
   * α + (β + θ) = (α + β) + θ
   * α + β = β + α
   * α\* α\* = α*
-* La clase de lenguajes que se pueden representar mediante una ER es equivalente a la clase de LR.
-* ER en la programación
+* Ejemplos:
 
-| ER | Describe... |
-| -- | -- |
-| ^\d{2}/\d{2}/\d{4} | una fecha DD/MM/YYYY |
-| Nov(\.\|iembre\|ember\|embro)? |  Nov, Noviembre, November, Novembro |
-| \(.*\) | cualquier cadena entre paréntesis |
+  | ER | Describe... |
+  | -- | -- |
+  | ^\d{2}/\d{2}/\d{4} | una fecha DD/MM/YYYY |
+  | Nov(\.\|iembre\|ember\|embro)? |  Nov, Noviembre, November, Novembro |
+  | \(.*\) | cualquier cadena entre paréntesis |
 
-## Tipos de reglas
+  ![Palabras Reservadas](img/keywords.jpg)
 
-* **Reglas léxicas**: conjunto de reglas para formar las "word", a partir de los caracteres del alfabeto. Ejemplo: "Los identificadores deben empezar con mayúscula y deben tener una longitud de hasta 10 caracteres".
+  ![Operadores](img/operadores.jpg)
 
-![Operadores](img/operadores.jpg)
+  ![Comentarios](img/comentarios.jpg)
 
-![Comentarios](img/comentarios.jpg)
-
-* **Reglas sintácticas**: conjunto de reglas que definen cómo formar las “expresiones” y “sentencias”. Ejemplos:
-  * Una estructura de repetición contiene una condición y un conjunto de sentencias, que se ejecutarán mientras se cumpla la condición.
-  * El if en C no lleva “then”, en Pascal si.
-
-## Tipos de sintaxis
-
-* **ABSTRACTA**: se refiere a la estructura.
-
-```plain
-while condición
-   bloque
-```
-
-* **CONCRETA**: se refiere a la parte léxica.
-
-```c
-// C
-while (x != y) {
-  ...
-}
-```
-
-```Pascal
-{Pascal}
-while x <> y 
-begin
-...
-end
-```
-
-* **PRAGMÁTICA**: se refiere al uso práctico. Ejemplos:
-  * El operador \<\> es más legible que !=
-  * En C y Pascal {} o begin-end pueden omitirse si el bloque está compuesto por una sola sentencia.
-
-## Gramáticas libres de contexto
+## Reglas Sintácticas - GIC
 
 * Generan un Lenguaje Formal: LIC
-* Describe la sintaxis del lenguaje que genera.
-* Conjunto de reglas finita que define un conjunto infinito de posibles sentencias válidas en el lenguaje.
+* Conjunto de reglas finita que define un conjunto infinito de posibles sentencias válidas en el lenguaje
 * Diseñada por Noam Chomsky (jerarquía de Chomsky)
 * Una gramática está formada por una 4-tupla:
-  * ∑N: conjunto de símbolos no terminales.
-  * ∑T: conjunto de símbolos terminales.
-  * S: axioma o símbolo distinguido.
-  * P: conjunto de producciones o reglas de reescritura.
-* Las **regla**s están formadas por un único símbolo no terminal que forma la parte izquierda de la regla, a continuación el metasímbolo ->, y finalmente la parte derecha de la regla, formada por símbolos terminales o no terminales.
-* El **lenguaje que define una gramática** es un conjunto de todas las cadenas de símbolos terminales para las cuales existe una derivación aplicando las reglas de la gramática.
-* Ejemplo: S -> retazo1 | retazo2 | girar(S) | coser(S, S)
+
+  |||
+  | -- | -- |
+  | ∑N | conjunto de símbolos no terminales |
+  | ∑T | conjunto de símbolos terminales |
+  | S  | axioma o símbolo distinguido |
+  | P  | conjunto de producciones o reglas de reescritura. ∑N -> {∑N U ∑T}* |
+
+* Ejemplo:
+
+  ```grammar
+  Los constructores del lenguaje son expresiones que denotan objetos geométricos llamados "retazos" con una altura, un ancho y un patrón dibujado en ellos. Reglas:
+  1. Un retazo es una de las piezas primitivas, o
+  2. se forma girando 90° un retazo hacia la derecha, o
+  3. se forma cosiendo un retazo a la derecha de otro de igual altura
+  4. Ninguna otra cosa es un retazo
+
+  S -> retazo1
+  S -> retazo2
+  S -> girar(S)
+  S -> coser(S, S)
+  ```
 
 ## Derivación
 
-* Es una secuencia que comienza con el axioma y en la que en cada paso se sustituye un símbolo no terminal de la cadena en curso por la parte derecha de una regla.
-* Se dice que se tiene una derivación de una cadena del lenguaje cuando todos los símbolos de la cadena en curso son terminales.
-* Ejemplo: S => coser(S, S) => coser(girar(S), S) => coser(girar(retazo1), S) => coser(girar(retazo1), retazo2)
+* Es una secuencia que comienza con el axioma y en la que en cada paso se sustituye un símbolo no terminal de la cadena en curso por la parte derecha de una regla
+* Se dice que se tiene una derivación de una cadena del lenguaje cuando todos los símbolos de la cadena en curso son terminales
+* Ejemplo:
+
+  ```plain
+  S => coser(S, S) 
+    => coser(girar(S), S) 
+    => coser(girar(retazo1), S) 
+    => coser(girar(retazo1), retazo2)
+  ```
 
 ### GIC para describir identificadores
 
-```plain
+```grammar
 Identificador -> Letra | Identificador Letra | Identificador Dígito
 Letra -> A | ... | Z | a | ... | z
 Dígito ->  0 | ... | 9
@@ -135,7 +120,7 @@ Dígito ->  0 | ... | 9
 
 ### GIC para describir expresiones aritméticas
 
-```plain
+```grammar
 Expresión -> Término | Expresión + Término
 Término -> Factor | Término * Factor 
 Factor ->  Número | (Expresión)
@@ -144,13 +129,15 @@ Número ->  0 | ... | 9
 
 ## BNF
 
-* BNF: Backus Normal Form o Backus-Naur Form
-* Con el breve Manual de Referencia del lenguaje ALGOL, se publicó por primera vez en 1960,  una descripción formal de la sintaxis de un LP.
-* Es un "metalenguaje", para describir otros lenguajes.
-* Es una notación formal para describir la sintaxis, ya que la GIC tiene muy pocos metasímbolos, dificultando la escritura y posterior comprensión de la sintaxis definida.
-* Los terminales y los no terminales deben distinguirse claramente.
-* Utiliza metasímbolos: < > ::= |
-* Define las reglas por medio de "producciones".
+* Backus Naur Form
+* Con el breve Manual de Referencia del lenguaje ALGOL, se publicó por primera vez en 1960, una descripción formal de la sintaxis de un LP
+* Es una notación formal ("metalenguaje") para describir la sintaxis de otros lenguajes, ya que la GIC tiene muy pocos metasímbolos, dificultando la escritura y posterior comprensión de la sintaxis definida
+
+  | Metasímbolo | |
+  | -- | -- |
+  | \<Simbolo no terminal> | distingue terminales de no terminales |
+  | ::= | parte izquierda "reescribe" parte derecha |
+  | \|  | unión de reglas |
 
 ### BNF para describir identificadores
 
@@ -176,14 +163,19 @@ Número ->  0 | ... | 9
 <PAR_CIERRA> ::= )
 ```
 
-### BNF para Lenguaje Colchita
+### BNF para expresiones aritméticas
 
-* Los constructores del lenguaje son expresiones que denotan objetos geométricos llamados "retazos" con una altura, un ancho y un patrón dibujado en ellos.
-* Reglas:
-  * Un retazo es una de las piezas primitivas, o
-  * se forma girando 90° un retazo hacia la derecha, o
-  * se forma cosiendo un retazo a la derecha de otro de igual altura.
-  * Ninguna otra cosa es un retazo.
+```bnf
+<asig> ::= <id> "=" <expr> 
+<expr> ::= <exp> "+" <term> 
+<expr> ::= <exp> "-" <term> 
+<expr> ::= <term>
+<term> ::= <term> “*” <factor> | <term> “/” <factor>
+<term> ::= <factor> 
+<factor> ::= <var> | <cte>
+```
+
+### BNF para Lenguaje Colchita
 
 ```bnf
 <exp> ::= a | b | turn (<exp>) | sew (<exp>, <exp>)
@@ -214,7 +206,7 @@ Número ->  0 | ... | 9
      end
      ```
 
-* Declaraciones de valores, conveniente para escribir expresiones grandes en términos de otras más simples; es decir, asigna nombre a una expresión.
+* Declaraciones de valores, conveniente para escribir expresiones grandes en términos de otras más simples; es decir, asigna nombre a una expresión
 let val \<nombre\> = \<expresión\> in \<expresión\> end
 * Ejemplo:
 
@@ -237,13 +229,13 @@ let val \<nombre\> = \<expresión\> in \<expresión\> end
 
 ### BNF para Lenguaje Esencial
 
-* El único tipo de datos es entero no negativo.
-* Los identificadores son declarados implícitamente, deben comenzar con una letra y están compuestos de letras y dígitos.
+* El único tipo de datos es entero no negativo
+* Los identificadores son declarados implícitamente, deben comenzar con una letra y están compuestos de letras y dígitos
 * El lenguaje contiene 2 enunciados de asignación:
   * **incr** nombre; //incrementa en 1 el valor asignado al identificador nombre
   * **decr** nombre; //decrementa en 1 (a menos que el valor por decrementar sea cero, en cuyo caso permanece con dicho valor)
 * El único otro enunciado es el par de enunciados de control: **while** nombre **<> 0 do;** ... **end;**
-el cual indica que es necesario repetir los enunciados que se encuentran entre los enunciados while y end mientras el valor asignado al identificador nombre no sea cero.
+el cual indica que es necesario repetir los enunciados que se encuentran entre los enunciados while y end mientras el valor asignado al identificador nombre no sea cero
 
 ```bnf
 <programa> ::= <sentencias>
@@ -258,24 +250,35 @@ el cual indica que es necesario repetir los enunciados que se encuentran entre l
 <dígito> ::= 0 | ... | 9
 ```
 
+### BNF para Lenguaje Completo
+
+![BNF](img/bnf.png)
+
+* 01-30: Reglas sintácticas
+* 31-71: Reglas léxicas
+
 ### Limitaciones de BNF
 
-* Limitaciones de longitud de identificadores. Ejemplo, lenguaje que pide que los identificadores tengan como máximo 8 caracteres.
-* Limitaciones de rangos.
-* Ubicación en el texto (una variable debe estar declarada antes de ser usada).
-* Formateo de texto.
-* Esto obliga a ir a una definición por extensión, en lugar de por comprensión, se pierde el sentido de usar BNF.
+* Limitaciones de longitud de identificadores. Ejemplo, lenguaje que pide que los identificadores tengan como máximo 8 caracteres
+* Limitaciones de rangos en constantes
+* Ubicaciones dentro del código fuente (una variable debe estar declarada antes de ser usada)
+* Formateo de texto
+* Aplicabilidad de operaciones a constantes y variables de diferentes tipos
+* Esto obliga a ir a una definición por extensión, en lugar de por comprensión, se pierde el sentido de usar BNF
 
 ## EBNF
 
-* Esta gramática es la BNF extendida.
-* La realizó Niklaus Wirth a la notación BNF utilizada para describir la sintaxis de ALGOL.
-* Los metasimbolos que incorpora:
-  * [ ] elemento optativo, puede o no estar.
-  * ( | ) selección de una alternativa.
-  * { } repetición.
-  * \*  0 o más veces.
-  * \+  1 o más veces.
+* Extended BNF
+* La realizó Niklaus Wirth a la notación BNF utilizada para describir la sintaxis de ALGOL
+
+  | Metasímbolos que incorpora ||
+  | -- | -- |
+  | [ ]    | elemento optativo |
+  | ( \| ) | selección de una alternativa |
+  | { }    | repetición |
+  | *      | 0 o más veces |
+  | +      | 1 o más veces |
+  | ?      | 0 ó 1 vez     |
 
 ### EBNF para describir identificadores
 
@@ -301,21 +304,23 @@ el cual indica que es necesario repetir los enunciados que se encuentran entre l
 <sentencia while> ::= while <expresión> do <sentencia>
 ```
 
-## BNF que utiliza MROC
+## ABNF
 
-* C fue desarrollado entre 1969 y 1972 por Dennis Ritchie, con el objetivo principal de implementar el sistema operativo UNIX en un LP de alto nivel.
+* Augmented BNF
+* C fue desarrollado entre 1969 y 1972 por Dennis Ritchie, con el objetivo principal de implementar el sistema operativo UNIX en un LP de alto nivel
 * A mediados de la década de los 80, el ANSI comenzó a desarrollar una estandarización de este LP. En 1990 se publicó MROC (Manual de Referencia Oficial de ANSI C)
-* A partir de ese momento, este LP es conocido como ANSI C.
-* Metasímbolos:
-  * No terminales en itálica, sin metasímbolos < y >.
-  * Operador ::= está representado por : ("dos puntos")
-  * No existe el metasímbolo |, sino que cada lado derecho de un determinado no terminal se escribe en una línea separada.
-  * En algunos casos se usa el metasímbolo uno de para representar varios lados derechos que son símbolos para un no terminal.
-  * Los terminales se escriben en negritas.
-  * Un símbolo opcional está indicado con un subíndice \_op. Ejemplo: { expresión \_op } equivale a { expresión }  o  {  }
-  * El lado derecho de una regla recursiva se representa como en BNF original.
+* A partir de ese momento, este LP es conocido como ANSI C
 
-### BNF que utiliza MROC para describir un token
+  | Metasímbolo | Representa |
+  | -- | -- |
+  | itálica | no terminales, ya no entre < > |
+  | negrita | terminales |
+  | :       | "reescribe", ya no ::= |
+  | enter   | parte derecha, ya no \| |
+  | uno de  | varios lados derechos que son símbolos para un no terminal |
+  | _op     | símbolo opcional, ya {exp} o {} |
+
+### ABNF para describir un token
 
 ```bnf
 token: palabraReservada
@@ -323,17 +328,17 @@ token: palabraReservada
        constante 
        operador
 
-token:  uno de  palabraReservada identificador constante operador
+token: uno de  palabraReservada identificador constante operador
 ```
 
-### BNF que utiliza MROC para describir palabras reservadas
+### ABNF para describir palabras reservadas
 
 ```bnf
 palabraReservada: uno de  char do double else float for if int long return sizeof struct typedef void while
 
 ```
 
-### BNF que utiliza MROC para describir identificadores
+### ABNF para describir identificadores
 
 ```bnf
 identificador: noDígito
@@ -344,7 +349,7 @@ noDígito: uno de  _ a b c d  e f g h i j k l m n o p q r s t u v w x y z A B C 
 dígito: uno de  0 1 2 3 4 5 6 7 8 9 
 ```
 
-### BNF que utiliza MROC para describir sentencias
+### ABNF para describir sentencias
 
 ```bnf
 sentencia: una de  sentCompuesta sentExpr sentSelección sentIteración sentSalto
@@ -363,7 +368,7 @@ sentIteración: while ( expresión ) sentencia
 sentSalto :  return expresión _op ;
 ```
 
-### BNF que utiliza MROC para describir Lenguaje Micro
+### ABNF para describir Lenguaje Micro
 
 * El único tipo de datos es entero.
 * Todos los identificadores son declarados implícitamente y con una longitud máxima de 32 caracteres.
@@ -393,41 +398,53 @@ digito: uno de 0-9
 operadorAditivo: uno de + -
 ```
 
-## ANTLR
+## Sintaxis para Java, Python, Kotlin, C++, Go
 
-* ANother Tool for Language Recognition
+* Cada LP elige un sistema particular
 
-```antlr
-statement : (label | annotation)* (declaration | assignment | loopStatement | expression)
-;
-forStatement
- : 'for' 
-   '(' annotation* (variableDeclaration | 
-   multiVariableDeclaration) 'in' expression ')' 
-   controlStructureBody?
-;
-```
+  | LP | URL |
+  | -- | -- |
+  | Java |[https://docs.oracle.com/javase/specs/jls/se7/html/jls-18.html](https://docs.oracle.com/javase/specs/jls/se7/html/jls-18.html) |
+  | Python | [https://docs.python.org/3/reference/grammar.html](https://docs.python.org/3/reference/grammar.html) |
+  | Kotlin | [https://kotlinlang.org/docs/reference/grammar.html](https://kotlinlang.org/docs/reference/grammar.html) |
+  | C++ | [https://alx71hub.github.io/hcb/](https://alx71hub.github.io/hcb/) |
+  | Go  | [https://go.dev/ref/spec](https://go.dev/ref/spec) |
+  | C   | [https://cs.wmich.edu/~gupta/teaching/cs4850/sumII06/The%20syntax%20of%20C%20in%20Backus-Naur%20form.htm](https://cs.wmich.edu/~gupta/teaching/cs4850/sumII06/The%20syntax%20of%20C%20in%20Backus-Naur%20form.htm) |
+
+## Algunas herramientas que utilizan mecanismos de definición de sintaxis
+
+| Herramienta | URL |
+| -- | -- |
+| CUP (Construction of Useful Parsers) | [http://www2.cs.tum.edu/projects/cup/](http://www2.cs.tum.edu/projects/cup/) |
+| YACC (Yet Another Compiler-Compiler) |  |
+| ANTLR (ANother Tool for Language Recognition) | [https://www.antlr.org/](https://www.antlr.org/) |
+| GNU Bison | [https://www.gnu.org/software/bison/](https://www.gnu.org/software/bison/) |
+| LLVM | [https://llvm.org/](https://llvm.org/) |
 
 ## Árboles sintácticos
 
-* No todas las oraciones que se pueden armar con los terminales son válidas.
-* Se necesita de un método de análisis (reconocimiento) que permita determinar si un string dado es válido o no en el lenguaje: Parsing.
-* El parser, para cada sentencia construye un “árbol sintáctico (parsing) o árbol de derivación”.
-* Representa gráficamente el proceso de reemplazo o sustitución dentro de una derivación.
-* Verificar que un programa o fragmento está correctamente escrito según una gramática.
-* La raíz debe coincidir con el axioma de la gramática.
+* No todas las oraciones que se pueden armar con los terminales son válidas
+* Se necesita de un método de análisis (reconocimiento) que permita determinar si un string dado es válido o no en el lenguaje: **Parsing**
+* El parser, para cada sentencia construye un **árbol sintáctico (parsing) o árbol de derivación**
+* Representa gráficamente el proceso de reemplazo o sustitución dentro de una derivación
+* Verificar que un programa o fragmento está correctamente escrito según una gramática
+* La raíz debe coincidir con el axioma de la gramática
 * Los no terminales están en los nodos interiores.
-* Las terminales están en las hojas.
+* Las terminales están en las hojas
+
+  ![Árbol de Parsing](img/arbol.png)
 
 ### Construcción del árbol sintáctico
 
-* El proceso de compilación consiste en construir el árbol sintáctico.
-* Si se puede construir el árbol, el programa está bien escrito.
-* Si  no se puede hacer el árbol sintáctico, el programa contiene errores sintácticos.
-* Si hay más de un árbol sintáctico para la misma expresión, la gramática es ambigua.
-* Tipos:
-  * Parsing descendente: desde el axioma hacia los terminales (de la raíz hacia las hojas).
-  * Parsing ascendente: desde los terminales hacia el axioma (de las hojas hacia la raíz).
+* El proceso de compilación consiste en construir el árbol sintáctico
+* Si se puede construir el árbol, el programa está bien escrito
+* Si no se puede hacer el árbol sintáctico, el programa contiene errores sintácticos
+* Si hay más de un árbol sintáctico para la misma expresión, la gramática es ambigua
+
+  | Tipos de parsing | | Ejemplo |
+  | -- | -- | -- |
+  | **Descendente** | desde el axioma hacia los terminales (de la raíz hacia las hojas) | ![Parsing Descendente](img/parsing-descendente.png) |
+  | **Ascendente**  | desde los terminales hacia el axioma (de las hojas hacia la raíz) | ![Parsing Ascendente](img/parsing-ascendente.png) |
 
 ## Diagramas sintácticos (CONWAY)
 
