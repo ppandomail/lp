@@ -1,25 +1,15 @@
 # Tipos
 
-## Abstracción
+## Tipos de datos
 
-* Es una representación de una entidad.
-* Permite agrupar entidades en grupos.
-* En LP es una herramienta para reducir la complejidad de la programación (simplificando el proceso de programación).
-* Su aumento favorece: legibilidad, verificación, oscurecimiento, confiabilidad, reusabilidad y extensibilidad.
-* Los LP contemporáneos proveen dos tipos de abstracción:
-  * Abstracción de procesos a través de unidades.
-  * Abstracción de datos desde 1980.
+* Conjunto de valores posibles (dominio), con un conjunto de operaciones asociadas a esos valores (ejemplo: comparación, asignación, etc.)
 
-## Evolución del concepto de Tipo
+| Tipos | | |
+| -- | -- | -- |
+| **Básicos o escalares**    | Para el Lenguaje contienen un único valor (pueden estar compuestos internamente por varios valores) | Booleanos, Caracter, Enteros, Punto fijo, Punto flotante (real, float, double, etc.), Nulos, Enumeraciones, Intervalos, Tipos ordenados, etc. |
+| **Agregados o compuestos** | Para el Lenguaje contienen más de un valor | Arreglos, Listas, Vectores, Conjuntos, Estructuras/Registros, Tipos recursivos (ejemplo: nodo), Tipos abstractos de datos (ejemplo: pila), Módulos, Clases |
 
-* Tipos básicos.
-* Tipos definidos por el usuario.
-* Tipo de dato abstracto (TDA).
-
-* Un tipo determina la interpretación de un valor almacenado y permite chequeos. (Fortran)
-* Un tipo es el conjunto de valores que puede tomar un dato. (Pascal)
-* Un tipo es un conjunto de valores y un conjunto de operaciones. (SIMULA)
-* Un tipo de dato abstracto (TDA) es una entidad que encapsula valores y operaciones (solo acceso a través de las operaciones)
+![Arrays](img/arrays.JPG)
 
 ## Sistema de tipos
 
@@ -42,130 +32,43 @@
     sumar(a, int(b))      // retorna 4
     ```
 
-### Tipos de datos
+![Sistema de tipos](img/sistema-tipos.png)
 
-* Los tipos de datos "capturan la naturaleza de los datos del problema que serán manipulados por los programas".
-* Conjunto de valores posibles (dominio), con un conjunto de operaciones asociadas a esos valores (ejemplo: comparación, asignación, etc.)
-* Operaciones: única forma de manipular los objetos instanciados.
-* Tipo: comportamiento abstracto de un conjunto de objetos y un conjunto de operaciones.
+### Clasificación de los sistemas de tipos
 
-#### Tipos básicos o predefinidos
+||||
+| -- | -- | -- |
+| Momento en que se conoce el tipo | **static typing** | **dynamic typing** |
+| Las operaciones aplicables respetan siempre los términos del tipo | SI: **strong typing** | NO: **soft typing** |
+| Los elementos siempre tienen un valor admisible para el tipo que poseen | SI: **type safety** | NO: **type unsafety** |
 
-* Reflejan el funcionamiento del hardware subyacente y son una abstracción de él.
-* Ejemplos: enteros, reales, caracteres, booleanos, String
+### Compatibilidad y Conversiones
 
-#### Tipos definidos por el usuario
+![Compatibilidad y conversiones](img/compatibilidad-conversiones.png)
 
-* Separan la especificación de la implementación.
-* Se definen los tipos que el problema necesita. Potencian la expresividad del LP.
-* Ejemplos: enumerados, arreglos, producto cartesiano (struct en C, record en Pascal, etc.), listas, etc.
+| Tipos de Compatibilidades | | Ventajas | Tipo de conversión | Ejemplo |
+| -- | -- | -- | -- | -- |
+| **Compatibilidad de tipos por nombre**     | Los elementos son compatibles si los nombres de los tipos son iguales | Mayor seguridad en las operaciones y mayor legibilidad de los programas | **Explícitas** | type Enteros is new Integer; <br> a : Integer; <br> b : Enteros; <br> a := a + b; |
+| **Compatibilidad de tipos por estructura** | Los elementos son compatibles si sus representaciones en memoria (estructuras) son compatibles | Mayor flexibilidad para operar entre tipos diferentes y mayor facilidad de escritura de los programas | **Implícitas o explícitas** | typedef int entero; <br> int a; <br> entero b; <br> a = a + b; |
 
-    ```pascal
-    type MES is (ENERO, FEBRERO, ..., DICIEMBRE)
-    X: MES
-    ```
+![Compatibilidades combinadas](img/compatibilidad-combinada.png)
 
-    ```c
-    typedef struct {
-        int nro_lados;
-        float tamaño_lado;
-    } reg_poligon;
-    reg_poligon pol = {3, 3.45};
-    ```
+| Tipos de conversiones | | Ejemplo |
+| -- | -- | -- |
+| **Explícitas** | Las escribe el programador | a := a + Integer(b); |
+| **Implícitas** | No da ningún tipo de error, se intenta convertir hacia un tipo más abarcativo (agrandar la representación) | int i; long l; float f; double d; d = i\*l+i\*f+f\*l+i\*d+f\*d; |
 
-![Primera posición arrays](img/array-posicion.JPG)
+![Relación Compatibilidad y Conversiones](img/c_y_c.png)
 
-![Arrays](img/arrays.JPG)
+## Casting
 
-##### Tipo de dato recursivo
+![Casting de Lado derecho](img/cast-derecho.png)
 
-* Un tipo de dato recursivo T se define como una estructura que puede contener componentes del tipo T.
-* Define datos agrupados cuyo tamaño puede crecer arbitrariamente y cuya estructura puede ser arbitrariamente compleja.
-* Los LP convencionales soportan la implementación de los tipos de datos recursivos a través de los punteros.
-* Los LP declarativos proveen mecanismos más abstractos que enmascaran a los punteros.
-* Ejemplo: tope -> []->[]->null
+![Casting de Lado izquierdo](img/cast-izquierdo.png)
 
-    ```java
-    public class Nodo {
-        private int dato;
-        private Nodo sig;
-    }
-    ```
+![Casting de Lado izquierdo el Algol](img/cast-algol.png)
 
-    ```c
-    struct Nodo {
-        int dato;
-        struct Nodo * sig;
-    } nodo;
-    ```
-
-#### Tipo de dato abstracto (TDA)
-
-* Es un tipo de dato definido por el usuario que satisface las siguientes condiciones:
-  * La representación de los objetos del tipo son definidos como unidades sintácticas simples.
-  * La representación del tipo son escondidos del programa que utilizan estos objetos, por lo tanto las únicas operaciones posibles son aquellas provistas por la definición del tipo.
-* Beneficios:
-  * Reduce la cantidad de detalles que el programador debe conocer y tener en mente a cada momento.
-  * Previene el uso incorrecto de componentes del programa (contención de fallas)
-  * Independencia significativa entre las componentes del programa.
-  * La definición completa debería estar encapsulada de manera que el usuario del tipo solo necesite conocer el nombre del tipo, la semántica y las operaciones disponibles.
-* Diseño:
-  * Unidad sintáctica para definir el TDA.
-  * Operaciones built-in: asignaciones y comparación.
-  * Operaciones comunes: iteradores, constructores y destructores.
-  * TDA parametrizados o clases genéricas: TDA que puede almacenar elementos de cualquier tipo.
-  * Extensiones de tipos o herencia: sucede cuando una componente del programa, recibe propiedades o características de otra componente.
-* Ejemplo:
-
-    ```java
-    public class Pila <T> {
-
-        private Nodo<T> tope;
-
-        class Nodo <T> {
-            T info;
-            Nodo<T> sig;
-        }
-
-        public Pila(){}
-        public void poner(T dato){}
-        public void sacar(){}
-        public boolean esVacia(){}
-        public T ver(){}
-    }
-    ```
-
-### Tiempo de chequeo (ligadura)
-
-* **Tipado estático**: si cada variable queda ligada a su tipo durante la compilación, sin necesidad de ejecutar el programa.
-* **Tipado dinámico**: ligaduras en ejecución, provoca más comprobaciones en tiempo de ejecución. Python es débilmente tipado y tiene tipado dinámico.
-* **Tipado seguro**: no es estático, ni inseguro.
-
-* Los LP estáticamente tipados requieren declarar las variables con su tipo de datos. Ejemplo: Java
-
-    ```java
-    int a = 1;
-    String b = "hola";
-    boolean c = true; 
-    ```
-
-  * Más verbosos, pero menos propenso a errores de sintaxis (el compilador los detecta).
-  * Se puede saber qué tipo de dato retorna una función.
-  * No se puede cambiar el tipo de dato después de declarada la variable.
-  * LP: Java, Go, C#, etc.
-
-* Los LP dinámicamente tipados declaran variables sin necesidad de definir el tipo de datos (el intérprete infiere el tipo). Ejemplo: JavaScript
-
-    ```javascript
-    let a = 1
-    let b = "hola"
-    let c = true  
-    ```
-
-  * Código más legible y curva de aprendizaje más sencilla.
-  * No se sabe qué tipo de dato retorna una función.
-  * Se puede cambiar el tipo de dato después de declarada la variable.
-  * LP: JS, Python, PHP, etc.
+![Conversiones en Lenguajes Dinámicos](img/cast-dinamicos.png)
 
 ### Nivel de polimorfismo del lenguaje
 
@@ -174,54 +77,6 @@
 * En cambio para los que permiten polimorfismo dinámico aparecen dificultades, ya que la cantidad de argumentos de una función polimórfica debe determinarse durante la ejecución.
 * La ejecución de funciones polimórficas será claramente más lenta que para lenguajes con tipado estático, debido a que el programa debe interrogar los argumentos antes de obtener sus valores.
 * Sin embargo, para muchas aplicaciones en poder de crear funciones polimórficas le quita peso a la ineficiencia en ejecución.
-
-### Compatibilidad y Conversión
-
-* **Compatibilidad**: ¿Qué pasa si se quiere hacer una operación con dos o más variables de distinto tipo?
-* **Conversión**: ¿Cómo se hace para convertir un tipo en otro para hacer la operación?
-* Ejemplo:
-
-    ```java
-    c = a + b;
-    ```
-
-  * ¿Son del mismo tipo? es necesario mirar el contexto del programa o la tabla de símbolos del compilador.
-  * Si son de tipos diferentes. ¿Son compatibles?
-    * No compatibles -> ERROR
-    * Parcialmente o totalmente compatibles -> CONVERSIONES
-
-* Tipos de compatibilidades:
-  * Por nombre: dos variables que tengan el mismo nombre de tipo son compatibles. Ejemplo ADA
-
-    ```ada
-    type Enteros is new Integer;
-    a : Integer;
-    b : Enteros;
-    a := a + b;
-    ```
-
-  * Por estructura: dos variables que tengan la misma representación en memoria son compatibles. Ejemplo Algol, C
-
-    ```c
-    typedef int entero;
-    int a;
-    entero b;
-    a = a + b;
-    ```
-
-* Tipos de conversiones:
-  * Explícitas:
-    * Las escribe el programador.
-    * Ejemplo a := a + Integer(b);
-    * Ventajas: mayor seguridad en las operaciones y mejor legibilidad de los programas.
-  * Implícitas:
-    * No da ningún tipo de error.
-    * Ejemplo a := a + b;
-    * Ventajas: mayor flexibilidad para operar entre tipos diferentes y mayor facilidad de escritura de los programas.
-
-![Relación Compatibilidad y Conversiones](img/c_y_c.png)
-
-![Conversiones en asignaciones](img/c_en_asig.png)
 
 ## Ejercicios
 
