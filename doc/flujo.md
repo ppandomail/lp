@@ -1,17 +1,22 @@
 # Control de Flujos
 
-* La manera cómo se incorpora en el LP determina el orden de ejecución de un programa.
+* La manera cómo se incorpora en el LP determina el orden de ejecución de un programa
 * Los mecanismos del LP utilizados para especificar el orden de ejecución, pueden ordenarse en categorías:
-  * Secuencia. Selección. Iteración.
-  * Abstracción procedural.
-  * Recursión.
-  * Concurrencia.
-  * Manejo de excepciones.
+
+  | Categoría | | Ejemplos |
+  | -- | -- | -- |
+  | **Secuencia**    | Orden de las sentencias para su ejecución | asignaciones, if, ... |
+  | **Selección**    | Alternativa entre dos o más sentencias controlada por una condición booleana | if-then-else, switch-case |
+  | **Iteración**    | Causa que una o más sentencias se ejecuten cero o más veces | PERFORM-TIMES, for, foreach, while, do-while |
+  | **Unidad**       | Abstracción procedural | f() { ... } |
+  | **Recursión**    | Funciones con posibilidad de llamarse a sí mismas | f() { caso-base; f(); } |
+  | **Concurrencia** | | |
+  | **Excepciones**  | Eventos inusuales (ejemplo: división por cero, apertura de archivo inexistente) que deberían controlarse/manejarse para que el SW sea confiable y tolerante a fallas | try-catch-finally, try-except-else-finally |
+  | **Eventos**      | El control de ejecución se basa en acciones producidas por el usuario o por el entorno | on event when condition do action |
 
 ## Expresión
 
-* Es una forma fundamental de especificar computación en un LP.
-* Consiste de un objeto simple (constante o variable) o un operador o una función aplicada a una colección de operandos o argumentos (cada uno de los cuales define una expresión).
+* Consiste de un objeto simple (constante o variable) o un operador o una función aplicada a una colección de operandos o argumentos (cada uno de los cuales define una expresión)
 * Consta de:
   * Operadores (unarios, binarios o ternarios)
   * Operandos
@@ -29,238 +34,40 @@
 
 ## Asignación
 
-* En el **paradigma declarativo**, el cómputo consiste en **evaluar expresiones**.
-* En el **paradigma operacional**, el cómputo consiste en una **serie ordenada de cambios** (de los valores de las variables en memoria).
+* En el **paradigma declarativo**, el cómputo consiste en **evaluar expresiones**
+* En el **paradigma operacional**, el cómputo consiste en una **serie ordenada de cambios** (de los valores de las variables en memoria)
 * La sintaxis general tiene la siguiente forma:
   * \<variable destino> \<operador de asignación> <expresión>
 * Se puede definir la operación de asignación como:
-  1. Computar el valor del lado izquierdo (l-value, denotan locaciones).
-  2. Computar el valor de la expresión del lado derecho (r-value, denotan valores).
-  3. Asignar el valor computado del lado derecho al computado como objeto de dato del lado derecho.
-  4. Retornar el valor computado como valor del lado derecho como resultado de la asignación.
+  1. Computar el valor del lado izquierdo (l-value, denotan locaciones)
+  2. Computar el valor de la expresión del lado derecho (r-value, denotan valores)
+  3. Asignar el valor computado del lado derecho al computado como objeto de dato del lado derecho
+  4. Retornar el valor computado como valor del lado derecho como resultado de la asignación
 * La asignación puede en algunas circunstancias darse en forma implícita. Generalmente esto sucede en:
-  * La inicialización en las declaraciones.
-  * El pasaje de parámetros.
+  * La inicialización en las declaraciones
+  * El pasaje de parámetros
 
 ## Evaluación de Operandos
 
-* Variables: cargar el valor desde memoria.
-* Constantes: algunas veces son cargadas desde la memoria, otras veces la constante puede ser parte de las instrucciones del lenguaje máquina.
-* Expresiones parentizadas: se evalúan las expresiones de acuerdo al modo de evaluación elegido.
-
-* Si ninguno de los operandos y operadores tienen efectos colaterales, entonces el orden de evaluación es irrelevante.
+|||
+| -- | -- |
+| **Variables**  | cargar el valor desde memoria |
+| **Constantes** | algunas veces son cargadas desde la memoria, otras veces la constante puede ser parte de las instrucciones del lenguaje máquina |
+| **Expresiones parentizadas** | se evalúan las expresiones de acuerdo al modo de evaluación elegido |
 
 ## Evaluación de Expresiones
 
-* **Evaluación Estricta o Ansiosa**:
-  * Los argumentos de una función o los operandos de la expresión son siempre completamente evaluados antes de la aplicación de la función u operador.
-  * Es la tradicionalmente utilizada por los LP.
-  * En este tipo de evaluación una expresión se evalúa al momento de establecer la ligadura con una variable.
-  * Ventaja: el programador puede determinar el orden de ejecución.
-  * Desventaja: fuerza la evaluación de expresiones que pueden no ser necesarias en tiempo de ejecución.
-  
-* **Evaluación No Estricta o Perezosa**:
-  * Los argumentos de una función o los operandos de la expresión no son evaluados a menos que sean utilizados en el cuerpo de la función o sean necesarios para determinar el valor de la expresión.
-  * Las funciones se aplican antes de evaluar sus argumentos.
-  * Ejemplo:
-
-      ```python
-      def sumar(x):
-        y = 2+3 * 2
-        z = 2+3 + 10
-      ```
-
-    * Considerar la siguiente llamada sumar(2+3)
-    * El resultado, se obtiene sustituyendo x con la expresión 2+3. La expresión 2+3 y no el valor 5, es pasado como el de valor de x en la función.
+| Tipo de Evaluación || Ejemplo |
+| -- | -- | -- |
+| **Estricta o Ansiosa**     | los argumentos de una función o los operandos de la expresión son siempre completamente evaluados antes de la aplicación de la función u operador. Tradicionalmente usada por los LP | sumar(2+1); al parámetro le llega 3 |
+| **No Estricta o Perezosa** | los argumentos de una función o los operandos de la expresión no son evaluados a menos que sean utilizados en el cuerpo de la función o sean necesarios para determinar el valor de la expresión | sumar(2+1); al parámetro le llega 2+1 |
 
 ## Tipos de Control de Flujo
 
-* **No estructurado**:
-  * Se provee a través de saltos condicionales e incondicionales.
-  * Los primeros LP cercanos al hardware de la máquina trabajaban con tipos básicos y con etiquetas o rótulo y saltos como instrucciones.
-  * Ejemplo:
-
-      ```c
-      if E1  
-        C1: goto L1
-      else 
-        C2: goto L2
-      ```
-
-    * El uso de la instrucción el goto conduce a programas con diseño no estructurado, haciendo muy difícil utilizar modelos de correctitud para los programas.
-    * El uso de este tipo de instrucciones es superfluo ya que puede fácilmente simularse con secuencias de control estructuradas.
-
-* **Estructurado**:
-
-* Opciones de alto nivel:
-  * **Break**: salida incondicional. Esta instrucción provoca que el programa avance hacia adelante a un punto explícito al final de la estructura de control.
-  * **Continue**: se utiliza en las iteraciones. El control salta al final del bucle, con lo que el contador se incrementa y comienza otra comprobación.
-
-* Diseño: para obtener programas más fáciles de entender, verificar, corregir, modificar y reverificar se debe enfatizar:
-  * Organización jerárquica de la estructura del programa.
-  * Uso de estructuras de control estructuradas.
-  * Correspondencia entre el orden del texto del programa y el orden de la ejecución.
-  * Usar grupos de sentencias con propósito simple.
-
-## Estructuras de control estructuradas
-
-* **Secuencia**:
-  * Una sentencia compuesta es una secuencia de instrucciones que pueden ser tratadas como una sola sentencia en la construcción de sentencias más grandes.
-  * Representa la composición.
-  * El orden en el que aparecen en el texto del programa es el orden en el cual son ejecutadas.
-
-* **Condicional**:
-  * Expresa una alternativa entre dos o más sentencias.
-  * El control de las alternativas es controlado por una condición, usualmente expresada a través de una expresión booleana.
-  * La forma más común de condicional es la sentencia if-then-else.
-  * La mayoría de los LP permiten anidar sentencias condicionales, lo que puede provocar algunos problemas semánticos (interpretación del programa resultante). Convención: asociar el else al if más cercano: C, C++, C# y Java.
-  * Sentencia condicional múltiple: permite la selección de una de un grupo no fijo de sentencias o grupos de sentencias. Forma más común es la sentencia switch.
-
-* **Iteración o loop o ciclos**:
-  * Es aquella que causa que una sentencia o colección de sentencias se ejecute cero o más veces.
-  * Los LP que proveen facilidades para definir iteración conducen a programas menos extensos, flexibles, más simples de escribir y almacenar.
-  * Tipos:
-    * Simple: Ejemplo en COBOL
-
-      ```COBOL
-      PERFORM <cuerpo> <variable> TIMES
-      ```
-
-    * Con contador: Ejemplo en Pascal
-
-      ```Pascal
-      for <variable> := <expresion>  to| downto <expresion> by <expresion> do <instrucción>
-      ```
-
-    * Con condición: Ejemplo en C
-
-      ```C
-      for ([<expresion>]; [<expresion>]; [<expresion>]) {<instrucción>}
-      while (<expresion>) {<instrucción>}
-      ```
-
-    * Infinitos: Ejemplo en Java
-
-      ```java
-      while (true) {
-      }
-
-      i = 1; 
-      while (i<10) {
-        i = i-1;
-      }
-      ```
-
-    * En base a datos: Ejemplo en Java (iterador)
-
-    ```java
-      for(<tipo> <variable> : <colección>) {
-
-      }
-
-      for(Iterator<T> it = <colección>.iterator(); it.hasNext();) {
-
-      }
-
-    ```
-
-## Recursión
-
-* Es un mecanismo de control que no requiere sintaxis adicional.
-* Aquellos LP que proveen abstracciones procedurales y/o funcionales sólo deben habilitar que las mismas tengan la posibilidad de llamarse a sí mismas.
-* Esta manera de estructurar el control permite llegar en algunas oportunidades a códigos más elegantes.
-
-## Excepciones
-
-* Son eventos inusuales que deberían controlarse sin oscurecer la legibilidad.
-  * División por cero.
-  * Apertura de un archivo que no existe.
-  * Indices de arreglo fuera de rango.
-  * Valores de parámetros que no concuerdan con los especificados.
-  * Operación no válida para un tipo de dato.
-* Es un proceso que la unidad dónde se provocó está incapacitada para atenderlo de manera que termine normalmente.
-* Un software que provee excepciones es confiable y tolerante a fallas.
-* Pueden ser:
-  * Detectadas por el HW o SW.
-  * Situaciones de error o no previstas.
-  * Controladas a través de mecanismos generales específicos.
-* ¿Qué acción toman los LP cuando se termina de manejar las excepciones?
-  * **Reasunción**: se maneja la excepción y se devuelve el control al punto siguiente donde se invocó a la excepción, permitiendo **continuación** de la ejecución de la unidad.
-  * **Terminación**: se **termina** la ejecución de la unidad que alcanza la excepción y se transfiere el control al manejador.
-* LP que incorporan el manejo de excepciones: ADA, C++, Java, Python, Kotlin, etc.
-* Ejemplo Java
-
-  ```java
-  try {
-    // bloque
-  } catch (NombreExcepción1) {
-    // bloque manejador 1
-  } catch (NombreExcepciónN) {
-    // bloque manejador N
-  } finally {
-    // bloque final
-  }
-  ```
-
-* Ejemplo Python
-
-  ```python
-  try:
-    # bloque
-  except nombre de la excepción 1:
-    # bloque manejador 1
-  except nombre de la excepción N:
-    # bloque manejador N
-  else: 
-    # bloque que se ejecuta solo si no se levanta una excepción
-  finally:
-    # bloque que se ejecuta siempre
-  ```
-
-### Mecanismos no específicos
-
-* La situación la detecta el subprograma y puede ser manejada por el mismo subprograma, decidiendo qué acciones ejecutar.
-
-```plain
-proc A
-if Cond1 then Manejador1
-         else if Cond2 then Manejador2
-                       else S
-end A
-```
-
-## Eventos
-
-* Por conveniencia, en algunos casos, los programas son estructurados como sistemas reactivos, sistemas donde determinados eventos que ocurren en el entorno determinan el orden de ejecución.
-* En la programación basada en eventos el control de ejecución se basa en acciones producidas por el usuario o por el entorno.
-* Un manejador de eventos es un código que se ejecuta en respuesta a un evento.
-* Ejemplos donde se requiere programación orientada a eventos: sistemas reactivos, interfaces gráficas, sistemas operativos.
-* En una GUI los eventos se producen a partir de la interacción del usuario con las componentes reactivas de la interfaz.
-* Un evento es una notificación de que el usuario ha realizado un acción que requiere respuesta por parte del sistema.
-* Un manejador de eventos es el segmento de código que ejecuta en respuesta al evento.
-
-  ```javascript
-  on event
-  when condition
-    do action
-
-
-  boton = document.getElementById('idBoton')
-  boton.addEventLister('click', validar)
-
-  function validar() {
-    // validar datos
-  }
-
-  ```
-
-* Una GUI es una colección de componentes con una representación gráfica y capacidad para percibir eventos generados por el usuario.
-* Las componentes son las partes individuales a partir de las cuales se conforma una interfaz gráfica. Por ejemplo, el botón para cerrar una ventana, la barra de desplazamiento de una ventana o la ventana misma
-* Un usuario realiza una acción que provoca un evento ante el cual una componente tiene una reacción.
-* Una componente está asociada a un objeto gráfico que puede interactuar con el usuario.
-* La implementación de una interfaz gráfica consiste en:
-  1. Crear un objeto gráfico para cada componente de la GUI e insertarlo en otras componentes contenedoras.
-  1. Definir el comportamiento de las componentes reactivas en respuesta a las acciones del usuario.
+| Tipos | | |
+| -- | -- | -- |
+| **No estructurado** | Se provee a través de saltos condicionales e incondicionales | if E1 C1: **goto** L1 |
+| **Estructurado**    | Correspondencia entre el orden del texto del programa y el orden de la ejecución, permitiendo legibilidad, verificación, mantenimiento | ejecución **top-down**, con opciones de sentencias **break** y **continue** |
 
 ## Subprogramas
 
@@ -324,29 +131,15 @@ end A
 
 ### Atributos del subprograma
 
-* Nombre:
-  * Cadena de caracteres (identificador) que se introduce en su declaración.
-  * Se usa para invocar a la rutina.
-
-* Alcance:
-  * Segmento de código dentro del cual el subprograma puede invocarse (si incluye al mismo subprograma acepta recursividad).
-  * Rango de instrucciones donde se conoce su nombre.
-
-* Ambiente de referenciamiento:
-  * Local: entidades declaradas dentro de la rutina (visibles dentro de la rutina).
-  * No local: referencias a entidades declaradas en otros subprogramas cuyo alcance es visible en la rutina. Toda variable no locales que pueda ser referenciada por cualquier subprograma en el programa se llaman variables globales.
-
-* Lista de parámetros y tipos
-  * Permiten la comunicación del subprograma con el resto del programa.
-  * Si se admiten parámetros de diferentes tipos el subprograma es polimórfico.
-  * El encabezado de la rutina define el tipo de los parámetros y el tipo del valor de retorno (si lo hay).
-  * Signatura: permite especificar el tipo de una rutina. Una rutina fun que tiene como entrada parámetros de tipo T1, T2, Tn y devuelve un valor de tipo R, puede especificarse con la siguiente signatura fun: T1xT2x....Tn  --> R
-  * Un llamado a una rutina es correcto si está de acuerdo al tipo de la rutina. La conformidad requiere la correspondencia de tipos entre parámetros formales y reales.
-  * Un subprograma tiene:
-    * Encabezado: formado por el nombre del subprograma, la lista de parámetros y el tipo del resultado.
-    * Cuerpo: formado por las declaraciones locales y la sección ejecutable.
-  * Declaración = encabezado
-  * Definición = Declaración + Cuerpo
+| Atributo | |
+| -- | -- |
+| **Nombre**  | identificador que se introduce en su declaración para invocar a la rutina |
+| **Alcance** | segmento de código dentro del cual el subprograma puede invocarse (si incluye al mismo subprograma acepta recursividad). Rango de instrucciones donde se conoce su nombre |
+| **Ambiente de referenciamiento** | puede ser: **local** (entidades declaradas dentro de la rutina) o **no local** (referencias a entidades declaradas en otros subprogramas cuyo alcance es visible en la rutina). Toda variable no locales que pueda ser referenciada por cualquier subprograma en el programa se llaman variables globales |
+| **Lista de parámetros** | permiten la comunicación del subprograma con el resto del programa. Si se admiten parámetros de diferentes tipos el subprograma es polimórfico |
+| **Encabezado/Declaración** | formado por el nombre del subprograma, la lista de parámetros y el tipo del resultado |
+| **Cuerpo**     | formado por las declaraciones locales y la sección ejecutable |
+| **Definición** | declaración + cuerpo |
 
   ```c
   int suma(int n) {                // ENCABEZADO = DECLARACIÓN
@@ -360,104 +153,30 @@ end A
 ### Parámetros
 
 * Hay dos maneras de hacerle llegar los datos sobre los cuales computar a una unidad, a través del:
-  * acceso a variables no locales visibles para la unidad.
-  * pasaje de parámetros.
-* Los datos pasados como parámetros son accedidos a través de nombres que son locales a la unidad.
-* El pasaje de parámetros es más flexible, ya que define computación parametrizada.
-* El uso de variables no locales puede conducir a programas menos confiable.
-* Tipos:
-  * **Parámetro formal**:
-    * Se declaran/definen en el encabezado de la unidad; aclarando en general su tipo.
+  * acceso a variables no locales visibles para la unidad
+  * pasaje de parámetros
+* Los datos pasados como parámetros son accedidos a través de nombres que son locales a la unidad
+* El pasaje de parámetros es más flexible, ya que define computación parametrizada
+* El uso de variables no locales puede conducir a programas menos confiable
 
-      ```python
-      def sumar(a, b):    # a y b son parámetros formales
-        return a + b
-      ```
-
-  * **Parámetro actual o real o argumentos**:
-    * Son variables, constantes, expresiones que se utilizan en la invocación de la unidad.
-
-      ```python
-      sumar(2, 3) # 2 y 3 son parámetros actuales
-      ```
+  | Tipo de parámetro | | Ejemplo |
+  | -- | -- | -- |
+  | **Formal**                 | Se declaran/definen en el encabezado de la unidad; aclarando en general su tipo | def sumar(a, b): |
+  | **Actual/Real/Argumentos** | Son variables, constantes, expresiones que se utilizan en la invocación de la unidad | sumar(2, 3) |
 
 ### Binding entre parámetros formales y reales
 
-* **Aspecto sintáctico**: cómo se asocian sintácticamente los parámetros reales y formales.
-  * **Posicional**: asociación por la posición de los parámetros en la definición (formales) y la invocación (reales). Se ligan uno a uno.
+| Asociación sintáctica | | Ejemplos |
+| -- | -- | -- |
+| **Posicional** | asociación por la posición de los parámetros en la definición (formales) y la invocación (reales). Se ligan uno a uno | PROCEDURE P(x:INTEGER; y:FLOAT; z:INTEGER); <br> BEGIN <br> END; <br> P(a, b, c); |
+| **Faltantes o implícitos** | sólo pueden estar al final de los parámetros de la función. No es posible que un parámetro del medio pueda faltar | def ff(str1, a=1, str2='No'): <br> pass <br> ff('Hola') <br> ff('Hola', 2) <br> ff('Hola', 2, 'que tal') |
+| **Explícito** | el llamador debe conocer los nombres de los parámetros formales. Útil cuando existen muchos parámetros faltantes y se quieren pasar pocos | def ff(str1, a=1, str2='No'): <br> pass <br> ff('Hola', a=3) <br> ff('Hola', str2='¿cómo andas?') |
+| **Anónimo** | cantidad variable de parámetros. El invocado no conoce la cantidad ni el tipo de los parámetros | void ff(int a, ...); <br> ... <br> ff(x, y, 3); |
 
-    ```plain
-    PROCEDURE P(x:INTEGER; y:FLOAT; z:INTEGER);
-    BEGIN
-    ...
-    END;
-    ...
-    P(a, b, c);
-    ...
-    ```
-
-  * **Faltantes o implícitos**: sólo pueden estar al final de los parámetros de la función. No es posible que un parámetro del medio pueda faltar.
-
-    ```python
-    def ff(str1, a=1, str2='No'):
-      pass
-
-    ff('Hola')
-    ff('Hola', 2)
-    ff('Hola', 2, 'que tal')
-    ```
-
-  * **Explícito**: el llamador debe conocer los nombres de los parámetros formales. Útil cuando existen muchos parámetros faltantes y se quieren pasar pocos.
-
-    ```python
-    def ff(str1, a=1, str2='No'):
-      pass
-
-    ff('Hola', a=3)
-    ff('Hola', str2='¿cómo andas?')
-    ```
-
-  * **Anónimo**: cantidad variable de parámetros. El invocado no conoce la cantidad ni el tipo de los parámetros.
-
-    ```c
-    void ff(int a, ...);
-    ...
-    ff(x, y, 3);
-    ```
-
-* **Aspecto semántico**: que es lo que ocurre cuando se pasan parámetros.
-  * **Referencia**:
-    * Se crea un "alias" entre cada parámetro real y su correspondiente parámetro formal.
-    * Referencian la misma celda de memoria.
-    * Las modificaciones sobre el parámetro formal se reflejan en el parámetro real.
-  
-    ```c
-    void ff(int& i) {
-      i = 3;
-      printf("%d\n", &i);
-    }
-    int main() {
-      int a = 4;
-      ff(a);
-      printf("%d\n", a);
-      printf("%d\n", &a);
-    }
-    ```
-
-  * **Copia o valor**:
-    * Se copian los valores  de los parámetros reales en los parámetros formales.
-    * Los parámetros reales y formales se desacoplan.
-
-    ```c
-    void ff(int a, int b) {
-    }
-
-    void gg() {
-      int x = 3;
-      int y = 4;
-      ff(x, y);
-    }
-    ```
+| Asociación semántica | | Ejemplo |
+| -- | -- | -- |
+| **Referencia** | Se crea un "alias" entre cada parámetro real y su correspondiente parámetro formal. Referencian la misma celda de memoria. Las modificaciones sobre el parámetro formal se reflejan en el parámetro real | void ff(int& i) { i = 3; } <br> int a = 4; <br> ff(a); |
+| **Copia o valor** | Se copian los valores  de los parámetros reales en los parámetros formales. Los parámetros reales y formales se desacoplan | void ff(int i) { i = 3; } <br> int a = 4; <br> ff(a); |
 
 ### Subprogramas genéricos
 
@@ -471,7 +190,7 @@ end A
 
 ### Pasaje de funciones como parámetros
 
-```python
+```py
 def x(a):
   print a
 
@@ -519,7 +238,7 @@ class A {
 * El LP debe proveer un mecanismo para que la función acceda a las variables del ámbito correspondiente.
 * Ejemplo Python (b() es un closure)
 
-```python
+```py
 def a():
   x = 2
   def b():
@@ -533,7 +252,7 @@ z()
 
 * Ejemplo javascript
 
-```javascript
+```js
 function fn() {
   var x = 3;
   var lambdaFun = () => x + 1;
@@ -546,7 +265,7 @@ function fn() {
 
 1. Considere el siguiente programa en el lenguaje Python:
 
-    ```python
+    ```py
     x = 1
     def a():
       x = 2
@@ -561,7 +280,7 @@ function fn() {
 
 1. Considere el siguiente programa en el lenguaje Python:
 
-    ```python
+    ```py
     y = 1
     def a():
       x = 2
