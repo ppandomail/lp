@@ -1,4 +1,4 @@
-# Características de los Lenguajes de Programación (UNAHUR) / Taller de Lenguajes (UNO) / Lenguajes de Programación (UB)
+# Características de los Lenguajes de Programación (UNAHUR) / Taller de Lenguajes (UNO)
 
 ## Docente
 
@@ -31,11 +31,13 @@
 
 ## Programa
 
-1. [Introducción](doc/intro.md)
-1. [Sintaxis](doc/sintaxis.md)
-1. [Semántica](doc/semantica.md)
-1. [Tipos de Datos](doc/tipos.md)
-1. [Control de Flujo](doc/flujo.md)
+| Unidad | Contenido | Ejercicios |
+| -- | -- | -- |
+| 01 | [Introducción](doc/01-intro-contenido.md)     | [Ejercicios](doc/01-intro-ejercicios.md)     |
+| 02 | [Sintaxis](doc/02-sintaxis-contenido.md)      | [Ejercicios](doc/02-sintaxis-ejercicios.md)  |
+| 03 | [Semántica](doc/03-semantica-contenido.md)    | [Ejercicios](doc/03-semantica-ejercicios.md) |
+| 04 | [Tipos de Datos](doc/04-tipos-contenido.md)   | [Ejercicios](doc/04-tipos-ejercicios.md)     |
+| 05 | [Control de Flujo](doc/05-flujo-contenido.md) | [Ejercicios](doc/05-flujo-ejercicios.md)     |
 
 ## Bibliografía
 
@@ -49,7 +51,6 @@
 * 75% asistencia
 * UNAHUR: Aprobar 2 parciales con nota >= 4
 * UNO: Aprobar parcial + TP
-* UB: Aprobar parcial + TP
 * Final con nota >= 4
 
 ## TP (opciones)
