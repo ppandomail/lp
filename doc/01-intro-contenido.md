@@ -2,12 +2,12 @@
 
 ## LP
 
-* Comunicación entre seres humanos y computadoras.
+* Comunicación entre seres humanos y computadoras
 * Es una notación para escribir programas (especificación de una tarea de computación)
 
-![Definición](img/definicion.png)
-![Definición](img/definicion2.jpeg)
-![Definición](img/mapa-conceptual.png)
+  ![Definición](img/definicion.png)
+  ![Definición](img/definicion2.jpeg)
+  ![Definición](img/mapa-conceptual.png)
 
 ## Historia de los LP
 
@@ -22,7 +22,7 @@
 * Los lenguajes estaban muy lejos de lo que ahora se entiende por un LP de alto nivel
 * Los lenguajes modernos se hacen independientes de la máquina y los programas sólo describen el procesamiento en general, en lugar de detallar todas las instrucciones que debe ejecutar la unidad de procesamiento
 
-![Evolución Histórica](img/evolucion-historica.png)
+  ![Evolución Histórica](img/evolucion-historica.png)
 
 * **Vamos a estudiar los lenguajes de programación de alto nivel**
 * **¿Por qué hoy siguen existiendo lenguajes de bajo nivel (assembler, web assembly, bytecodes, etc)?**
@@ -67,20 +67,20 @@
 
 * **Paradigma**: es una colección de modelos conceptuales que juntos modelan el proceso de diseño, orientan la forma de pensar y solucionar los problemas y, por lo tanto, determinan la estructura final de un programa
 
-![Paradigmas](img/paradigmas-caracteristicas.png)
+  ![Paradigmas](img/paradigmas-caracteristicas.png)
 
-| Paradigmas | Características |
-| -- | -- |
-| **Imperativo** | bloques o módulos, variables, secuencia de instrucciones, selección, iteración |
-| **Objetos**    | clases, objetos (entidades), invocación de métodos, encapsulamiento, polimorfismo, herencia |
-| **Funcional**  | componer funciones, cálculo lambda, transparencia referencial, evaluación diferida, funciones como parámetros |
-| **Lógico**     | cláusulas de Horn, aserciones lógicas: hechos y reglas, deducir consecuencias a partir de premisas: unificación y backtracking |
+  | Paradigmas | Características |
+  | -- | -- |
+  | **Imperativo** | bloques o módulos, variables, secuencia de instrucciones, selección, iteración |
+  | **Objetos**    | clases, objetos (entidades), invocación de métodos, encapsulamiento, polimorfismo, herencia |
+  | **Funcional**  | componer funciones, cálculo lambda, transparencia referencial, evaluación diferida, funciones como parámetros |
+  | **Lógico**     | cláusulas de Horn, aserciones lógicas: hechos y reglas, deducir consecuencias a partir de premisas: unificación y backtracking |
 
-![Ejemplos de Paradigmas](img/paradigmas-ejemplos-1.png)
+  ![Ejemplos de Paradigmas](img/paradigmas-ejemplos-1.png)
 
-![Ejemplos de Paradigmas](img/paradigmas-ejemplos-2.png)
+  ![Ejemplos de Paradigmas](img/paradigmas-ejemplos-2.png)
 
-![Ejemplos de Paradigmas](img/paradigmas-ejemplos-3.png)
+  ![Ejemplos de Paradigmas](img/paradigmas-ejemplos-3.png)
 
 #### Ejemplo imperativo (Pascal)
 
@@ -219,21 +219,21 @@ hanoi(N,A,B,C) :- N>1, M is N-1, hanoi(M,A,C,B), hanoi(1,A,B,C), hanoi(M,B,A,C).
 * Los LP deben describirse de manera formal, completa y precisa
 * Esta descripción ha de ser, además, independiente de la máquina y de la implementación
 
-| Patrones que se repiten en varios lenguajes |
-| -- |
-| Tipos |
-| Alcance / Ámbito |
-| Almacenamiento |
-| Concurrencia |
-| Nombre |
-| Tiempo de vida |
-| Valor |
-| Pasaje de parámetros |
-| ... |
+  | Patrones que se repiten en varios lenguajes |
+  | -- |
+  | Tipos |
+  | Alcance / Ámbito |
+  | Almacenamiento |
+  | Concurrencia |
+  | Nombre |
+  | Tiempo de vida |
+  | Valor |
+  | Pasaje de parámetros |
+  | ... |
 
-![Aspectos de los lenguajes](img/aspectos.png)
+  ![Aspectos de los lenguajes](img/aspectos.png)
 
-![Aspectos de los lenguajes](img/aspectos.jpg)
+  ![Aspectos de los lenguajes](img/aspectos.jpg)
 
 ## Diseño de los LP
 

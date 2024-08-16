@@ -57,5 +57,6 @@
 
 * Comparación de LP
 * Ranking de LP
-* Infografia de LP
+* Infografía de LP
 * Draw my life de LP
+* Guía ilustrada para chicos sobre ... (Ej [https://www.cncf.io/phippy/](https://www.cncf.io/phippy/))
