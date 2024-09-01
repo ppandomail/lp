@@ -17,11 +17,13 @@
   | alum1 | lp1 | crea1 | año1 | X ... X |
   | ...   | ... | ...   | ...  | ... |
 
-## Actividad clase 3
+## Actividad clase 2
 
-* En la clase, se arma una lista de películas donde la temática esté relacionada con los LP. Luego se decide mirar una de ellas y discutirla en clase
+* En la clase, se arma una lista de películas donde la temática esté relacionada con los LP. Luego se decide mirar una de ellas y discutirla en la clase siguiente
 
   | Películas | Sinapsis |
   | -- | -- |
   | Pel1 | Sin1 |
   | ...  | ...  |
+
+* Fuentes: [https://neubox.com/blog/top20-peliculas-para-informaticos/](https://neubox.com/blog/top20-peliculas-para-informaticos/)
