@@ -9,16 +9,16 @@
 ## Cálculo Lambda
 
 * Creado en 1930 por los matemáticos estadounidenses Alonzo Church (1903-1995) y Stephen Kleene (1909-1994)
-* La operatoria con los términos lambda se rige por el lambda-calculus o cálculo-λ.
-* Es un sistema formal diseñado para investigar la definición de función, noción de aplicación de funciones y recursión.
-* Una función es una expresión matemática y = f(x) que relaciona el valor de dos variables.
-* Se lo puede considerar como el lenguaje universal de programación más pequeño, ya que cualquier función computable puede ser expresada y evaluada a través de él.
-* Uno de los méritos de Church fue introducir una nueva sintaxis con la que representar a esta clase de expresiones matemáticas.
-* Así, por ejemplo, si se evalúa la expresión (+(\* 2 3)(\* 5 6)) = 36. Por consiguiente, una función matemática sería una abstracción.
-* Por si algo es célebre el cálculo λ es porque Church utilizó este formalismo para estudiar el llamado Problema de la Parada, obteniendo como resultado la noción de Problema Computable, que es precisamente la idea que subyace en la Máquina de Turing.
-* A su vez, Turing demostró en 1937 que tanto el cálculo λ como su máquina eran equivalentes, es decir, permitían llegar por dos vías diferentes a los mismos resultados.
-* Cuando una máquina de Turing procesa alguna de las expresiones indicadas, por ejemplo (+ 3 1), se detiene una vez obtenido un resultado, 4 en el ejemplo, siendo esta la expresión computable.
-* Desde un punto de vista práctico, el cálculo λ inspiró el desarrollo de los llamados LP funcionales, uno cuyos ejemplos es Lisp, uno de los LP más importantes en IA.
+* La operatoria con los términos lambda se rige por el lambda-calculus o cálculo-λ
+* Es un sistema formal diseñado para investigar la definición de función, noción de aplicación de funciones y recursión
+* Una función es una expresión matemática y = f(x) que relaciona el valor de dos variables
+* Se lo puede considerar como el lenguaje universal de programación más pequeño, ya que cualquier función computable puede ser expresada y evaluada a través de él
+* Uno de los méritos de Church fue introducir una nueva sintaxis con la que representar a esta clase de expresiones matemáticas
+* Así, por ejemplo, si se evalúa la expresión (+(\* 2 3)(\* 5 6)) = 36. Por consiguiente, una función matemática sería una abstracción
+* Por si algo es célebre el cálculo λ es porque Church utilizó este formalismo para estudiar el llamado Problema de la Parada, obteniendo como resultado la noción de Problema Computable, que es precisamente la idea que subyace en la Máquina de Turing
+* A su vez, Turing demostró en 1937 que tanto el cálculo λ como su máquina eran equivalentes, es decir, permitían llegar por dos vías diferentes a los mismos resultados
+* Cuando una máquina de Turing procesa alguna de las expresiones indicadas, por ejemplo (+ 3 1), se detiene una vez obtenido un resultado, 4 en el ejemplo, siendo esta la expresión computable
+* Desde un punto de vista práctico, el cálculo λ inspiró el desarrollo de los llamados LP funcionales, uno cuyos ejemplos es Lisp, uno de los LP más importantes en IA
 
 ### Sintaxis
 
@@ -28,17 +28,12 @@ var -> x | y | z | f | n
 ```
 
 * Una expresión λ puede ser:
-  * variable. Ejemplo:  x
-  * abstracción sobre una variable (λ var. expr):
-    * λ: abstracción
-    * var: representa la entrada
-    * .: separa la entrada de la salida
-    * expr: representa la salida (indica qué es lo que hace la máquina con la entrada para obtener la salida). Es el cuerpo de la abstracción
-    * Ejemplo 1: λx. x
-    * Ejemplo 2: λa. λb. abc  (en este caso λb. abc es componente de λa. λb. abc)
-  * aplicación de funciones (expr expr):
-    * Ejemplo 1: λx.x λy.y
-    * Ejemplo 2: λa.λb.ab λx.x (la expr λa.λb.ab está por procesar la expr λx.x)
+
+  | | Notación | Ejemplo 1 | Ejemplo 2 |
+  | -- | -- | -- | -- |
+  | **variable**                       | var | x | y |
+  | **abstracción sobre una variable** | (λ var. expr), donde λ es una abstracción, var es la entrad, expr: es la salida (indica qué es lo que hace la máquina con la entrada para obtener la salida)  | λx. x     |  λa. λb. abc |
+  | **aplicación de funciones**        | (expr expr) | λx.x λy.y | λa.λb.ab λx.x (la expr λa.λb.ab está por procesar la expr λx.x) |
 
 ### Codificación de Church
 
@@ -52,25 +47,25 @@ var -> x | y | z | f | n
 
 * (+ 1 1)
 
-```plain
-(λm. λn. λf. λx. mfnfx) (λa. λb.ab) (λc. λd.cd)
-(λn. λf. λx. (λa. λb.ab)fnfx) (λc. λd.cd)
-λf. λx. (λa. λb.ab)f (λc. λd.cd)fx
-λf. λx. (λb.fb)(λc. λd.cd)fx
-λf. λx. f(λc. λd.cd)fx
-λf. λx. f(λd.fd)x
-λf. λx. f(fx) //(Es la M2)
-```
+  ```plain
+  (λm. λn. λf. λx. mfnfx) (λa. λb.ab) (λc. λd.cd)
+  (λn. λf. λx. (λa. λb.ab)fnfx) (λc. λd.cd)
+  λf. λx. (λa. λb.ab)f (λc. λd.cd)fx
+  λf. λx. (λb.fb)(λc. λd.cd)fx
+  λf. λx. f(λc. λd.cd)fx
+  λf. λx. f(λd.fd)x
+  λf. λx. f(fx) //(Es la M2)
+  ```
 
 * (* 0 1)
 
-```plain
-(λa. λb.λz (a(bz))) (λf. λx.x) (λw. λy.wy)
-λb.λz (λf. λx.x(bz)) (λw. λy.wy)
-λz (λf. λx.x((λw. λy.wy)z))
-λz (λf. λx.x(λy.(zy)))
-λf. λx.x   //(Es la M0)
-```
+  ```plain
+  (λa. λb.λz (a(bz))) (λf. λx.x) (λw. λy.wy)
+  λb.λz (λf. λx.x(bz)) (λw. λy.wy)
+  λz (λf. λx.x((λw. λy.wy)z))
+  λz (λf. λx.x(λy.(zy)))
+  λf. λx.x   //(Es la M0)
+  ```
 
 ## Ligadura o binding
 
@@ -118,16 +113,16 @@ var -> x | y | z | f | n
 
 | Binding Time | | Ejemplo 1 | Ejemplo 2 |
 | -- | -- | -- | -- |
-| **Estático** | Tiempo de definición (diseño e implementación) del lenguaje    | %i **BASIC** (las variables seguidas con % son enteras | @a **Perl** (las variables que comienzan con @ tienen estructura de tipo arreglo) |
+| **Estático** | Tiempo de definición (diseño e implementación) del lenguaje    | %i **BASIC** (las variables seguidas con % son enteras) | @a **Perl** (las variables que comienzan con @ tienen estructura de tipo arreglo) |
 | **Estático** | Tiempo de escritura del programa (gralmente. en LP compilados) | i: interger; **Pascal, Delphi** | int i; **C/C++, Java** |
 | **Dinámico** | Tiempo de ejecución (gralmente. en LP interpretados)           | if (a == 1): b  = 'Hola' else b = 2.0 **Python** | if. T do, i=:3 else. i=:a end. **J** |
 
 ## Variables
 
-* Es un elemento fundamental en los LP.
-* Es una abstracción de una celda de memoria.
-* Memoria principal: celdas elementales, identificadas por una dirección (referencia donde está almacenada la variable).
-* El contenido de una celda es una representación codificada de un valor.
+* Es un elemento fundamental en los LP
+* Es una abstracción de una celda de memoria
+* Memoria principal: celdas elementales, identificadas por una dirección (referencia donde está almacenada la variable)
+* El contenido de una celda es una representación codificada de un valor
 * Sintaxis de asignación: \<identificador> \<símbolo de asignación> \<expresión>
   * \<identificador>: l-value (lugar de memoria asociado con la variable)
   * \<expresión>: r-value (valor codificado almacenado en la ubicación de la variable)

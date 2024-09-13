@@ -335,7 +335,6 @@ token: uno de  palabraReservada identificador constante operador
 
 ```bnf
 palabraReservada: uno de  char do double else float for if int long return sizeof struct typedef void while
-
 ```
 
 ### ABNF para describir identificadores
@@ -404,22 +403,22 @@ operadorAditivo: uno de + -
 
   | LP | URL |
   | -- | -- |
-  | Java |[https://docs.oracle.com/javase/specs/jls/se7/html/jls-18.html](https://docs.oracle.com/javase/specs/jls/se7/html/jls-18.html) |
+  | Java   | [https://docs.oracle.com/javase/specs/jls/se7/html/jls-18.html](https://docs.oracle.com/javase/specs/jls/se7/html/jls-18.html) |
   | Python | [https://docs.python.org/3/reference/grammar.html](https://docs.python.org/3/reference/grammar.html) |
   | Kotlin | [https://kotlinlang.org/docs/reference/grammar.html](https://kotlinlang.org/docs/reference/grammar.html) |
-  | C++ | [https://alx71hub.github.io/hcb/](https://alx71hub.github.io/hcb/) |
-  | Go  | [https://go.dev/ref/spec](https://go.dev/ref/spec) |
-  | C   | [https://cs.wmich.edu/~gupta/teaching/cs4850/sumII06/The%20syntax%20of%20C%20in%20Backus-Naur%20form.htm](https://cs.wmich.edu/~gupta/teaching/cs4850/sumII06/The%20syntax%20of%20C%20in%20Backus-Naur%20form.htm) |
+  | C++    | [https://alx71hub.github.io/hcb/](https://alx71hub.github.io/hcb/) |
+  | Go     | [https://go.dev/ref/spec](https://go.dev/ref/spec) |
+  | C      | [https://cs.wmich.edu/~gupta/teaching/cs4850/sumII06/The%20syntax%20of%20C%20in%20Backus-Naur%20form.htm](https://cs.wmich.edu/~gupta/teaching/cs4850/sumII06/The%20syntax%20of%20C%20in%20Backus-Naur%20form.htm) |
 
 ## Algunas herramientas que utilizan mecanismos de definición de sintaxis
 
 | Herramienta | URL |
 | -- | -- |
-| CUP (Construction of Useful Parsers) | [http://www2.cs.tum.edu/projects/cup/](http://www2.cs.tum.edu/projects/cup/) |
-| YACC (Yet Another Compiler-Compiler) |  |
+| CUP (Construction of Useful Parsers)          | [http://www2.cs.tum.edu/projects/cup/](http://www2.cs.tum.edu/projects/cup/) |
+| YACC (Yet Another Compiler-Compiler)          |  |
 | ANTLR (ANother Tool for Language Recognition) | [https://www.antlr.org/](https://www.antlr.org/) |
-| GNU Bison | [https://www.gnu.org/software/bison/](https://www.gnu.org/software/bison/) |
-| LLVM | [https://llvm.org/](https://llvm.org/) |
+| GNU Bison                                     | [https://www.gnu.org/software/bison/](https://www.gnu.org/software/bison/) |
+| LLVM                                          | [https://llvm.org/](https://llvm.org/) |
 
 ## Árboles sintácticos
 
@@ -429,7 +428,7 @@ operadorAditivo: uno de + -
 * Representa gráficamente el proceso de reemplazo o sustitución dentro de una derivación
 * Verificar que un programa o fragmento está correctamente escrito según una gramática
 * La raíz debe coincidir con el axioma de la gramática
-* Los no terminales están en los nodos interiores.
+* Los no terminales están en los nodos interiores
 * Las terminales están en las hojas
 
   ![Árbol de Parsing](img/arbol.png)
@@ -448,13 +447,13 @@ operadorAditivo: uno de + -
 
 ## Diagramas sintácticos (CONWAY)
 
-* Es un grafo sintáctico o carta sintáctica.
-* Cada diagrama tiene una entrada y una salida, y el camino determina el análisis.
-* Cada diagrama representa una regla o producción.
-* Para que una sentencia sea válida, debe haber un camino desde la entrada hasta la salida que la describa.
-* Se visualiza y entiende mejor que BNF o EBNF.
-* Se ha venido utilizando desde la década de los 70 (del siglo XX).
-* Uno de los primeros lenguajes en ser así representados es Pascal.
+* Es un grafo o carta sintáctica
+* Cada diagrama tiene una entrada y una salida, y el camino determina el análisis
+* Cada diagrama representa una regla o producción
+* Para que una sentencia sea válida, debe haber un camino desde la entrada hasta la salida que la describa
+* Se visualiza y entiende mejor que BNF o EBNF
+* Se ha venido utilizando desde la década de los 70
+* Uno de los primeros lenguajes en ser así representados es Pascal
 
   ![Diagramas sintácticos CONWAY](img/conway.png)
 
