@@ -152,7 +152,7 @@ Número ->  0 | ... | 9
 ```bnf
 <número entero> ::= <entero sin signo> | + <entero sin signo> | - <entero sin signo>
 <entero sin signo> ::= <digito> | <digito> <entero sin signo>
-<digito> ::= 0 | ... |9
+<digito> ::= 0 | ... | 9
 ```
 
 ### BNF para controlar parentización
@@ -170,7 +170,7 @@ Número ->  0 | ... | 9
 <expr> ::= <exp> "+" <term> 
 <expr> ::= <exp> "-" <term> 
 <expr> ::= <term>
-<term> ::= <term> “*” <factor> | <term> “/” <factor>
+<term> ::= <term> "*" <factor> | <term> "/" <factor>
 <term> ::= <factor> 
 <factor> ::= <var> | <cte>
 ```

@@ -28,4 +28,4 @@
 * Objetivos: obtener información de la web utilizando la técnica de web scraping
 * UdD: Lenguajes de Programación (datos y análisis según preferencias)
 * Sitios: GitHub, Stack Overflow, etc.
-* Presentación: GitHub con README.md (explicando el proyecto) y archivos e
+* Presentación: GitHub con README.md (explicando el proyecto) y archivos fuentes
