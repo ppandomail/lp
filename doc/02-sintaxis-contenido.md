@@ -462,3 +462,5 @@ operadorAditivo: uno de + -
   ![Ejemplos CONWAY](img/conway-ejemplo2.GIF)
 
   ![Ejemplos CONWAY](img/conway-ejemplo3.PNG)
+
+  ![Ejemplos CONWAY](img/conway-ejemplo4.png)
