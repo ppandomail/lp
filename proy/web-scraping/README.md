@@ -26,6 +26,17 @@
 ## TP
 
 * Objetivos: obtener información de la web utilizando la técnica de web scraping
-* UdD: Lenguajes de Programación (datos y análisis según preferencias)
-* Sitios: GitHub, Stack Overflow, etc.
+* UdD: Lenguajes de Programación usados en el desarrollo web (ranking top ten según preferencias: mas eficientes, mejores pagos, fáciles de aprender, mas utilizados, comunidad activa, mas demandados, etc.)
+* Sitios: Elegir 3 sitios que hayan rankeados en 2024, llevar datos al excel y desde el excel generar un gráfico (elección personal)
+* Por ejemplo:
+
+  | Tiobe | S2 | S3 |
+  | --    | -- | -- |
+  | Py    | Py  | JS   |
+  | Java  | C#  | Java |
+  | C#    | PHP | C#   |
+  ||||
+  ||||
+  ||||
+
 * Presentación: GitHub con README.md (explicando el proyecto) y archivos fuentes
