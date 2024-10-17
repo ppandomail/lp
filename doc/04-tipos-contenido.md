@@ -4,10 +4,10 @@
 
 * Conjunto de valores posibles (dominio), con un conjunto de operaciones asociadas a esos valores (ejemplo: comparación, asignación, etc.)
 
-| Tipos | | Ejemplos |
+| Tipos | para el LP contienen ... | Ejemplos |
 | -- | -- | -- |
-| **Básicos o escalares**    | para el LP contienen un único valor (pueden estar compuestos internamente por varios valores) | Booleanos, Caracter, Enteros, Punto fijo, Punto flotante (real, float, double, etc.), Nulos, Enumeraciones, Intervalos, Tipos ordenados, etc. |
-| **Compuestos o agregados** | para el LP contienen más de un valor | Arreglos, Listas, Vectores, Conjuntos, Estructuras/Registros, Tipos recursivos (ejemplo: nodo), Tipos abstractos de datos (ejemplo: pila), Módulos, Clases |
+| **Básicos o escalares**    | un único valor (pueden estar compuestos internamente por varios valores) | Booleanos, Caracter, Enteros, Punto fijo, Punto flotante (real, float, double, etc.), Nulos, Enumeraciones, Intervalos, Tipos ordenados, etc. |
+| **Compuestos o agregados** | más de un valor | Arreglos, Listas, Vectores, Conjuntos, Estructuras/Registros, Tipos recursivos (ejemplo: nodo), Tipos abstractos de datos (ejemplo: pila), Módulos, Clases |
 
 ![Arrays](img/arrays.JPG)
 
