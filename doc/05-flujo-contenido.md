@@ -1,6 +1,6 @@
 # Control de Flujos
 
-* La manera cómo se incorpora en el LP determina el orden de ejecución de un programa
+* La manera cómo se incorpora el control de flujo en el LP determina el orden de ejecución de un programa
 * Los mecanismos del LP utilizados para especificar el orden de ejecución, pueden ordenarse en categorías:
 
   | Categoría | | Ejemplos |
