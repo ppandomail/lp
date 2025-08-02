@@ -1,4 +1,4 @@
-# Características de los Lenguajes de Programación (UNAHUR) / Taller de Lenguajes (UNO)
+# Características de los Lenguajes de Programación (UNAHUR) / Lenguajes de Programación (UB) / Taller de Lenguajes (UNO)
 
 ## Docente
 
@@ -9,13 +9,9 @@
 
 ## Objetivos
 
-* Disminuir la curva de aprendizaje de un nuevo LP, reconociendo sus características semánticas esenciales
+* Disminuir la curva de aprendizaje de un nuevo LP, reconociendo sus características esenciales
 * Identificar aspectos sintácticos, semánticos y pragmáticos de los LP
-* Identificar limitaciones de un LP y mitigar las mismas con un adecuado diseño de la aplicación
-* Reconocer problemas en los que es posible seleccionar, diseñar un LP o modificar uno existente para su solución
 * Saber que LP es el más adecuado para cada tipo de problema a resolver
-
-### "El estudio no se mide por el número de páginas leídas en una noche, ni por la cantidad de libros leídos en un semestre. Estudiar no es un acto de consumir ideas, sino de crearlas y recrearlas" - Paulo Freire
 
 ## Qué se va a ver
 
@@ -31,13 +27,15 @@
 
 ## Programa
 
-| Unidad | Contenido | Ejercicios |
-| -- | -- | -- |
-| 01 | [Introducción](doc/01-intro-contenido.md)     | [Ejercicios](doc/01-intro-ejercicios.md)     |
-| 02 | [Sintaxis](doc/02-sintaxis-contenido.md)      | [Ejercicios](doc/02-sintaxis-ejercicios.md)  |
-| 03 | [Semántica](doc/03-semantica-contenido.md)    | [Ejercicios](doc/03-semantica-ejercicios.md) |
-| 04 | [Tipos de Datos](doc/04-tipos-contenido.md)   | [Ejercicios](doc/04-tipos-ejercicios.md)     |
-| 05 | [Control de Flujo](doc/05-flujo-contenido.md) | [Ejercicios](doc/05-flujo-ejercicios.md)     |
+| Unidad | Contenido                                          | Ejercicios                           |
+| --     | --                                                 | --                                   |
+| 01     | [Introducción](doc/01-intro.ipynb)                 | [Ejercicios](tps/01-intro.ipynb)     |
+| 02     | [Sintaxis](doc/02-sintaxis.ipynb)                  | [Ejercicios](tps/02-sintaxis.ipynb)  |
+| 03     | [Semántica](doc/03-semantica.ipynb)                | [Ejercicios](tps/03-semantica.ipynb) |
+| 04     | [Control de Flujo](doc/04-flujo.ipynb)             | [Ejercicios](tps/04-flujo.ipynb)     |
+| 05     | [Web Scraping](doc/05-webscraping.ipynbb)          |                                      |
+| 06     | [Web Automation](doc/06-webautomation.ipynb)       |                                      |
+| 07     | [Web Accessibility](doc/07-webaccessibility.ipynb) |                                      |
 
 ## Bibliografía
 
