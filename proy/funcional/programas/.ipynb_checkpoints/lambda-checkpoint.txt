@@ -1,1 +1,0 @@
-  λx. x * x * x (2)  // Evaluamos la función con 2 y resulta en 8.

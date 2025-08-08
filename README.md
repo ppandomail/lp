@@ -27,15 +27,18 @@
 
 ## Programa
 
-| Unidad | Contenido                                          | Ejercicios                           |
-| --     | --                                                 | --                                   |
-| 01     | [Introducción](doc/01-intro.ipynb)                 | [Ejercicios](tps/01-intro.ipynb)     |
-| 02     | [Sintaxis](doc/02-sintaxis.ipynb)                  | [Ejercicios](tps/02-sintaxis.ipynb)  |
-| 03     | [Semántica](doc/03-semantica.ipynb)                | [Ejercicios](tps/03-semantica.ipynb) |
-| 04     | [Control de Flujo](doc/04-flujo.ipynb)             | [Ejercicios](tps/04-flujo.ipynb)     |
-| 05     | [Web Scraping](doc/05-webscraping.ipynbb)          |                                      |
-| 06     | [Web Automation](doc/06-webautomation.ipynb)       |                                      |
-| 07     | [Web Accessibility](doc/07-webaccessibility.ipynb) |                                      |
+| Unidad | Contenido                                          | TPs                                        |
+| --     | --                                                 | --                                         |
+| 01     | [Introducción](doc/01-intro.ipynb)                 | [TP Intro](tps/01-intro.ipynb)             |
+| 02     | [P. Funcional](doc/02-funcional.ipynb)             |                                            |
+| 03     | [P. Lógico](doc/03-logico.ipynb)                   |                                            |
+| 04     | [Sintaxis](doc/04-sintaxis.ipynb)                  | [TP Sintaxis](tps/04-sintaxis.ipynb)       |
+| 05     | [Semántica](doc/05-semantica.ipynb)                | [TP Semántica](tps/05-semantica.ipynb)     |
+| 06     | [Control de Flujo](doc/06-flujo.ipynb)             | [TP Flujo](tps/06-flujo.ipynb)             |
+| 07     | [Web Scraping](doc/07-webscraping.ipynbb)          | [TP Webscraping](tps/07-webscraping.ipynb) |
+| 08     | [Web Automation](doc/08-webautomation.ipynb)       |                                            |
+| 09     | [Unit Testing](doc/09-unittesting.ipynb)           |                                            |
+| 10     | [Web Accessibility](doc/10-webaccessibility.ipynb) |                                            |
 
 ## Bibliografía
 

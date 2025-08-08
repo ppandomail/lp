@@ -1,2 +1,0 @@
-  ProcesoHanoi(0, _, _, _) = []
-  ProcesoHanoi(n, posteOrigen, posteDestino, posteAuxiliar) = ProcesoHanoi(n - 1, posteOrigen, posteAuxiliar, posteDestino) ++[(posteOrigen, posteDestino)] ++ProcesoHanoi(n - 1, posteAuxiliar, posteDestino, posteOrigen)hanoi(n) = ProcesoHanoi(n, 1, 3, 2) 
