@@ -31,7 +31,7 @@
 | --     | --                                                 | --                                         |
 | 01     | [Introducción](doc/01-intro.ipynb)                 | [TP Intro](tps/01-intro.ipynb)             |
 | 02     | [P. Funcional](doc/02-funcional.ipynb)             | [TP Funcional](tps/02-funcional.ipynb)     |
-| 03     | [P. Lógico](doc/03-logico.ipynb)                   |                                            |
+| 03     | [P. Lógico](doc/03-logico.ipynb)                   | [TP Lógico](tps/03-logico.ipynb)           |
 | 04     | [Sintaxis](doc/04-sintaxis.ipynb)                  | [TP Sintaxis](tps/04-sintaxis.ipynb)       |
 | 05     | [Semántica](doc/05-semantica.ipynb)                | [TP Semántica](tps/05-semantica.ipynb)     |
 | 06     | [Control de Flujo](doc/06-flujo.ipynb)             | [TP Flujo](tps/06-flujo.ipynb)             |
