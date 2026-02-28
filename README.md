@@ -1,11 +1,9 @@
-# Características de los Lenguajes de Programación (UNAHUR) / Lenguajes de Programación (UB) / Taller de Lenguajes (UNO)
+# Taller de Lenguajes
 
 ## Docente
 
-* Titular: Mg. Ing. Pablo Pandolfo
-
-* UNO:
-  * Ayudante: Anta. Alexander Andrada
+* **Titular**: Mg. Ing. Pablo Pandolfo
+* **Ayudante**: Anta. Alexander Andrada
 
 ## Objetivos
 
