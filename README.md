@@ -34,9 +34,6 @@
 | 05     | [Semántica](doc/05-semantica.ipynb)                | [TP Semántica](tps/05-semantica.ipynb)     |
 | 06     | [Control de Flujo](doc/06-flujo.ipynb)             | [TP Flujo](tps/06-flujo.ipynb)             |
 | 07     | [Web Scraping](doc/07-webscraping.ipynb)           | [TP Webscraping](tps/07-webscraping.ipynb) |
-| 08     | [Web Automation](doc/08-webautomation.ipynb)       |                                            |
-| 09     | [Unit Testing](doc/09-unittesting.ipynb)           |                                            |
-| 10     | [Web Accessibility](doc/10-webaccessibility.ipynb) |                                            |
 
 ## Bibliografía
 
