@@ -34,6 +34,7 @@
 | 05     | [Semántica](doc/05-semantica.ipynb)                | [TP Semántica](tps/05-semantica.ipynb)     |
 | 06     | [Control de Flujo](doc/06-flujo.ipynb)             | [TP Flujo](tps/06-flujo.ipynb)             |
 | 07     | [Web Scraping](doc/07-webscraping.ipynb)           | [TP Webscraping](tps/07-webscraping.ipynb) |
+| 08     | [Traductor](doc/08-traductor.ipynb)                | [TP Traductor](tps/08-traductor.ipynb)     |
 
 ## Bibliografía
 
@@ -45,14 +46,5 @@
 ## Condiciones para aprobar
 
 * 75% asistencia
-* UNAHUR: Aprobar 2 parciales con nota >= 4
-* UNO: Aprobar parcial + TP
+* Aprobar parcial/es + TP
 * Final con nota >= 4
-
-## TP (opciones)
-
-* Comparación de LP
-* Ranking de LP
-* Infografía de LP
-* Draw my life de LP
-* Guía ilustrada para chicos sobre ... (Ej [https://www.cncf.io/phippy/](https://www.cncf.io/phippy/))

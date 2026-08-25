@@ -1,0 +1,119 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> sec
+Rule 1     sec -> sec instr
+Rule 2     sec -> comienza
+Rule 3     instr -> este
+Rule 4     instr -> norte
+Rule 5     instr -> oeste
+Rule 6     instr -> sur
+
+Terminals, with rules where they appear
+
+comienza             : 2
+error                : 
+este                 : 3
+norte                : 4
+oeste                : 5
+sur                  : 6
+
+Nonterminals, with rules where they appear
+
+instr                : 1
+sec                  : 1 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . sec
+    (1) sec -> . sec instr
+    (2) sec -> . comienza
+
+    comienza        shift and go to state 2
+
+    sec                            shift and go to state 1
+
+state 1
+
+    (0) S' -> sec .
+    (1) sec -> sec . instr
+    (3) instr -> . este
+    (4) instr -> . norte
+    (5) instr -> . oeste
+    (6) instr -> . sur
+
+    este            shift and go to state 4
+    norte           shift and go to state 5
+    oeste           shift and go to state 6
+    sur             shift and go to state 7
+
+    instr                          shift and go to state 3
+
+state 2
+
+    (2) sec -> comienza .
+
+    este            reduce using rule 2 (sec -> comienza .)
+    norte           reduce using rule 2 (sec -> comienza .)
+    oeste           reduce using rule 2 (sec -> comienza .)
+    sur             reduce using rule 2 (sec -> comienza .)
+    $end            reduce using rule 2 (sec -> comienza .)
+
+
+state 3
+
+    (1) sec -> sec instr .
+
+    este            reduce using rule 1 (sec -> sec instr .)
+    norte           reduce using rule 1 (sec -> sec instr .)
+    oeste           reduce using rule 1 (sec -> sec instr .)
+    sur             reduce using rule 1 (sec -> sec instr .)
+    $end            reduce using rule 1 (sec -> sec instr .)
+
+
+state 4
+
+    (3) instr -> este .
+
+    este            reduce using rule 3 (instr -> este .)
+    norte           reduce using rule 3 (instr -> este .)
+    oeste           reduce using rule 3 (instr -> este .)
+    sur             reduce using rule 3 (instr -> este .)
+    $end            reduce using rule 3 (instr -> este .)
+
+
+state 5
+
+    (4) instr -> norte .
+
+    este            reduce using rule 4 (instr -> norte .)
+    norte           reduce using rule 4 (instr -> norte .)
+    oeste           reduce using rule 4 (instr -> norte .)
+    sur             reduce using rule 4 (instr -> norte .)
+    $end            reduce using rule 4 (instr -> norte .)
+
+
+state 6
+
+    (5) instr -> oeste .
+
+    este            reduce using rule 5 (instr -> oeste .)
+    norte           reduce using rule 5 (instr -> oeste .)
+    oeste           reduce using rule 5 (instr -> oeste .)
+    sur             reduce using rule 5 (instr -> oeste .)
+    $end            reduce using rule 5 (instr -> oeste .)
+
+
+state 7
+
+    (6) instr -> sur .
+
+    este            reduce using rule 6 (instr -> sur .)
+    norte           reduce using rule 6 (instr -> sur .)
+    oeste           reduce using rule 6 (instr -> sur .)
+    sur             reduce using rule 6 (instr -> sur .)
+    $end            reduce using rule 6 (instr -> sur .)
+
