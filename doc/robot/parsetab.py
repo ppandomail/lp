@@ -27,10 +27,10 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> sec","S'",1,None,None,None),
-  ('sec -> sec instr','sec',2,'p_sec','robot.py',29),
-  ('sec -> comienza','sec',1,'p_sec','robot.py',30),
-  ('instr -> este','instr',1,'p_instr_este','robot.py',34),
-  ('instr -> norte','instr',1,'p_instr_norte','robot.py',38),
-  ('instr -> oeste','instr',1,'p_instr_oeste','robot.py',42),
-  ('instr -> sur','instr',1,'p_instr_sur','robot.py',46),
+  ('sec -> sec instr','sec',2,'p_sec','robot.py',30),
+  ('sec -> comienza','sec',1,'p_sec','robot.py',31),
+  ('instr -> este','instr',1,'p_instr_este','robot.py',35),
+  ('instr -> norte','instr',1,'p_instr_norte','robot.py',39),
+  ('instr -> oeste','instr',1,'p_instr_oeste','robot.py',43),
+  ('instr -> sur','instr',1,'p_instr_sur','robot.py',47),
 ]
