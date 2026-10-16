@@ -1,0 +1,126 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> documento
+Rule 1     documento -> documento elemento
+Rule 2     documento -> elemento
+Rule 3     elemento -> H1 TEXT
+Rule 4     elemento -> H2 TEXT
+Rule 5     elemento -> ITEM TEXT
+
+Terminals, with rules where they appear
+
+H1                   : 3
+H2                   : 4
+ITEM                 : 5
+TEXT                 : 3 4 5
+error                : 
+
+Nonterminals, with rules where they appear
+
+documento            : 1 0
+elemento             : 1 2
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . documento
+    (1) documento -> . documento elemento
+    (2) documento -> . elemento
+    (3) elemento -> . H1 TEXT
+    (4) elemento -> . H2 TEXT
+    (5) elemento -> . ITEM TEXT
+
+    H1              shift and go to state 3
+    H2              shift and go to state 4
+    ITEM            shift and go to state 5
+
+    documento                      shift and go to state 1
+    elemento                       shift and go to state 2
+
+state 1
+
+    (0) S' -> documento .
+    (1) documento -> documento . elemento
+    (3) elemento -> . H1 TEXT
+    (4) elemento -> . H2 TEXT
+    (5) elemento -> . ITEM TEXT
+
+    H1              shift and go to state 3
+    H2              shift and go to state 4
+    ITEM            shift and go to state 5
+
+    elemento                       shift and go to state 6
+
+state 2
+
+    (2) documento -> elemento .
+
+    H1              reduce using rule 2 (documento -> elemento .)
+    H2              reduce using rule 2 (documento -> elemento .)
+    ITEM            reduce using rule 2 (documento -> elemento .)
+    $end            reduce using rule 2 (documento -> elemento .)
+
+
+state 3
+
+    (3) elemento -> H1 . TEXT
+
+    TEXT            shift and go to state 7
+
+
+state 4
+
+    (4) elemento -> H2 . TEXT
+
+    TEXT            shift and go to state 8
+
+
+state 5
+
+    (5) elemento -> ITEM . TEXT
+
+    TEXT            shift and go to state 9
+
+
+state 6
+
+    (1) documento -> documento elemento .
+
+    H1              reduce using rule 1 (documento -> documento elemento .)
+    H2              reduce using rule 1 (documento -> documento elemento .)
+    ITEM            reduce using rule 1 (documento -> documento elemento .)
+    $end            reduce using rule 1 (documento -> documento elemento .)
+
+
+state 7
+
+    (3) elemento -> H1 TEXT .
+
+    H1              reduce using rule 3 (elemento -> H1 TEXT .)
+    H2              reduce using rule 3 (elemento -> H1 TEXT .)
+    ITEM            reduce using rule 3 (elemento -> H1 TEXT .)
+    $end            reduce using rule 3 (elemento -> H1 TEXT .)
+
+
+state 8
+
+    (4) elemento -> H2 TEXT .
+
+    H1              reduce using rule 4 (elemento -> H2 TEXT .)
+    H2              reduce using rule 4 (elemento -> H2 TEXT .)
+    ITEM            reduce using rule 4 (elemento -> H2 TEXT .)
+    $end            reduce using rule 4 (elemento -> H2 TEXT .)
+
+
+state 9
+
+    (5) elemento -> ITEM TEXT .
+
+    H1              reduce using rule 5 (elemento -> ITEM TEXT .)
+    H2              reduce using rule 5 (elemento -> ITEM TEXT .)
+    ITEM            reduce using rule 5 (elemento -> ITEM TEXT .)
+    $end            reduce using rule 5 (elemento -> ITEM TEXT .)
+
